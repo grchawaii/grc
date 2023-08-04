@@ -1,0 +1,3 @@
+<?php
+if(!defined('__XE__')) { exit(); }
+return 'O:8:"stdClass":6:{s:16:"error_return_url";s:63:"/xe/index.php?module=admin&act=dispPageAdminInfo&module_srl=258";s:9:"page_type";s:6:"WIDGET";s:7:"regdate";s:14:"20130628171723";s:7:"ruleset";s:10:"updatePage";s:18:"success_return_url";s:63:"/xe/index.php?module=admin&act=dispPageAdminInfo&module_srl=258";s:15:"xe_validator_id";s:28:"modules/page/tpl/page_info/1";}';

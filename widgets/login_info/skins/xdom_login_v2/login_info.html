@@ -1,0 +1,564 @@
+<!--// colorset의 값에 따라 css 파일을 import 한다 -->
+<!--@if($colorset=="default_xd_main")-->
+    <!--%import("css/default_280.css")-->
+<!--@elseif($colorset=="green_xd_main")-->
+    <!--%import("css/green_280.css")-->
+<!--@elseif($colorset=="orange_xd_main")-->
+    <!--%import("css/orange_280.css")-->
+<!--@elseif($colorset=="cyan_xd_main")-->
+    <!--%import("css/cyan_280.css")-->
+<!--@elseif($colorset=="red_xd_main")-->
+    <!--%import("css/red_280.css")-->
+<!--@elseif($colorset=="black_xd_main")-->
+    <!--%import("css/black_280.css")-->
+<!--@elseif($colorset=="free_xd_main")-->
+    <!--%import("css/default_280.css")-->
+
+<!--@elseif($colorset=="default_da_main")-->
+    <!--%import("css/default_220.css")-->
+<!--@elseif($colorset=="green_da_main")-->
+    <!--%import("css/green_220.css")-->
+<!--@elseif($colorset=="orange_da_main")-->
+    <!--%import("css/orange_220.css")-->
+<!--@elseif($colorset=="cyan_da_main")-->
+    <!--%import("css/cyan_220.css")-->
+<!--@elseif($colorset=="red_da_main")-->
+    <!--%import("css/red_220.css")-->
+<!--@elseif($colorset=="black_da_main")-->
+    <!--%import("css/black_220.css")-->
+<!--@elseif($colorset=="free_da_main")-->
+    <!--%import("css/default_220.css")-->
+
+<!--@elseif($colorset=="default_na_main")-->
+    <!--%import("css/default_280.css")-->
+<!--@elseif($colorset=="green_na_main")-->
+    <!--%import("css/green_280.css")-->
+<!--@elseif($colorset=="orange_na_main")-->
+    <!--%import("css/orange_280.css")-->
+<!--@elseif($colorset=="cyan_na_main")-->
+    <!--%import("css/cyan_280.css")-->
+<!--@elseif($colorset=="red_na_main")-->
+    <!--%import("css/red_280.css")-->
+<!--@elseif($colorset=="black_na_main")-->
+    <!--%import("css/black_280.css")-->
+<!--@elseif($colorset=="free_na_main")-->
+    <!--%import("css/default_280.css")-->
+
+<!--@elseif($colorset=="default_co_main")-->
+    <!--%import("css/default_250.css")-->
+<!--@elseif($colorset=="green_co_main")-->
+    <!--%import("css/green_250.css")-->
+<!--@elseif($colorset=="orange_co_main")-->
+    <!--%import("css/orange_250.css")-->
+<!--@elseif($colorset=="cyan_co_main")-->
+    <!--%import("css/cyan_250.css")-->
+<!--@elseif($colorset=="red_co_main")-->
+    <!--%import("css/red_250.css")-->
+<!--@elseif($colorset=="black_co_main")-->
+    <!--%import("css/black_250.css")-->
+<!--@elseif($colorset=="free_co_main")-->
+    <!--%import("css/default_250.css")-->
+
+<!--@elseif($colorset=="default_xe_main")-->
+    <!--%import("css/default.css")-->
+<!--@elseif($colorset=="green_xe_main")-->
+    <!--%import("css/green.css")-->
+<!--@elseif($colorset=="orange_xe_main")-->
+    <!--%import("css/orange.css")-->
+<!--@elseif($colorset=="cyan_xe_main")-->
+    <!--%import("css/cyan.css")-->
+<!--@elseif($colorset=="red_xe_main")-->
+    <!--%import("css/red.css")-->
+<!--@elseif($colorset=="black_xe_main")-->
+    <!--%import("css/black.css")-->
+<!--@elseif($colorset=="free_xe_main")-->
+    <!--%import("css/default.css")-->
+
+<!--@elseif($colorset=="default_bg_main")-->
+    <!--%import("css/default.css")-->
+<!--@elseif($colorset=="green_bg_main")-->
+    <!--%import("css/green.css")-->
+<!--@elseif($colorset=="orange_bg_main")-->
+    <!--%import("css/orange.css")-->
+<!--@elseif($colorset=="cyan_bg_main")-->
+    <!--%import("css/cyan.css")-->
+<!--@elseif($colorset=="red_bg_main")-->
+    <!--%import("css/red.css")-->
+<!--@elseif($colorset=="black_bg_main")-->
+    <!--%import("css/black.css")-->
+<!--@elseif($colorset=="free_bg_main")-->
+    <!--%import("css/default.css")-->
+
+<!--@elseif($colorset=="default_xd_2")-->
+    <!--%import("css/default.css")-->
+<!--@elseif($colorset=="green_xd_2")-->
+    <!--%import("css/green.css")-->
+<!--@elseif($colorset=="orange_xd_2")-->
+    <!--%import("css/orange.css")-->
+<!--@elseif($colorset=="cyan_xd_2")-->
+    <!--%import("css/cyan.css")-->
+<!--@elseif($colorset=="red_xd_2")-->
+    <!--%import("css/red.css")-->
+<!--@elseif($colorset=="black_xd_2")-->
+    <!--%import("css/black.css")-->
+<!--@elseif($colorset=="free_xd_2")-->
+    <!--%import("css/default.css")-->
+
+<!--@elseif($colorset=="default_da_2")-->
+    <!--%import("css/default.css")-->
+<!--@elseif($colorset=="green_da_2")-->
+    <!--%import("css/green.css")-->
+<!--@elseif($colorset=="orange_da_2")-->
+    <!--%import("css/orange.css")-->
+<!--@elseif($colorset=="cyan_da_2")-->
+    <!--%import("css/cyan.css")-->
+<!--@elseif($colorset=="red_da_2")-->
+    <!--%import("css/red.css")-->
+<!--@elseif($colorset=="black_da_2")-->
+    <!--%import("css/black.css")-->
+<!--@elseif($colorset=="free_da_2")-->
+    <!--%import("css/default.css")-->
+
+<!--@elseif($colorset=="default_na_2")-->
+    <!--%import("css/default.css")-->
+<!--@elseif($colorset=="green_na_2")-->
+    <!--%import("css/green.css")-->
+<!--@elseif($colorset=="orange_na_2")-->
+    <!--%import("css/orange.css")-->
+<!--@elseif($colorset=="cyan_na_2")-->
+    <!--%import("css/cyan.css")-->
+<!--@elseif($colorset=="red_na_2")-->
+    <!--%import("css/red.css")-->
+<!--@elseif($colorset=="black_na_2")-->
+    <!--%import("css/black.css")-->
+<!--@elseif($colorset=="free_na_2")-->
+    <!--%import("css/default.css")-->
+
+<!--@elseif($colorset=="default_co_2")-->
+    <!--%import("css/default.css")-->
+<!--@elseif($colorset=="green_co_2")-->
+    <!--%import("css/green.css")-->
+<!--@elseif($colorset=="orange_co_2")-->
+    <!--%import("css/orange.css")-->
+<!--@elseif($colorset=="cyan_co_2")-->
+    <!--%import("css/cyan.css")-->
+<!--@elseif($colorset=="red_co_2")-->
+    <!--%import("css/red.css")-->
+<!--@elseif($colorset=="black_co_2")-->
+    <!--%import("css/black.css")-->
+<!--@elseif($colorset=="free_co_2")-->
+    <!--%import("css/default.css")-->
+
+<!--@elseif($colorset=="default_xe_2")-->
+    <!--%import("css/default.css")-->
+<!--@elseif($colorset=="green_xe_2")-->
+    <!--%import("css/green.css")-->
+<!--@elseif($colorset=="orange_xe_2")-->
+    <!--%import("css/orange.css")-->
+<!--@elseif($colorset=="cyan_xe_2")-->
+    <!--%import("css/cyan.css")-->
+<!--@elseif($colorset=="red_xe_2")-->
+    <!--%import("css/red.css")-->
+<!--@elseif($colorset=="black_xe_2")-->
+    <!--%import("css/black.css")-->
+<!--@elseif($colorset=="free_xe_2")-->
+    <!--%import("css/default.css")-->
+
+<!--@elseif($colorset=="default_bg_2")-->
+    <!--%import("css/default.css")-->
+<!--@elseif($colorset=="green_bg_2")-->
+    <!--%import("css/green.css")-->
+<!--@elseif($colorset=="orange_bg_2")-->
+    <!--%import("css/orange.css")-->
+<!--@elseif($colorset=="cyan_bg_2")-->
+    <!--%import("css/cyan.css")-->
+<!--@elseif($colorset=="red_bg_2")-->
+    <!--%import("css/red.css")-->
+<!--@elseif($colorset=="black_bg_2")-->
+    <!--%import("css/black.css")-->
+<!--@elseif($colorset=="free_bg_2")-->
+    <!--%import("css/default.css")-->
+
+<!--@elseif($colorset=="default_xd_2d")-->
+    <!--%import("css/default.css")-->
+<!--@elseif($colorset=="green_xd_2d")-->
+    <!--%import("css/green.css")-->
+<!--@elseif($colorset=="orange_xd_2d")-->
+    <!--%import("css/orange.css")-->
+<!--@elseif($colorset=="cyan_xd_2d")-->
+    <!--%import("css/cyan.css")-->
+<!--@elseif($colorset=="red_xd_2d")-->
+    <!--%import("css/red.css")-->
+<!--@elseif($colorset=="black_xd_2d")-->
+    <!--%import("css/black.css")-->
+<!--@elseif($colorset=="free_xd_2d")-->
+    <!--%import("css/default.css")-->
+
+<!--@elseif($colorset=="default_da_2d")-->
+    <!--%import("css/default.css")-->
+<!--@elseif($colorset=="green_da_2d")-->
+    <!--%import("css/green.css")-->
+<!--@elseif($colorset=="orange_da_2d")-->
+    <!--%import("css/orange.css")-->
+<!--@elseif($colorset=="cyan_da_2d")-->
+    <!--%import("css/cyan.css")-->
+<!--@elseif($colorset=="red_da_2d")-->
+    <!--%import("css/red.css")-->
+<!--@elseif($colorset=="black_da_2d")-->
+    <!--%import("css/black.css")-->
+<!--@elseif($colorset=="free_da_2d")-->
+    <!--%import("css/default.css")-->
+
+<!--@elseif($colorset=="default_na_2d")-->
+    <!--%import("css/default.css")-->
+<!--@elseif($colorset=="green_na_2d")-->
+    <!--%import("css/green.css")-->
+<!--@elseif($colorset=="orange_na_2d")-->
+    <!--%import("css/orange.css")-->
+<!--@elseif($colorset=="cyan_na_2d")-->
+    <!--%import("css/cyan.css")-->
+<!--@elseif($colorset=="red_na_2d")-->
+    <!--%import("css/red.css")-->
+<!--@elseif($colorset=="black_na_2d")-->
+    <!--%import("css/black.css")-->
+<!--@elseif($colorset=="default_na_2d")-->
+    <!--%import("css/default.css")-->
+
+<!--@elseif($colorset=="default_co_2d")-->
+    <!--%import("css/default.css")-->
+<!--@elseif($colorset=="green_co_2d")-->
+    <!--%import("css/green.css")-->
+<!--@elseif($colorset=="orange_co_2d")-->
+    <!--%import("css/orange.css")-->
+<!--@elseif($colorset=="cyan_co_2d")-->
+    <!--%import("css/cyan.css")-->
+<!--@elseif($colorset=="red_co_2d")-->
+    <!--%import("css/red.css")-->
+<!--@elseif($colorset=="black_co_2d")-->
+    <!--%import("css/black.css")-->
+<!--@elseif($colorset=="free_co_2d")-->
+    <!--%import("css/default.css")-->
+
+<!--@elseif($colorset=="default_xe_2d")-->
+    <!--%import("css/default.css")-->
+<!--@elseif($colorset=="green_xe_2d")-->
+    <!--%import("css/green.css")-->
+<!--@elseif($colorset=="orange_xe_2d")-->
+    <!--%import("css/orange.css")-->
+<!--@elseif($colorset=="cyan_xe_2d")-->
+    <!--%import("css/cyan.css")-->
+<!--@elseif($colorset=="red_xe_2d")-->
+    <!--%import("css/red.css")-->
+<!--@elseif($colorset=="black_xe_2d")-->
+    <!--%import("css/black.css")-->
+<!--@elseif($colorset=="free_xe_2d")-->
+    <!--%import("css/default.css")-->
+
+<!--@elseif($colorset=="default_bg_2d")-->
+    <!--%import("css/default.css")-->
+<!--@elseif($colorset=="green_bg_2d")-->
+    <!--%import("css/green.css")-->
+<!--@elseif($colorset=="orange_bg_2d")-->
+    <!--%import("css/orange.css")-->
+<!--@elseif($colorset=="cyan_bg_2d")-->
+    <!--%import("css/cyan.css")-->
+<!--@elseif($colorset=="red_bg_2d")-->
+    <!--%import("css/red.css")-->
+<!--@elseif($colorset=="black_bg_2d")-->
+    <!--%import("css/black.css")-->
+<!--@elseif($colorset=="free_bg_2d")-->
+    <!--%import("css/default.css")-->
+
+<!--@elseif($colorset=="default_xd_2a")-->
+    <!--%import("css/default_250.css")-->
+<!--@elseif($colorset=="green_xd_2a")-->
+    <!--%import("css/green_250.css")-->
+<!--@elseif($colorset=="orange_xd_2a")-->
+    <!--%import("css/orange_250.css")-->
+<!--@elseif($colorset=="cyan_xd_2a")-->
+    <!--%import("css/cyan_250.css")-->
+<!--@elseif($colorset=="red_xd_2a")-->
+    <!--%import("css/red_250.css")-->
+<!--@elseif($colorset=="black_xd_2a")-->
+    <!--%import("css/black_250.css")-->
+<!--@elseif($colorset=="free_xd_2a")-->
+    <!--%import("css/default_250.css")-->
+
+<!--@elseif($colorset=="default_da_2a")-->
+    <!--%import("css/default_250.css")-->
+<!--@elseif($colorset=="green_da_2a")-->
+    <!--%import("css/green_250.css")-->
+<!--@elseif($colorset=="orange_da_2a")-->
+    <!--%import("css/orange_250.css")-->
+<!--@elseif($colorset=="cyan_da_2a")-->
+    <!--%import("css/cyan_250.css")-->
+<!--@elseif($colorset=="red_da_2a")-->
+    <!--%import("css/red_250.css")-->
+<!--@elseif($colorset=="black_da_2a")-->
+    <!--%import("css/black_250.css")-->
+<!--@elseif($colorset=="free_da_2a")-->
+    <!--%import("css/default_250.css")-->
+
+<!--@elseif($colorset=="default_na_2a")-->
+    <!--%import("css/default_250.css")-->
+<!--@elseif($colorset=="green_na_2a")-->
+    <!--%import("css/green_250.css")-->
+<!--@elseif($colorset=="orange_na_2a")-->
+    <!--%import("css/orange_250.css")-->
+<!--@elseif($colorset=="cyan_na_2a")-->
+    <!--%import("css/cyan_250.css")-->
+<!--@elseif($colorset=="red_na_2a")-->
+    <!--%import("css/red_250.css")-->
+<!--@elseif($colorset=="black_na_2a")-->
+    <!--%import("css/black_250.css")-->
+<!--@elseif($colorset=="free_na_2a")-->
+    <!--%import("css/default_250.css")-->
+
+<!--@elseif($colorset=="default_co_2a")-->
+    <!--%import("css/default_250.css")-->
+<!--@elseif($colorset=="green_co_2a")-->
+    <!--%import("css/green_250.css")-->
+<!--@elseif($colorset=="orange_co_2a")-->
+    <!--%import("css/orange_250.css")-->
+<!--@elseif($colorset=="cyan_co_2a")-->
+    <!--%import("css/cyan_250.css")-->
+<!--@elseif($colorset=="red_co_2a")-->
+    <!--%import("css/red_250.css")-->
+<!--@elseif($colorset=="black_co_2a")-->
+    <!--%import("css/black_250.css")-->
+<!--@elseif($colorset=="free_co_2a")-->
+    <!--%import("css/default_250.css")-->
+
+<!--@elseif($colorset=="default_xe_2a")-->
+    <!--%import("css/default_250.css")-->
+<!--@elseif($colorset=="green_xe_2a")-->
+    <!--%import("css/green_250.css")-->
+<!--@elseif($colorset=="orange_xe_2a")-->
+    <!--%import("css/orange_250.css")-->
+<!--@elseif($colorset=="cyan_xe_2a")-->
+    <!--%import("css/cyan_250.css")-->
+<!--@elseif($colorset=="red_xe_2a")-->
+    <!--%import("css/red_250.css")-->
+<!--@elseif($colorset=="black_xe_2a")-->
+    <!--%import("css/black_250.css")-->
+<!--@elseif($colorset=="free_xe_2a")-->
+    <!--%import("css/default_250.css")-->
+
+<!--@elseif($colorset=="default_bg_2a")-->
+    <!--%import("css/default_250.css")-->
+<!--@elseif($colorset=="green_bg_2a")-->
+    <!--%import("css/green_250.css")-->
+<!--@elseif($colorset=="orange_bg_2a")-->
+    <!--%import("css/orange_250.css")-->
+<!--@elseif($colorset=="cyan_bg_2a")-->
+    <!--%import("css/cyan_250.css")-->
+<!--@elseif($colorset=="red_bg_2a")-->
+    <!--%import("css/red_250.css")-->
+<!--@elseif($colorset=="black_bg_2a")-->
+    <!--%import("css/black_250.css")-->
+<!--@elseif($colorset=="free_bg_2a")-->
+    <!--%import("css/default_250.css")-->
+
+<!--@elseif($colorset=="default_xd_3a")-->
+    <!--%import("css/default_150.css")-->
+<!--@elseif($colorset=="green_xd_3a")-->
+    <!--%import("css/green_150.css")-->
+<!--@elseif($colorset=="orange_xd_3a")-->
+    <!--%import("css/orange_150.css")-->
+<!--@elseif($colorset=="cyan_xd_3a")-->
+    <!--%import("css/cyan_150.css")-->
+<!--@elseif($colorset=="red_xd_3a")-->
+    <!--%import("css/red_150.css")-->
+<!--@elseif($colorset=="black_xd_3a")-->
+    <!--%import("css/black_150.css")-->
+<!--@elseif($colorset=="free_xd_3a")-->
+    <!--%import("css/default_150.css")-->
+
+<!--@elseif($colorset=="default_da_3a")-->
+    <!--%import("css/default_150.css")-->
+<!--@elseif($colorset=="green_da_3a")-->
+    <!--%import("css/green_150.css")-->
+<!--@elseif($colorset=="orange_da_3a")-->
+    <!--%import("css/orange_150.css")-->
+<!--@elseif($colorset=="cyan_da_3a")-->
+    <!--%import("css/cyan_150.css")-->
+<!--@elseif($colorset=="red_da_3a")-->
+    <!--%import("css/red_150.css")-->
+<!--@elseif($colorset=="black_da_3a")-->
+    <!--%import("css/black_150.css")-->
+<!--@elseif($colorset=="free_da_3a")-->
+    <!--%import("css/default_150.css")-->
+
+<!--@elseif($colorset=="default_na_3a")-->
+    <!--%import("css/default_150.css")-->
+<!--@elseif($colorset=="green_na_3a")-->
+    <!--%import("css/green_150.css")-->
+<!--@elseif($colorset=="orange_na_3a")-->
+    <!--%import("css/orange_150.css")-->
+<!--@elseif($colorset=="cyan_na_3a")-->
+    <!--%import("css/cyan_150.css")-->
+<!--@elseif($colorset=="red_na_3a")-->
+    <!--%import("css/red_150.css")-->
+<!--@elseif($colorset=="black_na_3a")-->
+    <!--%import("css/black_150.css")-->
+<!--@elseif($colorset=="free_na_3a")-->
+    <!--%import("css/default_150.css")-->
+
+<!--@elseif($colorset=="default_co_3a")-->
+    <!--%import("css/default_150.css")-->
+<!--@elseif($colorset=="green_co_3a")-->
+    <!--%import("css/green_150.css")-->
+<!--@elseif($colorset=="orange_co_3a")-->
+    <!--%import("css/orange_150.css")-->
+<!--@elseif($colorset=="cyan_co_3a")-->
+    <!--%import("css/cyan_150.css")-->
+<!--@elseif($colorset=="red_co_3a")-->
+    <!--%import("css/red_150.css")-->
+<!--@elseif($colorset=="black_co_3a")-->
+    <!--%import("css/black_150.css")-->
+<!--@elseif($colorset=="free_co_3a")-->
+    <!--%import("css/default_150.css")-->
+
+<!--@elseif($colorset=="default_xe_3a")-->
+    <!--%import("css/default_150.css")-->
+<!--@elseif($colorset=="green_xe_3a")-->
+    <!--%import("css/green_150.css")-->
+<!--@elseif($colorset=="orange_xe_3a")-->
+    <!--%import("css/orange_150.css")-->
+<!--@elseif($colorset=="cyan_xe_3a")-->
+    <!--%import("css/cyan_150.css")-->
+<!--@elseif($colorset=="red_xe_3a")-->
+    <!--%import("css/red_150.css")-->
+<!--@elseif($colorset=="black_xe_3a")-->
+    <!--%import("css/black_150.css")-->
+<!--@elseif($colorset=="free_xe_3a")-->
+    <!--%import("css/default_150.css")-->
+
+<!--@elseif($colorset=="default_bg_3a")-->
+    <!--%import("css/default_150.css")-->
+<!--@elseif($colorset=="green_bg_3a")-->
+    <!--%import("css/green_150.css")-->
+<!--@elseif($colorset=="orange_bg_3a")-->
+    <!--%import("css/orange_150.css")-->
+<!--@elseif($colorset=="cyan_bg_3a")-->
+    <!--%import("css/cyan_150.css")-->
+<!--@elseif($colorset=="red_bg_3a")-->
+    <!--%import("css/red_150.css")-->
+<!--@elseif($colorset=="black_bg_3a")-->
+    <!--%import("css/black_150.css")-->
+<!--@elseif($colorset=="free_bg_3a")-->
+    <!--%import("css/default_150.css")-->
+
+<!--@elseif($colorset=="default_xd_search")-->
+    <!--%import("css/default_175.css")-->
+<!--@elseif($colorset=="green_xd_search")-->
+    <!--%import("css/green_175.css")-->
+<!--@elseif($colorset=="orange_xd_search")-->
+    <!--%import("css/orange_175.css")-->
+<!--@elseif($colorset=="cyan_xd_search")-->
+    <!--%import("css/cyan_175.css")-->
+<!--@elseif($colorset=="red_xd_search")-->
+    <!--%import("css/red_175.css")-->
+<!--@elseif($colorset=="black_xd_search")-->
+    <!--%import("css/black_175.css")-->
+<!--@elseif($colorset=="free_xd_search")-->
+    <!--%import("css/default_175.css")-->
+
+<!--@elseif($colorset=="default_da_search")-->
+    <!--%import("css/default_175.css")-->
+<!--@elseif($colorset=="green_da_search")-->
+    <!--%import("css/green_175.css")-->
+<!--@elseif($colorset=="orange_da_search")-->
+    <!--%import("css/orange_175.css")-->
+<!--@elseif($colorset=="cyan_da_search")-->
+    <!--%import("css/cyan_175.css")-->
+<!--@elseif($colorset=="red_da_search")-->
+    <!--%import("css/red_175.css")-->
+<!--@elseif($colorset=="black_da_search")-->
+    <!--%import("css/black_175.css")-->
+<!--@elseif($colorset=="free_da_search")-->
+    <!--%import("css/default_175.css")-->
+
+<!--@elseif($colorset=="default_na_search")-->
+    <!--%import("css/default_175.css")-->
+<!--@elseif($colorset=="green_na_search")-->
+    <!--%import("css/green_175.css")-->
+<!--@elseif($colorset=="orange_na_search")-->
+    <!--%import("css/orange_175.css")-->
+<!--@elseif($colorset=="cyan_na_search")-->
+    <!--%import("css/cyan_175.css")-->
+<!--@elseif($colorset=="red_na_search")-->
+    <!--%import("css/red_175.css")-->
+<!--@elseif($colorset=="black_na_search")-->
+    <!--%import("css/black_175.css")-->
+<!--@elseif($colorset=="free_na_search")-->
+    <!--%import("css/default_175.css")-->
+
+<!--@elseif($colorset=="default_co_search")-->
+    <!--%import("css/default_175.css")-->
+<!--@elseif($colorset=="green_co_search")-->
+    <!--%import("css/green_175.css")-->
+<!--@elseif($colorset=="orange_co_search")-->
+    <!--%import("css/orange_175.css")-->
+<!--@elseif($colorset=="cyan_co_search")-->
+    <!--%import("css/cyan_175.css")-->
+<!--@elseif($colorset=="red_co_search")-->
+    <!--%import("css/red_175.css")-->
+<!--@elseif($colorset=="black_co_search")-->
+    <!--%import("css/black_175.css")-->
+<!--@elseif($colorset=="free_co_search")-->
+    <!--%import("css/default_175.css")-->
+
+<!--@elseif($colorset=="default_xe_search")-->
+    <!--%import("css/default_175.css")-->
+<!--@elseif($colorset=="green_xe_search")-->
+    <!--%import("css/green_175.css")-->
+<!--@elseif($colorset=="orange_xe_search")-->
+    <!--%import("css/orange_175.css")-->
+<!--@elseif($colorset=="cyan_xe_search")-->
+    <!--%import("css/cyan_175.css")-->
+<!--@elseif($colorset=="red_xe_search")-->
+    <!--%import("css/red_175.css")-->
+<!--@elseif($colorset=="black_xe_search")-->
+    <!--%import("css/black_175.css")-->
+<!--@elseif($colorset=="free_xe_search")-->
+    <!--%import("css/default_175.css")-->
+
+<!--@elseif($colorset=="default_bg_search")-->
+    <!--%import("css/default_175.css")-->
+<!--@elseif($colorset=="green_bg_search")-->
+    <!--%import("css/green_175.css")-->
+<!--@elseif($colorset=="orange_bg_search")-->
+    <!--%import("css/orange_175.css")-->
+<!--@elseif($colorset=="cyan_bg_search")-->
+    <!--%import("css/cyan_175.css")-->
+<!--@elseif($colorset=="red_bg_search")-->
+    <!--%import("css/red_175.css")-->
+<!--@elseif($colorset=="black_bg_search")-->
+    <!--%import("css/black_175.css")-->
+<!--@elseif($colorset=="free_bg_search")-->
+    <!--%import("css/default_175.css")-->
+
+<!--@else-->
+    <!--%import("css/default.css")-->
+<!--@end-->
+
+<!--%import("./filter/logout.xml")-->
+
+
+<fieldset id="login" class="login">
+<legend>{$lang->cmd_login}</legend>
+<form action="" method="post">
+
+    <div class="userName">
+        <div class="fl"><div class=""><strong>{$logged_info->nick_name}</strong><!--@if($logged_info->is_admin=="Y" && !$site_module_info->site_srl)-->&nbsp<a href="{getUrl('','module','admin')}" onclick="window.open(this.href);return false;">[{$lang->cmd_management}]</a><!--@end--></div></div>
+        <div class="fr"><a href="{getUrl('act','dispMemberLogout')}"><img src="./images/buttonLogout.gif" alt="{$lang->cmd_logout}" title="{$lang->cmd_logout}" width="47" height="18" /></a></div>
+    </div>
+    <ul class="userMenu">
+        <!--@foreach($logged_info->menu_list as $key => $val)-->
+        <li><a href="{getUrl('act',$key,'member_srl','')}" title="{Context::getLang($val)}">{Context::getLang($val)}</a></li>
+        <!--@end-->
+    </ul>
+
+</form>
+</fieldset>

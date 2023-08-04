@@ -1,0 +1,29 @@
+@charset "utf-8";
+
+/* Main Layout CSS */
+#header_content1 { position:relative; width:100%; height:280px; margin-top:-55px; padding:0px;}
+#header_content1 .preview_slide { position:relative; width:400px; margin:0px auto; }
+
+
+/* 고정페이지 */
+.main_banner_menu { }
+.main_banner_menu ul { padding:0px; margin:0px; list-style:none; }
+.main_banner_menu ul li { width:282px; height:55px; padding:0px; margin:5px 0px 0px 0px; border:1px solid #eee; list-style:none; background:#eee; display:block; }
+.main_banner_menu ul li:first-child { margin-top:0px; }
+.main_banner_menu ul li a { line-height:55px; font-size:30px; color:#aaa; font-weight:bold; text-align:center; display:block; }
+.main_banner_menu ul li a img { width:282px; height:55px; }
+
+.content { position:relative; width:980px; margin:0px auto; font-family:"돋움"; color:#666;}
+.content a { color:#666; }
+.content p { }
+
+
+
+/* Board Skin(xe_v3_default) CSS */
+.content .board_read .read_header h1 a { color:#fff; }
+
+/* 조래상 추가 */
+#topvisual  {background:url(/xe/common/img/topvisual.jpg) no-repeat; width:980px; height:260px; margin:0 auto; margin-top:35px;}
+#topmenu   {background:url(/xe/common/img/topmenu.jpg) no-repeat; width:980px; height:66px; margin:0 auto;}
+#menuname  {display:inline-block; padding:0 20px;}
+.banner    {padding:0px; margin:0px 0px 10px 0px;}

@@ -1,0 +1,431 @@
+<!--// 쓰기 코드중 예약(시간) 선택일 경우의 확장변수 부분: 예약시간 수평 배열-->
+<!--@if($ind_reservation == "T")--><!--// 예약(시간) 일때-->
+<!--@if($module_info->resv_time_display_style == 'V')--><!--//예약시간표시 수직형식(V530)-->
+{@ $resvtime_disp_type = "TimeV";}
+<!--@else-->
+{@ $resvtime_disp_type = "TimeH";}
+<!--@endif-->
+<!--@if($module_info->resv_time_checkbox_type == 'select')--><!--//시간선택 박스형식(V552)-->
+{@ $resvtime_disp_type = "TimeH_SB";}
+<!--@elseif($module_info->resv_time_checkbox_type == 'checkbox')-->
+{@ $ev7_type = "checkbox";}
+<!--@elseif($module_info->resv_time_checkbox_type == 'radio')-->
+{@ $ev7_type = "radio";}
+<!--@else-->
+<!--@if($extra_keys[7]->type == "radio")--><!--//과거버전 호환을 위해-->
+{@ $ev7_type = "radio";}
+<!--@else-->
+{@ $ev7_type = "checkbox";}
+<!--@endif-->
+<!--@endif-->
+<!--@if($module_info->time_interval == NULL)-->
+{@ $time_interval = '15';}<!--// 시간간격 15분-->
+<!--@else-->
+{@ $time_interval = $module_info->time_interval;}<!--// 시간간격 설정값-->
+<!--@endif-->
+<!--@if($resvtime_disp_type == "TimeH" && $time_interval >= 60)-->
+{@ $underline = "";}
+<!--@else-->
+{@ $underline = " underline ";}<!--//대쉬라인 밑줄 class-->
+<!--@endif-->
+<div class="boardWriteHeader">
+<!--@if($oDocument->getTitleText())-->
+<input type="text" name="title" id="postTitle" class="inputText" value="{htmlspecialchars($oDocument->getTitleText())}" />
+<!--@else-->
+<input type="text" name="title" id="postTitle" class="inputText" value="{$lang->title}" title="{$lang->title}" onfocus="if(this.value==this.title) this.value='';" />
+<!--@endif-->
+<!--@if(!$ind_mobile)--><!--// 모바일일때 불러오기 숨김 -->
+<!--@if($is_logged)-->
+<span class="buttonOfficial"><button type="button" onclick="doDocumentLoad(this); return false;">{$lang->cmd_load}</button></span>
+<!--@endif-->
+<!--@endif-->
+</div>
+{@ $nonuse_extra_vars = unserialize($module_info->nonuse_extra_vars);}
+{@ if(!is_array($nonuse_extra_vars)) $nonuse_extra_vars = array($nonuse_extra_vars);}
+<!--@if($ind_reservation == 'T')-->
+<!--@if($grant->manager)--><!--// 매니저일 경우만 반복일정 허용 단, 중복일정여부 체크하지 않음(V540추가)-->
+{@ $nonuse_extra_vars = array_merge($nonuse_extra_vars, array(2,8))}
+<!--@else-->
+{@ $nonuse_extra_vars = array_merge($nonuse_extra_vars, array(2,5,6,8))}
+<!--@endif-->
+<!--@endif-->
+<!--@if(count($extra_keys))-->
+<table border="1" cellspacing="0" summary="Extra Form" class="extraVarsList"
+<!--@if($ind_mobile)-->style="width:720px;"<!--@endif-->
+>
+<caption><em>*</em> : {$lang->is_required}</caption>
+<!--@foreach($extra_keys as $key => $val)-->
+<!--@if($val->idx != 7 && !in_array($val->idx, $nonuse_extra_vars))--><!--// 시간이 아닐때 -->
+<tr>
+<th scope="row">{$val->name} <!--@if($val->is_required=='Y')--><em>*</em><!--@end--></th>
+<!--@if($val->idx == 1)-->  <!--// 일정시작 -->
+<!--@if($in_extra_vars1_temp != null && $val->value == null)--><!--// 일정시작일자 없으면-->
+{@ $val->value = $in_extra_vars1_temp}
+<!--@endif-->
+<td>
+{@ $temp_getFormHTML = html_entity_decode($val->getFormHTML())}
+{@ $temp_getFormHTML = str_replace("id=\"date_extra_vars1\" ", "disabled id=\"date_extra_vars1\" ", $temp_getFormHTML)}
+{@ $temp_getFormHTML = str_replace("id=\"dateRemover_extra_vars1\" ", "disabled id=\"dateRemover_extra_vars1\" ", $temp_getFormHTML)}
+<div>{@ echo $temp_getFormHTML}</div>
+</td>
+<!--@if(count($extra_keys) >= 7 && !in_array(7, $nonuse_extra_vars))--><!--// 시간표 (0.2대 호환을 위해)-->
+{@ $val_7 = $extra_keys[7];}<!--// 사용자정의 7번 선택시간-->
+{@ $ev_arr = explode("|@|",$val_7->value)}<!--// 선택된 시간 구하기-->
+<!--@if(!$ev_arr[0] && $in_extra_vars7_temp)--><!--//시간값 받은경우-->
+{@ $ev_arr = explode(',', $in_extra_vars7_temp)}
+<!--@end-->
+<!--@if($ind_reservation == "T")--><!--// 예약(시간)이면-->
+<!--@if($module_info->use_category == "Y")--><!--// 카테고리 사용 -->
+{@ $tmp_category_list = $category_list}
+<!--@else-->
+{@
+$tmp_obj = new stdClass;
+$tmp_obj->category_srl = 0;
+$tmp_category_list[0] = $tmp_obj;
+}
+<!--@endif-->
+{@ $out_category_status = array(); //카테고리 예약마감상태}
+{@ $out_category_label = array(); //카테고리 레이블 어레이}
+{@ $time_checkboxt = array(); //시간 체크박스 어레이}
+<!--@foreach($tmp_category_list as $val_cat)--><!--// 카테고리별 자료생성-->
+<!--//@if($val_cat->grant)--><!--// 카테고리 사용 권한이 있으면(게시판 자체기능)-->
+<!--@if($module_info->use_category == "Y")--><!--// 카테고리 사용 -->
+{@ $tmp_cat_srl = $val_cat->category_srl;}
+{@ $v_cat_arr=$reservation_arr[$tmp_cat_srl]}<!--// 카테고리별 예약여부 점검을 위해-->
+<!--@else-->
+{@ $v_cat_arr=$reservation_arr[0]}
+{@ $tmp_cat_srl = 0;}
+<!--@endif-->
+<!--@if( !in_array('*', $v_cat_arr) && $tmp_cat_srl != $oDocument->get('category_srl') )-->
+{@
+$out_category_status[$tmp_cat_srl] = "closed"; //예약완료
+$radioDisabled = "disabled";
+$resv_comment = $lang->pln_closed_resv2;
+}
+<!--@else-->
+{@
+$out_category_status[$tmp_cat_srl] = "";
+$radioDisabled = "";
+$resv_comment = "";
+}
+<!--@endif-->
+<!--@if($tmp_cat_srl == $oDocument->get('category_srl'))-->
+{@ $ind_cat_checked = "Y"}
+{@ $radioChecked = 'checked="checked"';}
+<!--@else-->
+{@ $ind_cat_checked = null;}
+{@ $radioChecked = '';}
+<!--@endif-->
+{@
+$out_category_label[$tmp_cat_srl] =
+'<li style="flote:left;">
+<input id="category_radio' .$tmp_cat_srl. '" type="radio" name="category_srl"  value="'.$tmp_cat_srl.'" alt="'.$val_cat->title.' "class="category_radio" ' .$radioChecked. ' ' .$radioDisabled.
+' onclick="toggleStatus('.$tmp_cat_srl. ') "
+style="width: 20px; height: 20px;"/>
+<label for="category_radio' .$tmp_cat_srl. '">' .$val_cat->title. '</br>' .$resv_comment.  '</label></li>';
+}
+{@ $tmp_time_arr = array(); //작업용 어레이}
+{@ $slt_arr = $slt_arr_by_cat[$tmp_cat_srl]; //V570}
+<!--@foreach($slt_arr as $key_seq => $v_hhmm)-->
+<!--@if($v_cat_arr[$v_hhmm] == "*")--><!--//예약가능시간-->
+{@ $ind_disabled = "disabled"}
+{@ $tmp_css = "time_abled"}<!--// jquery 시간선택 disabled를 위해 필요-->
+{@ $time_checked = '';}
+<!--@if($tmp_cat_srl == $oDocument->get('category_srl') || $module_info->use_category != "Y")--><!--//문서와 같은 카테고리 또는 카테고리사용않음 -->
+{@ $ind_disabled = null}
+<!--@endif-->
+<!--@elseif($v_cat_arr[$v_hhmm] == "R")--><!--//예약된시간-->
+<!--@if($tmp_cat_srl == $oDocument->get('category_srl') || $module_info->use_category != "Y")--><!--//문서와 같은 카테고리 또는 카테고리사용않음 -->
+<!--@if(in_array($v_hhmm, $ev_arr))--><!--//선택된 시간이면 -->
+{@ $ind_disabled = null}
+{@ $tmp_css = "time_abled"}<!--// jquery 시간선택 disabled를 위해 필요-->
+{@ $time_checked = 'checked="checked"';}
+<!--@else--><!--//선택된 시간아니면-->
+{@ $ind_disabled = "disabled"}
+{@ $tmp_css = "hidden time_disabled"}<!--// jquery 시간선택 disabled를 위해 필요-->
+{@ $time_checked = '';}
+<!--@endif-->
+<!--@else--><!--//카테고리 다를때-->
+{@ $ind_disabled = "disabled"}
+{@ $tmp_css = "hidden time_disabled"}<!--// jquery 시간선택 disabled를 위해 필요-->
+{@ $time_checked = '';}
+<!--@endif-->
+<!--@else--><!--// 시간항목 외 -->
+{@ $ind_disabled = "disabled"}
+{@ $tmp_css = "hidden time_disabled"}<!--// jquery 시간선택 disabled를 위해 필요-->
+{@ $time_checked = '';}
+<!--@endif-->
+<!--@if($resvtime_disp_type == "TimeV")-->
+{@ $tmp_chkbox_label = $v_hhmm.' ~';}<!--//체크박스레이블-->
+<!--@else-->
+{@ $tmp_chkbox_label = "";}
+<!--@endif-->
+{@
+$str_hhmm = str_replace(':', '', $v_hhmm);
+$tmp_time_arr[$v_hhmm] =
+'<li class="'.$underline.$tmp_css.$tmp_cat_srl.'"  style="margin:0; padding-left:3px;">
+<input type="'.$ev7_type.'" id="extvar7_'.$tmp_cat_srl.'_'.$str_hhmm.'" name="extra_vars7" value="'.$v_hhmm.'" '.$time_checked.' ' .$ind_disabled. ' style="width: 15px; height: 15px;     "/><label for="extvar7_'.$tmp_cat_srl.'_'.$str_hhmm.'">'.$tmp_chkbox_label.'</label></li>';
+}
+<!--@endforeach--><!--// 시간대별 끝-->
+{@ $time_checkboxt[$tmp_cat_srl] = $tmp_time_arr;}
+<!--//@endif--><!--// 카테고리 사용 권한이 있으면 끝(게시판 자체기능)-->
+<!--@endforeach--><!--// 카테고리별 자료생성 끝-->
+<!--@if($resvtime_disp_type == "TimeH")--><!--//예약시간 수평형식(V530)-->
+<!--//시간/분 레이블생성-->
+<!--@if($time_interval > 60)--><!--//시간간격 60분이상-->
+{@ $out_hh_label_arr = $slt_arr_by_cat[0]; // V570 조정}
+{@ $out_mm_label_arr[0] = '00 ~ '.$time_interval;}
+<!--@else-->
+{@ $out_hh_label_arr = array();}
+<!--@foreach($slt_arr_by_cat[0] as $v_hhmm)--><!--//V570조정-->
+{@ $wrk_arr = explode(':', $v_hhmm);}
+<!--@if( !in_array($wrk_arr[0], $out_hh_label_arr) )-->
+{@ $out_hh_label_arr[] = $wrk_arr[0];}<!--//시간 레이블-->
+<!--@endif-->
+<!--@endforeach-->
+<!--@for($x=0; $x<60; $x += $time_interval)--><!--//분 레이블-->
+{@ $out_mm_label_arr[] = substr('0'.$x, -2).' ~ '.($x+$time_interval-1);}
+<!--@endfor-->
+<!--@endif-->
+<!--@foreach($out_hh_label_arr as $tmpval_1)--><!--//수평 출력형태로 재구성(v552)-->
+<!--@foreach($out_mm_label_arr as $tmpval_2)-->
+{@ $wrk_fld = $tmpval_1.':'.substr($tmpval_2,0,2);}
+{@ $chkbox_hhmm_control_arr[$wrk_fld] = $wrk_fld;}
+<!--@endforeach-->
+<!--@endforeach-->
+<!--@foreach($time_checkboxt as $key_01 => $val_01)--><!--//수평 출력형태로 재구성-->
+{@ $tmp_chkbox_arr = array();}
+<!--@foreach($chkbox_hhmm_control_arr as $key_02 => $val_02)-->
+<!--@if($val_01[$val_02])-->
+{@ $tmp_chkbox_arr[$key_02] .= $val_01[$val_02];}
+<!--@else-->
+{@ $tmp_chkbox_arr[$key_02] .= '';}
+<!--@end-->
+<!--@endforeach-->
+{@ $out_time_checkboxt[$key_01] = $tmp_chkbox_arr;}
+<!--@endforeach-->
+<!--//time check box 출력-->
+<tr>
+<th>{$val_7->name} <!--@if($val_7->is_required=='Y')--><em>*</em><!--@end--></th>
+<td>
+<table id="table_checkbox" border="0" cellspacing="0">
+<tr>
+<th class="checkbox_th"><span style="padding-left:20px;">{$lang->category}</span></th>
+<th class="checkbox_th"><spann style="padding-left:20px;">{$lang->unit_min}</span></th>
+<!--@foreach($out_hh_label_arr as $val_hh)--><!--// 시간레이블출력-->
+<th class="checkbox_th">
+{$val_hh}<!--@if($time_interval <= 60)-->{$lang->unit_hour}<!--@endif-->
+</th>
+<!--@endforeach-->
+</tr>
+<!--@foreach($tmp_category_list as $val_cat2)--><!--//카테고리별 출력-->
+{@ $wk_cat_srl = $val_cat2->category_srl;}
+{@ $wk_arr = $out_time_checkboxt[$wk_cat_srl];}
+{@ $wk_cat_count = count($wk_arr);}
+<tr id="line_tr_time_{$wk_cat_srl}" class="line_tr_time">
+<td style="width:100px"  class="checkbox_td">
+<div class="line_colunm_category" style="float:left; border:none;">
+{@ echo $out_category_label[$wk_cat_srl]}<!--//분류 radio-->
+</div>
+</td>
+<td style="width:60px" class="checkbox_td">
+<table border="0" cellspacing="0" ><!--//분레이블 table-->
+<!--@foreach($out_mm_label_arr as $key_lbl => $mm_label)--><!--//분레이블-->
+<tr><td style="padding:0px;">
+<div class="{$underline}" style="width:60px; text-align:center; padding: 2px 2px 2px 2px;">
+{$mm_label}
+</div>
+</td></tr>
+<!--@endforeach-->
+</table>
+</td>
+{@ $tmp_count = 0;}
+<!--@foreach($out_hh_label_arr as $val_hh)--><!--//time checkbox 출력-->
+<td class="checkbox_td">
+<table border="0" cellspacing="0"><!--//time checkbox 출력 table-->
+<!--@foreach($wk_arr as $key_hhmm2 => $val_chkbox)--><!--//time checkbox 출력-->
+<!--@if($val_hh == substr($key_hhmm2,0,2))-->
+<tr><td style="padding:0px;">
+<div id="line_div_time_{$wk_cat_srl}_{$key_hhmm}" class="time line_div_time_{$wk_cat_srl}" style="min-height:22px;">
+<ul>
+{@ echo $val_chkbox}
+</ul>
+</div>
+</td></tr>
+<!--@end-->
+<!--@end-->
+</table>
+</td>
+<!--@endforeach-->
+</tr>
+<!--@endforeach-->
+</table>
+</td>
+</tr>
+<!--@elseif($resvtime_disp_type == "TimeV")--><!--//예약시간 수직형식(V530)-->
+{@ $out_time_checkboxt = $time_checkboxt;}
+<!--//time check box 출력-->
+<tr>
+<th>{$val_7->name} <!--@if($val_7->is_required=='Y')--><em>*</em><!--@end--></th>
+<td>
+<table border="0" cellspacing="0">
+<tr>
+<!--@foreach($tmp_category_list as $val_cat2)--><!--// 카테고리 radio button 출력-->
+<th>
+<div class="line_colunm_category" style="float:left;">
+{@ echo $out_category_label[$val_cat2->category_srl]}
+</div>
+</th>
+<!--@endforeach-->
+</tr>
+<tr>
+<!--@foreach($tmp_category_list as $val_cat2)--><!--// 카테고리별-->
+{@ $wk_cat_srl = $val_cat2->category_srl;}
+{@ $wk_arr = $out_time_checkboxt[$wk_cat_srl];}
+<td style="width:100px">
+<div id="line_div_time_{$wk_cat_srl}" class="time line_div_time_{$wk_cat_srl}">
+<ul>
+<!--@foreach($wk_arr as $key => $time_chkbox)--><!--//time checkbox 출력-->
+{@ echo $time_chkbox}
+<!--@endforeach-->
+</ul>
+</div>
+</td>
+<!--@endforeach-->
+</tr>
+</table>
+</td>
+</tr>
+<!--@elseif($resvtime_disp_type == "TimeH_SB")--><!--//예약시간 SelectBox형식(V552)-->
+{@ $out_time_checkboxt = $time_checkboxt;}
+<!--//time select box 출력-->
+<tr>
+<th>{$val_7->name} <!--@if($val_7->is_required=='Y')--><em>*</em><!--@end--></th>
+<td>
+<table border="0" cellspacing="0">
+<tr>
+<!--@foreach($tmp_category_list as $val_cat2)--><!--// 카테고리 radio button 출력-->
+<th>
+<div class="line_colunm_category" style="float:left;">
+{@ echo $out_category_label[$val_cat2->category_srl]}
+</div>
+</th>
+<!--@endforeach-->
+</tr>
+<tr>
+<!--@foreach($tmp_category_list as $val_cat2)--><!--// 카테고리별-->
+{@ $wk_cat_srl = $val_cat2->category_srl;}
+{@ $wk_arr = $out_time_checkboxt[$wk_cat_srl];}
+<!--@if($oDocument->get('category_srl') == $wk_cat_srl)-->
+{@ $wrk_css = 'time_abled'.$wk_cat_srl;}
+<!--@else-->
+{@ $wrk_css = '';}
+<!--@end-->
+<td style="width:100px">
+<div id="line_div_time_{$wk_cat_srl}" class="time {$wrk_css} line_div_time_{$wk_cat_srl}" style="text-align:center">
+<select name="extra_vars7" id="extra_vars7_sb_{$wk_cat_srl}" class='time_sb'>
+<option value=""></option><!--//빈칸-->
+<!--@foreach($wk_arr as $key_sb => $slt_time)-->
+<!--@if($key_sb != '23:59')-->
+<!--@if($key_sb == $ev_arr[0] && $oDocument->get('category_srl') == $wk_cat_srl)-->
+<option value="{$key_sb}" selected >{$key_sb}</option>
+<!--@else-->
+<!--@if($reservation_arr[$wk_cat_srl][$key_sb] == '*')-->
+<option value="{$key_sb}">{$key_sb}</option>
+<!--@end-->
+<!--@endif-->
+<!--@end-->
+<!--@endforeach-->
+</select>
+</div>
+</td>
+<!--@endforeach-->
+</tr>
+</table>
+</td>
+</tr>
+<!--@endif--><!--//예약시간 수평/수직/SelectBox 배열끝(V552)-->
+<!--@endif--><!--// 예약(시간) 처리끝-->
+<!--@endif--><!--// count($extra_keys) >= 7 조건끝-->
+<!--@elseif($val->idx == 2)--><!--// 일정종료 -->
+<!--@elseif($val->idx == 3 and $val->type != "color")--><!--// 배경색상 -->
+<td>
+<!--@if(!$val->value && $val->default)--><!--// value값 없고 default값 있으면..-->
+{@ $val->value = $val->default}
+<!--@endif-->
+<!--@if($module_info->use_category != "Y")-->
+{@ Context::loadJavascriptPlugin('ui.colorpicker')}
+<input type="text" name="extra_vars3" value="{$val->value}" class="color-indicator inputTypeText" />
+<br/>{@ echo $val->desc}
+<!--@else-->
+<!--@if($module_info->use_category_bgcolor == "category_bg" || $module_info->use_category_bgcolor == "category_text")-->
+{@ Context::loadJavascriptPlugin('ui.colorpicker')}
+<input type="text" name="extra_vars3" value="{$val->value}" class="color-indicator inputTypeText" />
+<br/>{@ echo $val->desc}
+&nbsp;{$lang->pln_apply_cat_color}
+<!--@else-->
+{@ Context::loadJavascriptPlugin('ui.colorpicker')}
+<input type="text" name="extra_vars3" value="{$val->value}" class="color-indicator inputTypeText" />
+<br/>{@ echo $val->desc}
+<!--@endif-->
+<!--@endif-->
+</td>
+<!--@elseif($val->idx == 4)--><!--// 일정확인 -->
+<td>
+<!--@if($extra_keys[4]->type == "radio" || $extra_keys[4]->type == "checkbox")-->
+{@ $ev_type=$extra_keys[4]->type}
+<!--@else-->
+{@ $ev_type="radio"}
+<!--@endif-->
+<!--@if($extra_keys[4]->default != null)--><!--// 기본값에 값이 있으면 이것으로 아이콘 목록 대체 -->
+{@ $icon=explode("||",$extra_keys[4]->default)}<!--// 기본값: 사용자용, 매니저용 아이콘 구분자 "||"-->
+{@ $icon_user=explode(",",$icon[0])}
+{@ $icon_user_path = $dir=$tpl_path."images/icon/"}
+{@ $icon_mgr=explode(",",$icon[1])}
+{@ $icon_mgr_path = $dir=$tpl_path."images/icon/"}
+<!--@endif-->
+{@ $ev_arr=explode("|@|",$extra_keys[4]->value)}<!--// 선택된 아이콘-->
+{@ $tmp_count = 0}
+<!--@foreach($icon_user as $valf)--><!--// 사용자용 일정확인 아이콘 출력: 웹은 14개, 모바일 5개씩-->
+{@ $tmp_count = $tmp_count + 1}
+{@ $valf_id = str_replace(".", "_", $valf)}
+<input type="{$ev_type}" id="{$valf_id}" name="extra_vars4" value="{$valf}"
+<!--@if(in_array($valf, $ev_arr))-->checked="checked"<!--@endif-->
+/>
+<label for="{$valf_id}" onclick="if(navigator.appVersion.indexOf('MSIE') != -1){$valf_id}.click()"><img src="{$icon_user_path}{$valf}" style="cursor:pointer;" /></label>
+<!--@if(($tmp_count == 14 && !$ind_mobile) || ($tmp_count == 5 && $ind_mobile))-->{@ $tmp_count = 0} <br/> <!--@endif-->
+<!--@endforeach-->
+{@ $tmp_count = 0}
+<!--@if($grant->manager && $icon_mgr[0] !=null )--><!--// 매니저용 일정확인 아이콘 출력-->
+<br />
+<!--@foreach($icon_mgr as $valf)-->
+{@ $tmp_count =$tmp_count + 1}
+{@ $valf_id = str_replace(".", "_", $valf)}
+<input type="{$ev_type}" id="{$valf_id}" name="extra_vars4" value="{$valf}"
+<!--@if(in_array($valf, $ev_arr))-->checked="checked"<!--@endif-->
+/>
+<label for="{$valf_id}" onclick="if(navigator.appVersion.indexOf('MSIE') != -1){$valf_id}.click()"><img src="{$icon_mgr_path}{$valf}" style="cursor:pointer;" /></label>
+<!--@if(($tmp_count == 14 && !$ind_mobile) || ($tmp_count == 5 && $ind_mobile))-->{@ $tmp_count = 0} <br/> <!--@endif-->
+<!--@endforeach-->
+<!--@endif-->
+<br/>{@ echo $val->desc}
+</td>
+<!--@elseif($val->idx == 8)--><!--// 공개그룹 -->
+<!--@elseif($val->idx == 5 || $val->idx == 6)-->
+<!--@if($grant->manager)--><!--// 매니저일 경우만 반복일정 허용 단, 중복일정여부 체크하지 않음(V540 추가)-->
+<td>{@ echo html_entity_decode($val->getFormHTML())} (관리자로 로그인 했을 경우에 반복일정 허용 단, 중복일정 여부 체크하지 않음)</td>
+<!--@endif-->
+<!--@else-->
+{@ $temp_getFormHTML = $val->getFormHTML()}
+<!--@if($val->type == "radio")--><!--// 라디오타입 한줄로 출력위해-->
+{@ $temp_getFormHTML = str_replace("<ul>", "", $temp_getFormHTML)}
+{@ $temp_getFormHTML = str_replace("</ul>", "", $temp_getFormHTML)}
+<!--@endif-->
+<td>{@ echo $temp_getFormHTML}</td>
+<!--@endif-->
+</tr>
+<!--@endif--><!--// 시간(7)이 아닐때 -->
+<!--@endforeach-->
+</table>
+<!--@endif--><!--// count($extra_keys)-->
+<!--@endif--><!--// 예약(시간)-->

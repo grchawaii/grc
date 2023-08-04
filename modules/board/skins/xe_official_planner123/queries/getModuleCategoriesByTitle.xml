@@ -1,0 +1,21 @@
+<query id="getModuleCategoriesByTitle" action="select">
+    <tables>
+        <table name="modules" alias="modules" />
+        <table name="module_categories" alias="module_categories" type="left join">
+			<conditions>
+				<condition operation="equal" column="module_categories.module_category_srl" default="modules.module_category_srl" />
+			</conditions>
+        </table>
+    </tables>
+     <columns>
+        <column name="modules.module" />
+        <column name="modules.mid" />
+        <column name="modules.browser_title" />
+        <column name="modules.module_srl" />
+        <column name="module_categories.title" alias="category" />
+        <column name="module_categories.module_category_srl" alias="module_category_srl" />
+    </columns>
+    <conditions>
+		<condition operation="equal" column="module_categories.title" var="moduleCategoryTitle"  default="planner123-share" />
+    </conditions>
+</query>

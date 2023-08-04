@@ -1,0 +1,125 @@
+<load target="./css/layout_sub.css" />
+
+
+<!--@if($layout_info->header_subcontent1 || $layout_info->header_subcontent1_background)-->
+<div id="visual">
+  {$layout_info->header_subcontent1}
+</div>
+<!--@end-->
+
+
+<div id="content">
+	<table width="980" border="0" cellpadding="0" cellspacing="0" id="center">
+  <tbody><tr>
+  <td align="left" valign="top" id="left">
+    <!--@if($layout_info->left_menu1_inherit_type=='N')-->
+      {@ $idx = 1}
+      <!--@foreach($left_menu1->list as $key => $val)-->
+        <!--@if($val['selected'])-->
+          {@ $left_menu1_1st = $val}
+        <!--@end-->
+        <table><tbody><tr><td>
+          <h2>
+            <span class="left_selected_menu">{$val['text']}</span>
+          </h2>
+          <div class="left_menu" cond="$val['list']">
+            <ul class="second_list">
+              {@ $idx2 = 1}
+              <!--@foreach($val['list'] as $key2 => $val2)-->
+                <!--@if($val2['selected'])-->
+                  {@ $left_menu1_2nd = $val2}
+                <!--@end-->
+                <li class="second_list second_list{$idx2}<!--@if($val2['selected'])--> second_on active<!--@end-->">
+                  <a href="{$val2['href']}" <!--@if($val2['open_window']=='Y')-->onclick="window.open(this.href);return false;"<!--@end-->>{$val2['text']}</a>
+                </li>
+                <!--@if($val2['selected'])-->
+                  <!--@foreach($left_menu1_2nd['list'] as $key3 => $val3)-->
+                    <!--@if($val3['selected'])-->
+                      {@ $left_menu1_3rd = $val3}
+                    <!--@end-->
+                    <li class="third_list<!--@if($val3['selected'])--> on active<!--@end-->">
+                      <a href="{$val3['href']}" <!--@if($val3['open_window']=='Y')-->onclick="window.open(this.href);return false;"<!--@end-->>{$val3['text']}</a>
+                    </li>
+                  <!--@end-->
+                <!--@end-->
+                {@ $idx2++}
+              <!--@end-->
+            </ul>
+          </div>
+        </td></tr></tbody></table>
+        {@ $idx++}
+      <!--@end-->
+
+    <!--@else-->
+    <table><tbody><tr><td>
+    <h2>
+      <span class="left_selected_menu">{$header_menu1_1st['text']}</span>
+    </h2>
+    <div class="left_menu" cond="$header_menu1_1st['list']">
+      <ul class="second_list">
+        {@ $idx = 1}
+        <!--@foreach($header_menu1_1st['list'] as $key => $val)-->
+          <!--@if($val['selected'])-->
+            {@ $header_menu1_2nd = $val}
+          <!--@end-->
+          <li class="second_list second_list{$idx}<!--@if($val['selected'])--> second_on active<!--@end-->">
+            <a href="{$val['href']}" <!--@if($val['open_window']=='Y')-->onclick="window.open(this.href);return false;"<!--@end-->>{$val['text']}</a>
+          </li>
+          <!--@if($val['selected'])-->
+          <!--@foreach($header_menu1_2nd['list'] as $key2 => $val2)-->
+            <!--@if($val2['selected'])-->
+              {@ $header_menu1_3rd = $val2}
+            <!--@end-->
+            <li class="third_list<!--@if($val2['selected'])--> on active<!--@end-->">
+              <a href="{$val2['href']}" <!--@if($val2['open_window']=='Y')-->onclick="window.open(this.href);return false;"<!--@end-->>{$val2['text']}</a>
+            </li>
+          <!--@end-->
+          <!--@end-->
+          {@ $idx++}
+        <!--@end-->
+      </ul>
+    </div>
+    </td></tr></tbody></table>
+    <!--@end-->
+
+    <!--@if($layout_info->left_subcontent1)-->
+    <table><tbody><tr><td>
+    <div class="left_subcontent1">
+      {$layout_info->left_subcontent1}
+    </div>
+    </td></tr></tbody></table>
+    <!--@end-->
+	</td>
+
+  <td id="doucument" align="left" valign="top">
+  	<div id="title">
+      <h2>
+        <!--@if($header_menu1_3rd['selected'])-->
+          <span class="right_selected_menu">{$header_menu1_3rd['text']}</span>
+        <!--@else if($header_menu1_2nd['selected'])-->
+          <span class="right_selected_menu">{$header_menu1_2nd['text']}</span>
+        <!--@end-->
+      </h2>
+      <ul id="navi">
+        <li>HOME</li>
+        <li>{$header_menu1_1st['text']}</li>
+        <!--@if($header_menu1_2nd)-->
+        <li>{$header_menu1_2nd['text']}</li>
+        <!--@end-->
+        <!--@if($header_menu1_3rd)-->
+        <li>{$header_menu1_3rd['text']}</li>
+        <!--@end-->
+      </ul>
+    </div>
+    <div class="blank"></div>
+
+    <div class="content">
+      {$content}
+    </div>
+  </td>
+  </tr></tbody>
+  </table>
+
+</div>
+
+

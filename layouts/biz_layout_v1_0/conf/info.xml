@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<layout version="0.2">
+    <title xml:lang="ko">Biz Layout Skin v1.0</title>
+    <description xml:lang="ko">만든이 : XENARA(Kim Ki Seok)</description>
+    <version>1.0</version>
+    <date>2011-12</date>
+    <link>http://xenara.co.cc</link>
+
+    <author email_address="kolaskks@naver.com" link="http://xenara.co.cc">
+        <name xml:lang="ko">XENARA</name>
+    </author>
+
+    <extra_vars>
+      <group>
+      <title xml:lang="ko">레이아웃 공통부분</title>
+        <var name="layout_type" type="select">
+            <title xml:lang="ko">layout_type</title>
+            <description xml:lang="ko">layout_type을 선택해주세요.</description>
+            <options value="main">
+                <title xml:lang="ko">메인 레이아웃</title>
+            </options>
+            <options value="sub">
+                <title xml:lang="ko">서브 레이아웃</title>
+            </options>
+        </var>
+
+        <var name="show_sns_login" type="select">
+            <title xml:lang="ko">show_sns_login</title>
+            <description xml:lang="ko">소셜로그인 출력유무를 선택해주세요. socialXE 관련 자료가 설치되어 있어야 합니다.</description>
+            <options value="Y">
+                <title xml:lang="ko">출력</title>
+            </options>
+            <options value="N">
+                <title xml:lang="ko">출력안함</title>
+            </options>
+        </var>
+
+        <var name="homepage_url" type="text">
+            <title xml:lang="ko">homepage_url</title>
+            <description xml:lang="ko">homepage_url을 입력해 주세요.</description>
+        </var>
+
+        <var name="header_logo" type="image">
+            <title xml:lang="ko">header_logo</title>
+            <description xml:lang="ko">header_logo 이미지를 입력하세요.(181 x 56)</description>
+        </var>
+
+        <var name="facebook_url" type="text">
+            <title xml:lang="ko">facebook_url</title>
+            <description xml:lang="ko">facebook_url을 입력해 주세요.</description>
+        </var>
+        <var name="facebook_url" type="text">
+            <title xml:lang="ko">facebook_url</title>
+            <description xml:lang="ko">facebook_url을 입력해 주세요.</description>
+        </var>
+        <var name="twitter_url" type="text">
+            <title xml:lang="ko">twitter_url</title>
+            <description xml:lang="ko">twitter_url을 입력해 주세요.</description>
+        </var>
+        <var name="blog_url" type="text">
+            <title xml:lang="ko">blog_url</title>
+            <description xml:lang="ko">blog_url을 입력해 주세요.</description>
+        </var>
+
+        <var name="footer_menu_right_content" type="text">
+            <title xml:lang="ko">footer_menu_right_content</title>
+            <description xml:lang="ko">footer_menu_right_content를 입력해 주세요.</description>
+        </var>
+
+        <var name="footer_copyright" type="textarea">
+            <title xml:lang="ko">footer_copyright</title>
+            <description xml:lang="ko">footer_copyright 내용을 입력해 주세요. XHTML,JS,CSS 등 입력이 가능합니다.</description>
+        </var>
+
+        <var name="show_popcheck" type="select">
+            <title xml:lang="ko">show_popcheck</title>
+            <description xml:lang="ko">popcheck 출력유무를 선택해주세요.</description>
+            <options value="Y">
+                <title xml:lang="ko">출력</title>
+            </options>
+            <options value="N">
+                <title xml:lang="ko">출력안함</title>
+            </options>
+        </var>
+        <var name="popcheck_image" type="image">
+            <title xml:lang="ko">popcheck_image</title>
+            <description xml:lang="ko">popcheck_image 이미지를 입력하세요.(가로크기 300)</description>
+        </var>
+        <var name="popcheck_image_url" type="text">
+            <title xml:lang="ko">popcheck_image_url</title>
+            <description xml:lang="ko">popcheck_image_url을 입력하세요.</description>
+        </var>
+        <var name="popcheck_content" type="textarea">
+            <title xml:lang="ko">popcheck_content</title>
+            <description xml:lang="ko">popcheck_content 내용을 입력하세요. WIDGETCODE,HTML,JS,CSS 등 입력이 가능합니다.</description>
+        </var>
+      </group>
+
+
+      <group>
+      <title xml:lang="ko">메인 레이아웃 설정부분</title>
+        <var name="main_content_type" type="select">
+            <title xml:lang="ko">main_content_type</title>
+            <description xml:lang="ko">main_content_type 을 선택하세요. 고정페이지형일 경우, 게시판번호등을 입력하여 정해진 페이지를 출력할 수 있습니다.</description>
+            <options value="fix_content">
+                <title xml:lang="ko">고정페이지형</title>
+            </options>
+            <options value="content">
+                <title xml:lang="ko">페이지설정형</title>
+            </options>
+        </var>
+
+        <var name="main_header_content_widget1" type="text">
+            <title xml:lang="ko">main_header_content_widget1(content_skin1)(고정페이지형)</title>
+            <description xml:lang="ko">main_header_content_widget1에 출력될 게시판번호(module_srl)을 입력하세요. 여러개일경우 콤마(,)로 구분하여 입력하세요.</description>
+        </var>
+
+        <var name="main_left_content" type="textarea">
+            <title xml:lang="ko">main_left_content(고정페이지형)</title>
+            <description xml:lang="ko">main_left_content 내용을 입력해 주세요.</description>
+        </var>
+        <var name="main_middle_content_widget1" type="text">
+            <title xml:lang="ko">main_middle_content_widget1(content

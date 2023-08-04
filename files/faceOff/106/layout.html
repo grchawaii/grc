@@ -1,0 +1,353 @@
+<load target="./css/layout.css" />
+<style type="text/css">
+<!--@if($layout_info->header_content1_background)-->
+#header_content1 { background:url('{$layout_info->header_content1_background}') center repeat-x; }
+<!--@end-->
+
+<!--@if($layout_info->header_subcontent1_background)-->
+#visual { background:url('{$layout_info->header_subcontent1_background}') center no-repeat #FFFFFF; }
+<!--@end-->
+
+.quick_content_wrapper { position:absolute; top:0px; left:0px; width:100%; }
+.quick_content_wrapper .quick_content { position:relative; top:0px; width:990px; margin:0px auto; }
+.quick_content_wrapper .quick_content .quick_left_content { position:absolute; }
+.quick_content_wrapper .quick_content .quick_right_content { position:absolute; }
+</style>
+
+
+
+<div class="xenara_layout">
+
+
+  <div id="info">
+  <!--@if($header_menu1->list)-->
+    <ul class="first_menu">
+    {@ $idx = 1}
+    <!--@foreach($header_menu1->list as $key => $val)-->
+      <li class="first_list">
+        <ul class="second_menu second_menu{$idx}">
+          <li class="seond_list<!--@if($val['selected'])--> on<!--@end-->" style="margin-bottom:5px; font-weight:bold;">
+            <a href="{$val['href']}" <!--@if($val['open_window']=='Y')-->onclick="window.open(this.href);return false;"<!--@end-->>{$val['link']}</a>
+          </li>
+          <!--@foreach($val['list'] as $key2 => $val2)-->
+          <li class="seond_list<!--@if($val2['selected'])--> on<!--@end-->">
+            <a href="{$val2['href']}" <!--@if($val2['open_window']=='Y')-->onclick="window.open(this.href);return false;"<!--@end-->>{$val2['link']}</a>
+          </li>
+          <!--@end-->
+        </ul>
+      </li>
+      {@ $idx++}
+    <!--@end-->
+    </ul>
+  <!--@end-->
+  </div>
+
+
+  <!--@if($layout_info->layout_type=='sub')-->
+  <div id="quick" style="top:265px;"|cond="$layout_info->header_subcontent1 || $layout_info->header_subcontent1_background">
+    <ul class="quick_menu">
+    <!--@foreach($quick_menu1->list as $key => $val)-->
+      <li class="first_list first_list{$idx}<!--@if($val['selected'])--> on<!--@end-->">
+        <a href="{$val['href']}" <!--@if($val['open_window']=='Y')-->onclick="window.open(this.href);return false;"<!--@end-->><!--@if($val->normal_btn)--><img src="{$val->normal_btn}" /><!--@else-->{$val['text']}<!--@end--></a>
+      </li>
+    <!--@end-->
+    </ul>
+  </div>
+  <!--@end-->
+
+
+  <div style="position:relative; width:980px; height:80px; margin:0px auto; overflow:hidden;">
+    <div id="global">
+      <ul id="menu">
+      <!--@if($logged_info)-->
+        <li><a class="loginfo logout" onfocus="blur()" href="{getUrl('act','dispMemberLogout')}">{$lang->cmd_logout}</a></li>
+        <li><a class="loginfo member" onfocus="blur()" href="{getUrl('act','dispMemberInfo')}">{$lang->member_info}</a></li>
+        <!--@if($logged_info->is_admin=="Y" && !$site_module_info->site_srl)-->
+          <li><a class="loginfo admin" onfocus="blur()" href="{getUrl('','module','admin')}" onclick="window.open(this.href);return false;">{$lang->cmd_management}</a></li>
+        <!--@end-->
+      <!--@else-->
+        <li><a class="loginfo login" onfocus="blur()" href="{getUrl('act','dispMemberLoginForm')}">{$lang->cmd_login}</a></li>
+        <li cond="$layout_info->show_sns_login=='Y'"><a class="loginfo snslogin" onfocus="blur()" href="{getUrl('act', 'dispSocialxeLoginForm')}">Social {$lang->cmd_login}</a></li>
+        <li><a class="loginfo signup" onfocus="blur()" href="{getUrl('act','dispMemberSignUpForm')}">{$lang->cmd_signup}</a></li>
+      <!--@end-->
+      </ul>
+      <ul id="sns" style="">
+ 	      <li><a cond="$layout_info->facebook_url" href="{$layout_info->facebook_url}" target="_blank"><img src="{$tpl_path}images/global_facebook.png" border="0"></a></li>
+        <li><a cond="$layout_info->twitter_url" href="{$layout_info->twitter_url}" target="_blank"><img src="{$tpl_path}images/global_twitter.png" border="0"></a></li>
+        <li><a cond="$layout_info->blog_url" href="{$layout_info->blog_url}" target="_blank"><img src="{$tpl_path}images/global_blog.png" border="0"></a></li>
+      </ul>
+    </div>
+
+    <div id="head_other">
+      <table border="0" cellspacing="0"><tbody><tr>
+        <td height="80" width="220" valign="middle" align="left">
+          <!--@if($layout_info->header_logo)-->
+            <a href="{$layout_info->homepage_url}" style="width:181px; height:56px; display:block;">
+              <img src="{$layout_info->header_logo}" border="0" style="width:181px; height:56px;">
+            </a>
+          <!--@end-->
+        </td>
+        <td width="*" align="left" valign="middle">
+          <!--@if($header_menu1->list)-->
+            <ul class="header_menu">
+              {@ $idx = 1}
+              <!--@foreach($header_menu1->list as $key => $val)-->
+                <!--@if($val['selected'])-->
+                  {@ $header_menu1_1st = $val}
+                <!--@end-->
+                <!--@if($idx<=5)-->
+                  <li class="list list{$idx}<!--@if($val['selected'])--> on<!--@end-->">
+                    <span>{$val['link']}</span>
+                  </li>
+                <!--@end-->
+                {@ $idx++}
+              <!--@end-->
+            </ul>
+          <!--@end-->
+        </td>
+      </tr></tbody></table>
+    </div>
+  </div>
+
+
+
+  <!--@if($layout_info->layout_type=='sub')-->
+    <!--#include("./layout_sub.html")-->
+
+  <!--@else-->
+    <load target="./css/layout_main.css" />
+
+    
+
+    <!--@if($layout_info->main_content_type=='fix_content' && !$act)-->
+      <div id="content" class="content" style="position:relative; width:980px; padding:30px 0px 0px 0px; margin:0px auto 0px auto;">
+      <table border="0" cellspacing="0" width="100%" style="border:0px;"><tbody><tr>
+        <td width="259" align="left" valign="top" class="main_left">
+좌측영역시작
+          <div class="main_left_content" cond="$layout_info->main_left_content" style="width:240px; margin-right:19px;">
+            {$layout_info->main_left_content}
+          </div>
+          <div class="main_banner_menu" style="margin-top:20px;" cond="$main_banner_menu->list">
+            {@ $idx = 1}
+		        <ul class="first_menu">
+            <!--@foreach($main_banner_menu->list as $key => $val)-->
+              <!--@if($val['selected'])-->
+                {@ $main_banner_menu_1st = $val}
+              <!--@end-->
+              <li class="first_list first_list{$idx}<!--@if($val['selected'])--> on<!--@end-->">
+                <a href="{$val['href']}" <!--@if($val['open_window']=='Y')-->onclick="window.open(this.href);return false;"<!--@end-->>{$val['link']}</a>
+              </li>
+              {@ $idx++}
+            <!--@end-->
+		        </ul>
+          </div>
+        </td>
+        <td width="466" align="left" valign="top" class="main_middle">
+          가운데 영역시작
+<!-- 롤링시작 -->
+<div id="header_content1" class="main_header_content_widget1" cond="$layout_info->main_header_content_widget1" style="width:466px; overflow:hidden;">
+      <div class="preview_slide">
+        <img class="zbxe_widget_output" widget="content_xenara" skin="widget_content_biz_layout_v1_0_w1" colorset="default" content_type="document" module_srls="{$layout_info->main_header_content_widget1}" list_type="normal" tab_type="none" markup_type="table" list_count="15" cols_list_count="15" page_count="1" subject_cut_size="30" content_cut_size="50" option_view="title,regdate,nickname,thumbnail,content" show_browser_title="Y" show_comment_count="Y" show_trackback_count="Y" show_category="Y" show_icon="Y" duration_new="24" order_target="list_order" order_type="asc" thumbnail_type="crop" thumbnail_width="220" thumbnail_height="220" map_provider="naver" shopintro_extra="N" />
+      </div>
+    </div>
+  
+<!--롤링끝-->
+          <div class="main_middle_content_widget1" style="margin:0px 20px;" cond="$layout_info->main_middle_content_widget1">
+            <img class="zbxe_widget_output" widget="content_xenara" skin="widget_content_biz_layout_v1_0_w2" colorset="default" content_type="document" module_srls="{$layout_info->main_middle_content_widget1}" list_type="normal" tab_type="tab_top" markup_type="table" list_count="5" cols_list_count="5" page_count="1" subject_cut_size="30" content_cut_size="50" option_view="title,regdate,thumbnail,content" show_browser_title="Y" show_comment_count="Y" show_trackback_count="Y" show_category="Y" show_icon="Y" duration_new="24" order_target="list_order" order_type="asc" thumbnail_type="crop" map_provider="naver" shopintro_extra="N" />
+          </div>
+          <div class="main_middle_content_widget2"  style="margin:30px 20px 0px 20px;" cond="$layout_info->main_middle_content_widget2">
+            <img class="zbxe_widget_output" widget="content_xenara" skin="widget_content_biz_layout_v1_0_w2" colorset="default" content_type="document" module_srls="{$layout_info->main_middle_content_widget2}" list_type="image_title_content" tab_type="tab_top" markup_type="table" list_count="3" cols_list_count="3" page_count="1" subject_cut_size="30" content_cut_size="100" option_view="title,regdate,thumbnail,content" show_browser_title="Y" show_comment_count="Y" show_trackback_count="Y" show_category="Y" show_icon="Y" duration_new="24" order_target="list_order" order_type="asc" thumbnail_type="crop" thumbnail_width="110" thumbnail_height="75" map_provider="naver" shopintro_extra="N" />
+          </div>
+          <div class="main_middle_content" style="position:relative; width:326px; height:35px; margin:0px 20px; overflow:hidden; line-height:35px; font-weight:bold; text-align:center; background:#eee;" cond="$layout_info->main_middle_content">
+            {$layout_info->main_middle_content}
+          </div>
+        </td>
+        <td width="255" align="left" valign="top" class="main_right">
+          <div class="main_right_content_widget1" cond="$layout_info->main_right_content_widget1"  style="margin-left:20px;">우측컨텐츠<br>
+            <img class="zbxe_widget_output" widget="content_xenara" skin="widget_content_biz_layout_v1_0_w2" colorset="default" content_type="document" module_srls="{$layout_info->main_right_content_widget1}" list_type="image_title_content" tab_type="tab_top" markup_type="table" list_count="5" cols_list_count="5" page_count="1" subject_cut_size="30" content_cut_size="100" option_view="title,regdate,thumbnail,content" show_browser_title="Y" show_comment_count="Y" show_trackback_count="Y" show_category="Y" show_icon="Y" duration_new="24" order_target="list_order" order_type="asc" thumbnail_type="crop" thumbnail_width="110" thumbnail_height="75" map_provider="naver" shopintro_extra="N" />
+          </div>
+        </td>
+      </tr></tbody></table>
+      </div>
+    <!--@else-->
+      <table border="0" cellspacing="0" style="position:relative; width:100%;"><tbody><tr><td align="left" style="padding:0px; margin:0px;">
+        <div id="content" class="content">
+          {$content}
+        </div>
+      </td></tr></tbody></table>
+    <!--@end-->
+  <!--@end-->
+
+
+
+  <!--@if($footer_menu1->list)-->
+  <div id="foot">
+    <div class="footer_menu">
+      {@ $idx = 1}
+		  <ul class="first_menu">
+      <!--@foreach($footer_menu1->list as $key => $val)-->
+        <!--@if($val['selected'])-->
+          {@ $footer_menu1_1st = $val}
+        <!--@end-->
+        <li class="first_list first_list{$idx}<!--@if($val['selected'])--> on<!--@end-->">
+          <a href="{$val['href']}" <!--@if($val['open_window']=='Y')-->onclick="window.open(this.href);return false;"<!--@end-->>{$val['link']}</a>
+        </li>
+        {@ $idx++}
+      <!--@end-->
+		  </ul>
+
+      <div class="footer_menu_right_content" cond="$layout_info->footer_menu_right_content">
+        {$layout_info->footer_menu_right_content}
+      </div>
+    </div>
+  </div>
+  <!--@end-->
+
+
+
+  <div id="copy">
+	  <div class="footer_copyright">
+      {$layout_info->footer_copyright}
+	  </div>
+  </div>
+
+
+</div>
+
+
+
+<!--@if($layout_info->show_popcheck!='N')-->
+<div class="popcheck_content_wrap" style="position:absolute; width:100%; top:0px; left:0px; display:none;">
+  <div class="popcheck_content_wrap2" style="position:relative; width:980px; margin:0px auto;">
+    <div class="popcheck_content" style="position:absolute; top:200px; left:0px; width:300px; padding:10px 10px 45px 10px; overflow:hidden; border:2px solid #ccc; background:#fff; z-index:9999;">
+      <a cond="$layout_info->popcheck_image" <!--@if($layout_info->popcheck_image_url)-->href="{$layout_info->popcheck_image_url}"<!--@else-->href="#" onclick="return false;"<!--@end--> style="display:block;"><img src="{$layout_info->popcheck_image}" style="width:300px;" /></a>
+      <div class="content_area" cond="$layout_info->popcheck_content">
+        {$layout_info->popcheck_content}
+      </div>
+      <form name="popcheck_content_close_form" class="close_form"style="position:absolute; bottom:10px; width:280px; padding:5px 10px; color:#fff; font-weight:bold; text-align:center; background:#000; display:block;"> 
+        <input type=CHECKBOX name="popcheck_content_close" value="" onclick="closePopcheckContent(); return false;"> 다시 열지 않음
+      </form>
+    </div>
+  </div>
+</div>
+<!--@end-->
+
+
+
+<!--@if($layout_info->quick_left_content || $layout_info->quick_right_content)-->
+<div class="quick_content_wrapper">
+  <div class="quick_content">
+  <!--@if($layout_info->quick_left_content)-->
+    {@ $qcl_width = 132}
+    <!--@if($layout_info->quick_left_content_width)-->
+      {@ $qcl_width = $layout_info->quick_left_content_width}
+    <!--@end-->
+    {@ $qcl_left = -($qcl_width+10)}
+    {@ $qcl_top = 80}
+    <!--@if($layout_info->quick_left_content_ptop)-->
+      {@ $qcl_top = $layout_info->quick_left_content_ptop}
+    <!--@end-->
+    <div class="quick_left_content" style="top:{$qcl_top}px; left:{$qcl_left}px; width:{$qcl_width}px;">
+      {$layout_info->quick_left_content}
+    </div>
+  <!--@end-->
+  <!--@if($layout_info->quick_right_content)-->
+    {@ $qcr_width = 132}
+    <!--@if($layout_info->quick_right_content_width)-->
+      {@ $qcr_width = $layout_info->quick_right_content_width}
+    <!--@end-->
+    {@ $qcr_top = 80}
+    <!--@if($layout_info->quick_right_content_ptop)-->
+      {@ $qcr_top = $layout_info->quick_right_content_ptop}
+    <!--@end-->
+    <div class="quick_right_content" style="top:{$qcr_top}px; right:-{$qcr_width+10}px; width:{$qcr_width}px;">
+      {$layout_info->quick_right_content}
+    </div>
+  <!--@end-->
+  </div>
+</div>
+<!--@end-->
+
+
+
+<script>
+//팝체크영역 설정 스크립트
+<!--@if($layout_info->show_popcheck!='N')-->
+function setCookie(c_name,value,exdays){
+  var exdate=new Date();
+  exdate.setDate(exdate.getDate() + exdays);
+  var c_value=escape(value) + ((exdays==null) ? "" : "; expires="+exdate.toUTCString());
+  document.cookie=c_name + "=" + c_value;
+}
+function getCookie(c_name){
+  var i,x,y,ARRcookies=document.cookie.split(";");
+  for (i=0;i<ARRcookies.length;i++){
+    x=ARRcookies[i].substr(0,ARRcookies[i].indexOf("="));
+    y=ARRcookies[i].substr(ARRcookies[i].indexOf("=")+1);
+    x=x.replace(/^\s+|\s+$/g,"");
+    if (x==c_name){
+      return unescape(y);
+    }
+  }
+}
+function closePopcheckContent(){
+  if(document.popcheck_content_close_form.popcheck_content_close.checked){
+    setCookie("biz_layout_v1_0", "done", 1);
+    jQuery('.popcheck_content_wrap').fadeOut(500);
+  }
+}
+jQuery(document).ready(function(){
+  if (getCookie("biz_layout_v1_0") != "done"){
+   	setTimeout(function(){
+    	jQuery('.popcheck_content_wrap').fadeIn(500);
+    }, 1000);
+  }
+});
+<!--@end-->
+
+
+jQuery(document).ready(function(){
+  //상단 메뉴효과
+  jQuery('#info').hide();
+	jQuery('#head_other .header_menu').click(function(){
+	  jQuery('#info').slideToggle();
+	});
+	jQuery('#info .button').hover(function(){
+		jQuery(this).addClass('hover');
+  }, function(){
+		jQuery(this).removeClass('hover');
+  });
+
+  <!--@if($layout_info->quick_content_scroll_type=='all')-->
+  // Quick Content 전체 스크롤
+  var currentTop = parseInt(jQuery('.quick_content').css("top"));
+	jQuery(window).scroll(function() {
+    setTimeout(function(){
+  		jQuery('.quick_content').stop().animate({
+    	  top: jQuery(window).scrollTop()+currentTop+"px"
+      }, 500);
+    }, 1000);
+ 	});
+  <!--@else if($layout_info->quick_content_scroll_type=='left')-->
+  // Quick Content 좌측 스크롤
+  var currentTop = parseInt(jQuery('.quick_left_content').css("top"));
+	jQuery(window).scroll(function() {
+    setTimeout(function(){
+  		jQuery('.quick_left_content').stop().animate({
+	  	  top: jQuery(window).scrollTop()+currentTop+"px"
+		  }, 500);
+    }, 1000);
+	});
+  <!--@else if($layout_info->quick_content_scroll_type=='right')-->
+  // Quick Content 우측 스크롤
+  var currentTop = parseInt(jQuery('.quick_right_content').css("top"));
+	jQuery(window).scroll(function() {
+    setTimeout(function(){
+  		jQuery('.quick_right_content').stop().animate({
+	  	  top: jQuery(window).scrollTop()+currentTop+"px"
+		  }, 500);
+    }, 1000);
+	});
+  <!--@end-->
+});
+</script>

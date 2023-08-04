@@ -1,0 +1,765 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout version="0.2">
+    <title xml:lang="ko">XE 선우NSL(일반용) 레이아웃</title>
+    <title xml:lang="en">XE SunooNSL(general) Layout</title>
+    <title xml:lang="jp">XE SunooNSL(一般的な) Layout</title>
+    <title xml:lang="zh-CN">XE SunooNSL(一般) Layout</title>
+    <title xml:lang="zh-TW">XE SunooNSL(一般) Layout</title>
+    <description xml:lang="ko">
+        XE 선우NSL(left) 일반용 레이아웃입니다.
+        디자인,HTML/CSS : 선우(善友)
+    </description>
+    <description xml:lang="en">
+        XE SunooNSL(left) General Website-Layout
+        Designer,HTML/CSS：Sunoo
+    </description>
+    <description xml:lang="jp">
+        XE SunooNSL(left) 一般的なウェブサイト-レイアウト
+        Designer,HTML/CSS：善友
+    </description>
+    <description xml:lang="zh-CN">
+        XE SunooNSL(left) 通用?址布局
+        Designer,HTML/CSS：善友
+    </description>
+    <description xml:lang="zh-TW">
+        XE SunooNSL(left) 通用網址佈局
+        Designer,HTML/CSS：善友
+    </description>
+    <version>1.0</version>
+    <date>2011-01-05</date>
+    <link>http://www.goodpr.me</link>
+
+    <author email_address="sunooky@hanmail.net" link="http://www.goodpr.me">
+        <name xml:lang="ko">선우(善友)</name>
+        <name xml:lang="en">Sunoo</name>
+        <name xml:lang="jp">善友</name>
+        <name xml:lang="zh-CN">善友</name>
+        <name xml:lang="zh-TW">善友</name>
+    </author>
+
+    <extra_vars>
+        <var name="colorset" type="select">
+            <title xml:lang="ko">컬러셋</title>
+            <title xml:lang="en">Colorset</title>
+            <title xml:lang="jp">カラ?セット</title>
+            <title xml:lang="zh-CN">?色</title>
+            <title xml:lang="zh-TW">?色設定</title>
+            <description xml:lang="ko">원하시는 컬러셋을 선택해주세요.</description>
+            <description xml:lang="en">Please select a colorset you want.</description>
+            <description xml:lang="jp">希望するカラ?セットを選?して下さい。</description>
+            <description xml:lang="zh-CN">????色。</description>
+            <description xml:lang="zh-TW">請選擇?色。</description>
+            <options value="default">
+                <title xml:lang="ko">기본</title>
+                <title xml:lang="en">Basic</title>
+                <title xml:lang="jp">デフォルト</title>
+                <title xml:lang="zh-CN">默?</title>
+                <title xml:lang="zh-TW">預設</title>
+            </options>
+            <options value="spring">
+                <title xml:lang="ko">녹색(봄)</title>
+                <title xml:lang="en">spring</title>
+                <title xml:lang="jp">春</title>
+                <title xml:lang="zh-CN">春天</title>
+                <title xml:lang="zh-TW">春天</title>
+            </options>
+            <options value="summer">
+                <title xml:lang="ko">청색(여름)</title>
+                <title xml:lang="en">summer</title>
+                <title xml:lang="jp">夏</title>
+                <title xml:lang="zh-CN">夏天</title>
+                <title xml:lang="zh-TW">夏天</title>
+            </options>
+            <options value="autumn">
+                <title xml:lang="ko">갈색(가을)</title>
+                <title xml:lang="en">autumn</title>
+                <title xml:lang="jp">秋</title>
+                <title xml:lang="zh-CN">秋季</title>
+                <title xml:lang="zh-TW">秋季</title>
+            </options>
+            <options value="winter">
+                <title xml:lang="ko">회색(겨울)</title>
+                <title xml:lang="en">winter</title>
+                <title xml:lang="jp">冬</title>
+                <title xml:lang="zh-CN">冬天</title>
+                <title xml:lang="zh-TW">冬天</title>
+            </options>
+        </var>
+        <var name="bodyWrap_width" type="text">
+           <title xml:lang="ko">레이아웃 가로폭 설정</title>
+           <title xml:lang="en">Setting layout width</title>
+           <title xml:lang="jp">レイアウトの幅を設定する</title>
+           <title xml:lang="zh-CN">?置布局?度</title>
+           <title xml:lang="zh-TW">設置佈局寬度</title>
+           <description xml:lang="ko">홈페이지 가로폭 크기를 조정할 수 있습니다. 숫자로만 입력하세요.(예시:950) 입력하지 않으면 980px로 적용됨.</description>
+           <description xml:lang="en">You can resize the width of the layout. Please enter numbers only.(ex:950)</description>
+           <description xml:lang="jp">現在は、レイアウトの幅を?更することができます。してください?字のみを入力します。</description>
+           <description xml:lang="zh-CN">?可以?整布局的?度。??入?字只。</description>
+			     <description xml:lang="zh-TW">?可以調整寬度佈局。請輸入數字只。</description>
+        </var>
+        <var name="background_image" type="image">
+            <title xml:lang="ko">배경이미지 바꾸기</title>
+            <title xml:lang="en">Background(image), Change</title>
+            <title xml:lang="jp">背景(?像)を?更する</title>
+            <title xml:lang="zh-CN">背景(?片)，更改</title>
+            <title xml:lang="zh-TW">背景(圖片)，更改</title>
+            <description xml:lang="ko">레이아웃 전체 배경 이미지를 변경해서 사용하시려면 원하는 이미지를 등록해주세요.</description>
+            <description xml:lang="en">Please input if you want to use background image.</description>
+            <description xml:lang="jp">背景イメ?ジを使う場合は、登?して下さい。</description>
+            <description xml:lang="zh-CN">要想使用背景?片?在?里上?。</description>
+            <description xml:lang="zh-TW">請在這裡上傳想要使用的背景圖片。</description>
+        </var>
+        <var name="background_style" type="select">
+            <title xml:lang="ko">배경이미지 적용유형 선택</title>
+            <title xml:lang="en">Choose the type of background image</title>
+            <title xml:lang="jp">背景イメ?ジの種類を選?</title>
+            <title xml:lang="zh-CN">??背景?像?型</title>
+            <title xml:lang="zh-TW">選擇背景圖像類型</title>
+            <description xml:lang="ko">배경 이미지의 반복 유형을 선택하세요. 기본 선택은 가로축 반복임. </description>
+            <description xml:lang="en">Choose the type of the repeating background image.</description>
+            <description xml:lang="jp">繰り返し背景?像のタイプを選?します。</description>
+            <description xml:lang="zh-CN">??重?背景?像?型。</description>
+            <description xml:lang="zh-TW">選擇類型重複背景圖像。</description>
+            <options value="X">
+              <title xml:lang="ko">가로축 반복</title>
+              <title xml:lang="en">Horizontal Repeat</title>
+              <title xml:lang="jp">水平方向の繰り返し</title>
+              <title xml:lang="zh-CN">?向重?</title>
+              <title xml:lang="zh-TW">橫向重複</title>
+            </options>
+            <options value="Y">
+              <title xml:lang="ko">세로축 반복</title>
+              <title xml:lang="en">Vertical Repeat</title>
+              <title xml:lang="jp">垂直方向の繰り返し</title>
+              <title xml:lang="zh-CN">?向重?</title>
+              <title xml:lang="zh-TW">縱向重複</title>
+            </options>
+            <options value="XY">
+              <title xml:lang="ko">전체면 반복</title>
+              <title xml:lang="en">All Repeat</title>
+              <title xml:lang="jp">すべての繰り返し</title>
+              <title xml:lang="zh-CN">所有重?</title>
+              <title xml:lang="zh-TW">所有重複</title>
+            </options>
+            <options value="N">
+              <title xml:lang="ko">반복 안함</title>
+              <title xml:lang="en">No Repeat</title>
+              <title xml:lang="jp">いいえ繰り返します。</title>
+              <title xml:lang="zh-CN">不重?</title>
+              <title xml:lang="zh-TW">不重複</title>
+            </options>
+        </var>
+        <var name="top_line" type="select">
+            <title xml:lang="ko">답메뉴라인 사용 선택</title>
+            <title xml:lang="en">Choose to use the top menu line.</title>
+            <title xml:lang="jp">トップメニュ?の行を使用して選?します。</title>
+            <title xml:lang="zh-CN">??使用?部的菜?行。</title>
+            <title xml:lang="zh-TW">選擇使用頂部的菜單行。</title>
+            <description xml:lang="ko">레이아웃 최상단에 탑메뉴 라인을 사용하려면 선택하세요.(탑메뉴라인에는 탑메모,탑메뉴,즐겨찾기추가,언어선택탭 등이 있음.)</description>
+            <description xml:lang="en">The top menu line at the top of the Layout, choose to use.</description>
+            <description xml:lang="jp">レイアウトの上部にある上部のメニュ?行を使用して選?します。</description>
+            <description xml:lang="zh-CN">在布局最上方菜?行，??使用。</description>
+            <description xml:lang="zh-TW">頂部的菜單線在頂部的佈局，選擇使用。</description>
+            <options value="Y">
+              <title xml:lang="ko">사용함</title>
+              <title xml:lang="en">Is used</title>
+              <title xml:lang="jp">使用されるか</title>
+              <title xml:lang="zh-CN">使用</title>
+              <title xml:lang="zh-TW">使用</title>
+            </options>
+            <options value="N">
+              <title xml:lang="ko">사용안함</title>
+              <title xml:lang="en">Not used</title>
+              <title xml:lang="jp">未使用</title>
+              <title xml:lang="zh-CN">未使用</title>
+              <title xml:lang="zh-TW">未使用</title>
+            </options>
+        </var>
+        <var name="topline_bgcolor" type="text">
+            <title xml:lang="ko">탑메뉴라인 배경색 설정</title>
+            <title xml:lang="en">Setting the background color of top_line</title>
+            <title xml:lang="jp">top_lineの背景色を設定</title>
+            <title xml:lang="zh-CN">?置背景色的top_line</title>
+            <title xml:lang="zh-TW">設置背景?色 top_line</title>
+            <description xml:lang="ko">탑메뉴라인에 배경색을 넣으려면 색상코드를 입력하세요. (예시: #f8fad5 또는 blue 입력하지 않으면 배경색은 투명색임.)</description>
+            <description xml:lang="en">Enter color code. This is displayed as the background of top_line. (ex:#f8fad5 or blue) </description>
+            <description xml:lang="jp">カラ?コ?ドを入力します。 このtop_lineの背景として表示されます。(ex:#f8fad5 or blue)</description>
+            <description xml:lang="zh-CN">?入?色代?。?是?示?背景的top_line。(ex:#f8fad5 or blue)</description>
+            <description xml:lang="zh-TW">輸入?色代碼。這是顯示?背景top_line。(ex:#f8fad5 or blue)</description>
+        </var>
+        <var name="top_memo" type="text">
+            <title xml:lang="ko">탑라인의 좌측 메모작성</title>
+            <title xml:lang="en">Write a note on the top_line</title>
+            <title xml:lang="jp">top_lineにお書きください</title>
+            <title xml:lang="zh-CN">?一??于在top_line</title>
+            <title xml:lang="zh-TW">寫一?關於在top_line</title>
+            <description xml:lang="ko">탑메뉴라인의 좌측에 간단한 문구를 표시하려면 메모를 작성하세요. (예시: 본 홈페이지는 여러분을 응원합니다. !!!)</description>
+            <description xml:lang="en">Enter the content. Short text is displayed at the top.</description>
+            <description xml:lang="jp">コンテンツを入力します。短いテキストの上部に表示されます。</description>
+            <description xml:lang="zh-CN">?入?容。?短的文字??示在?部。</description>
+            <description xml:lang="zh-TW">輸入內容。簡短的文字將顯示在頂部。</description>
+        </var>
+        <var name="languageToggle_use" type="select">
+            <title xml:lang="ko">언어 전환탭 사용선택</title>
+            <title xml:lang="en">Choose to use the switch of language toggle.</title>
+            <title xml:lang="jp">言語の切り替えのスイッチを使用して選?します。</title>
+            <title xml:lang="zh-CN">??使用?言的切???。</title>
+            <title xml:lang="zh-TW">選擇使用語言的切換開關。</title>
+            <description xml:lang="ko">레이아웃 최상단(탑메뉴 라인) 우측의 "언어 선택 메뉴"를 사용하려면 선택하세요.</description>
+            <description xml:lang="en">Choose to use the switch of language toggle at the right top of the Layout.</description>
+            <description xml:lang="jp">レイアウトの右上部にある言語の切り替えのスイッチを使用して選?します。</description>
+            <description xml:lang="zh-CN">??使用在布局右上角的?言切???。</description>
+            <description xml:lang="zh-TW">選擇使用的語言切換開關在右上角的佈局。</description>
+            <options value="Y">
+              <title xml:lang="ko">사용함</title>
+              <title xml:lang="en">Is used</title>
+              <title xml:lang="jp">使用されるか</title>
+              <title xml:lang="zh-CN">使用</title>
+              <title xml:lang="zh-TW">使用</title>
+            </options>
+            <options value="N">
+              <title xml:lang="ko">사용안함</title>
+              <title xml:lang="en">Not used</title>
+              <title xml:lang="jp">未使用</title>
+              <title xml:lang="zh-CN">未使用</title>
+              <title xml:lang="zh-TW">未使用</title>
+            </options>
+        </var>
+        <var name="fasite_name" type="text">
+            <title xml:lang="ko">즐겨찾기 홈페이지 이름</title>
+            <title xml:lang="en">Name of favorite on the top</title>
+            <title xml:lang="jp">上にお?に入りの名前</title>
+            <title xml:lang="zh-CN">最喜?的名?在?部</title>
+            <title xml:lang="zh-TW">最喜歡的名稱在頂部</title>
+            <description xml:lang="ko">탑메뉴라인의 우측에 즐겨찾기추가 메뉴를 클릭했을 때 기록될 자신의 홈페이지 이름을 입력하세요.</description>
+            <description xml:lang="en">Users add to bookmark the my site. Enter the name of my site.</description>
+            <description xml:lang="jp">ユ?ザ?は、自分のサイトをブックマ?クに追加します。私のサイトの名前を入力します。</description>
+            <description xml:lang="zh-CN">用?添加到??的我的?站。?入我的?站的名?。</description>
+            <description xml:lang="zh-TW">用戶添加到書籤的我的網站。輸入我的網站名稱。</description>
+        </var>
+        <var name="topImage_select" type="select">
+            <title xml:lang="ko">상단이미지 파일유형 선택</title>
+            <title xml:lang="en">select the file type of the top image</title>
+            <title xml:lang="jp">上の?像のファイルタイプを選?する</title>
+            <title xml:lang="zh-CN">??最?像文件?型</title>
+            <title xml:lang="zh-TW">選擇文件類型的前形象</title>
+            <description xml:lang="ko">상단 이미지로 적용할 이미지 파일의 유형을 선택해 주세요.</description>
+            <description xml:lang="en">select the type of image file. applied to the top image.</description>
+            <description xml:lang="jp">イメ?ジファイルのタイプを選?します。上の?像に適用されます。</description>
+            <description xml:lang="zh-CN">???像文件?型。适用于?端的形象。</description>
+            <description xml:lang="zh-TW">選擇類型的圖像文件。適用於頂端的形象。</description>
+            <options value="PI">
+              <title xml:lang="ko">사진 이미지</title>
+              <title xml:lang="en">Photo images</title>
+              <title xml:lang="jp">???像</title>
+              <title xml:lang="zh-CN">照片?像</title>
+              <title xml:lang="zh-TW">照片圖像</title>
+            </options>
+            <options value="FI">
+              <title xml:lang="ko">플래시 이미지</title>
+              <title xml:lang="en">Flash Image</title>
+              <title xml:lang="jp">フラッシュイメ?ジ</title>
+              <title xml:lang="zh-CN">Flash?片</title>
+              <title xml:lang="zh-TW">Flash圖片</title>
+            </options>
+        </var>
+        <var name="top_image" type="image">
+            <title xml:lang="ko">상단 이미지 바꾸기</title>
+            <title xml:lang="en">Replace the top_image</title>
+            <title xml:lang="jp">置換top_image</title>
+            <title xml:lang="zh-CN">替?top_image</title>
+            <title xml:lang="zh-TW">替換 top_image</title>
+            <description xml:lang="ko">상단에 이미지를 바꾸려면 파일 유형과 크기에 알맞은 이미지를 넣어주세요.(가로:홈페이지 가로폭 설정값, 세로:상단이미지 세로폭 설정값, / 상단이미지 파일유형에서 선택한 유형의 파일을 업로드 해야 합니다.)</description>
+            <description xml:lang="en">To change the image at the top of the file types and sizes, please insert the appropriate image.</description>
+            <description xml:lang="jp">ファイルの種類とサイズの上部には、適切なイメ?ジを?入してください?像を?更してください。</description>
+            <description xml:lang="zh-CN">要更改?文件的?型和?模的?部的?片，??入相?的?像。</description>
+            <description xml:lang="zh-TW">要改變形象，在頂部的文件類型和大小，請?入相應的圖像。</description>
+        </var>
+        <var name="topimage_heightsize" type="text">
+            <title xml:lang="ko">상단이미지 세로폭 조정</title>
+            <title xml:lang="en">Adjust the height of the image at the top</title>
+            <title xml:lang="jp">上部には、イメ?ジの高さを調整</title>
+            <title xml:lang="zh-CN">?整?部的?片的高度</title>
+            <title xml:lang="zh-TW">調整圖片高度頂部</title>
+            <description xml:lang="ko">상단 이미지가 들어갈 영역의 세로폭 크기를 조정할 수 있습니다.숫자로만 입력하세요.(예시:84) 입력하지 않으면 사진이미지 기본 80px, 플래시이미지 기본 120px로 적용됨.</description>
+            <description xml:lang="en">The top image area the height can be adjusted. Please enter numbers only.</description>
+            <description xml:lang="jp">?像?域的最高高度可以?整。??入?字只。</description>
+            <description xml:lang="zh-CN">?像?域的最高高度可以?整。??入?字只。</description>
+            <description xml:lang="zh-TW">圖像區域的最高高度可以調整。請輸入數字只。</description>
+        </var>
+        <var name="logo_image" type="image">
+            <title xml:lang="ko">상단에 로고이미지 넣기</title>
+            <title xml:lang="en">Logo image</title>
+            <title xml:lang="jp">ロゴイメ?ジ</title>
+            <title xml:lang="zh-CN">LOGO?片</title>
+            <title xml:lang="zh-TW">Logo圖片</title>
+            <description xml:lang="ko">레이아웃의 상단에 표시될 로고이미지를 입력하세요. (기본으로 제공된 선우로고 이미지는 가로180px,세로31px의 바탕이 투명한 이미지임)</description>
+            <description xml:lang="en">Please input a logo image which will be displayed on the top of layout. (Transparent image with height of 23px is recommended.)</description>
+            <description xml:lang="jp">レイアウトの上段に表示されるロゴイメ?ジを入力して下さい。 (?幅が23pxである透明イメ?ジをお?めします。。)</description>
+            <description xml:lang="zh-CN">??入?示在布局?部的LOGO?片(高度?23px的透明?片?适)。</description>
+            <description xml:lang="zh-TW">請輸入要顯示在版面上端的Logo圖片。(適當高度?23px的透明圖片。)</description>
+        </var>
+        <var name="index_url" type="text">
+            <title xml:lang="ko">로고이미지 링크 URL</title>
+            <title xml:lang="en">Homepage URL</title>
+            <title xml:lang="jp">ホ?ムペ?ジURL</title>
+            <title xml:lang="zh-CN">主?地址</title>
+            <title xml:lang="zh-TW">主頁網址</title>
+            <description xml:lang="ko">상단 로고를 클릭시에 이동할 홈 페이지 URL을 입력해 주세요. 비워두면 기본페이지로 연결됩니다.</description>
+            <description xml:lang="en">Please input the URL to redirect when user clicks the logo</description>
+            <description xml:lang="jp">ロゴをクリックした時に移動するホ?ムペ?ジのURLを入力して下さい。</description>
+            <description xml:lang="zh-CN">点??站LOGO?要移?的?面URL。</description>
+            <description xml:lang="zh-TW">請輸入當用戶按了網站Logo後，要前往的頁面網址。</description>
+          </var>
+        <var name="logoimg_topspace" type="text">
+            <title xml:lang="ko">상단로고 위 여백 조정</title>
+            <title xml:lang="en">Logo Top margin adjustment</title>
+            <title xml:lang="jp">ロゴの上の余白の調整</title>
+            <title xml:lang="zh-CN">徽?上?距?整</title>
+            <title xml:lang="zh-TW">徽標上邊距調整</title>
+            <description xml:lang="ko">상단 이미지의 세로폭을 변경하였을 경우 여백의 균형을 맞추기 위해 로고이미지의 위쪽 여백을 조정할 수 있습니다.숫자로만 입력해 주세요.(비워두면 35px로 적용됨)</description>
+            <description xml:lang="en">You can adjust the top margin of the logo. Please enter numbers only.</description>
+            <description xml:lang="jp">場合は、ロゴの上の余白を調整することができます。してください?字のみを入力します。</description>
+            <description xml:lang="zh-CN">?可以?整?徽?的?距。??入?字只。</description>
+            <description xml:lang="zh-TW">?可以調整上邊距的標誌。請輸入數字只。</description>
+          </var>
+          <var name="logoimg_leftspace" type="text">
+            <title xml:lang="ko">상단 로고 좌측여백 조정</title>
+            <title xml:lang="en">Logo Left margin adjustment</title>
+            <title xml:lang="jp">ロゴの左マ?ジン調整</title>
+            <title xml:lang="zh-CN">?志左保?金?整</title>
+            <title xml:lang="zh-TW">標誌左保證金調整</title>
+            <description xml:lang="ko">홈페이지의 가로폭을 변경하였을 경우 여백의 균형을 맞추기 위해 로고이미지의 좌측여백을 조정할 수 있습니다.숫자로만 입력해 주세요.(비워두면 5px로 적용됨)</description>
+            <description xml:lang="en">You can adjust the left margin of the logo. Please enter numbers only.</description>
+            <description xml:lang="jp">場合は、ロゴの左の余白を調整することができます。してください?字のみを入力します。</description>
+            <description xml:lang="zh-CN">?可以?整?志的左?距。??入?字只。</description>
+            <description xml:lang="zh-TW">?可以調整左邊緣的標誌。請輸入數字只。</description>
+          </var>
+          <var name="searchForm_verticalPosition" type="text">
+            <title xml:lang="ko">검색폼 세로위치 조정</title>
+            <title xml:lang="en">Search_form vertical position adjustment</title>
+            <title xml:lang="jp">Search_form 垂直方向の位置調整</title>
+            <title xml:lang="zh-CN">Search_form 垂直位置?整</title>
+            <title xml:lang="zh-TW">Search_form 垂直位置調整</title>
+            <description xml:lang="ko">검색폼의 세로 위치을 조정할 수 있습니다.숫자로만 입력해 주세요.(기본5px보다 큰 값을 입력하면 아래쪽으로 이동함. 라인형 로그인폼에는 적용 안 됨.)</description>
+            <description xml:lang="en">Please enter numbers only. Search form, you can adjust the vertical position.(Enter a value greater than the base 5px redirects you to the bottom.)</description>
+            <description xml:lang="jp">?字のみを入力してください。Search form, あなたは垂直方向の位置を調整することができます。</description>
+            <description xml:lang="zh-CN">???入?字。 Search form, ?可以?整垂直位置。</description>
+            <description xml:lang="zh-TW">請僅輸入數字。 Search form, ?可以調整垂直位置。</description>
+          </var>
+          <var name="searchForm_horizontalPosition" type="text">
+            <title xml:lang="ko">검색폼 가로위치 조정</title>
+            <title xml:lang="en">Search_form horizontal position adjustment</title>
+            <title xml:lang="jp">Search_form 水平方向の位置調整</title>
+            <title xml:lang="zh-CN">Search_form 水平位置?整</title>
+            <title xml:lang="zh-TW">Search_form 水平位置調整</title>
+            <description xml:lang="ko">검색폼의 가로 위치를 조정할 수 있습니다. 숫자로만 입력해 주세요.(기본 5px보다 큰 값을 입력하면 좌측으로 이동함. 라인형 로그인폼에는 적용 안 됨.)</description>
+            <description xml:lang="en">Please enter numbers only. Search form, you can adjust the horizontal position.(If you enter a value greater than the base 5px redirects to the left.)</description>
+            <description xml:lang="jp">?字のみを入力してください。 Search form, あなたが水平方向の位置を調整することができます。</description>
+            <description xml:lang="zh-CN">???入?字。 Search form, ?可以?整水平位置。</description>
+            <description xml:lang="zh-TW">請僅輸入數字。 Search form, ?可以調整水平位置。</description>
+          </var>
+          <var name="menuVr_split" type="select">
+            <title xml:lang="ko">메인메뉴바 분할 선택</title>
+            <title xml:lang="en">Whether to split the menu bar, select</title>
+            <title xml:lang="jp">かどうか、メニュ?バ?、選?を分割する</title>
+            <title xml:lang="zh-CN">不管分裂菜??中??</title>
+            <title xml:lang="zh-TW">不管分裂菜單欄中選擇</title>
+            <description xml:lang="ko">메뉴바를 분할해야 엑세스메뉴(Login,Register,SiteMap)를 별도로 사용할 수 있습니다. 메뉴의 갯수가 많아서 메뉴바에 모두 다 표시하지 못할 때에는 분할하지 않는 것이 좋습니다.</description>
+            <description xml:lang="en">You can split the menu bar.</description>
+            <description xml:lang="jp">場合は、メニュ?バ?を分割することができます。</description>
+            <description xml:lang="zh-CN">?可以分裂的菜??。</description>
+            <description xml:lang="zh-TW">?可以分裂的菜單欄。</description>
+            <options value="Y">
+              <title xml:lang="ko">분할함</title>
+              <title xml:lang="en">Split</title>
+              <title xml:lang="jp">分割する</title>
+              <title xml:lang="zh-CN">裂?</title>
+              <title xml:lang="zh-TW">裂開</title>
+            </options>
+            <options value="N">
+              <title xml:lang="ko">분할안함</title>
+              <title xml:lang="en">Does not divide</title>
+              <title xml:lang="jp">分割しない</title>
+              <title xml:lang="zh-CN">不分裂</title>
+              <title xml:lang="zh-TW">不分裂</title>
+            </options>
+        </var>
+        <var name="mainMenu_leftMargin" type="text">
+            <title xml:lang="ko">메인메뉴 좌측여백 조정</title>
+            <title xml:lang="en">Main menu left margin adjustment</title>
+            <title xml:lang="jp">メインメニュ?は、余白の調整を?しました</title>
+            <title xml:lang="zh-CN">主菜?的左?距?整</title>
+            <title xml:lang="zh-TW">主菜單的左邊距調整</title>
+            <description xml:lang="ko">메인메뉴의 좌측여백을 조정할 수 있습니다. 숫자로만 입력해 주세요.(기본 0px, 10px보다 큰 값을 입력하면 메인메뉴 전체가 우측으로 이동함.)</description>
+            <description xml:lang="en">Please enter numbers only. you can adjust the left margin of main menu.(If you enter a value greater than the base 0px, all the main menu is moved to the right.)</description>
+            <description xml:lang="jp">?字のみを入力してください。 は、メインメニュ?の左マ?ジンを調整することができます。</description>
+            <description xml:lang="zh-CN">???入?字。 ?可以?整主菜?的左?距。</description>
+            <description xml:lang="zh-TW">請僅輸入數字。 ?可以調整左緣主菜單。</description>
+          </var>
+        <var name="contentBody_background" type="select">
+            <title xml:lang="ko">본문에 배경색 사용선택</title>
+            <title xml:lang="en">Choose to use the background color of content area.</title>
+            <title xml:lang="jp">コンテンツエリアの背景色を使用して選?します。</title>
+            <title xml:lang="zh-CN">??使用的?容?域的背景?色。</title>
+            <title xml:lang="zh-TW">選擇使用的背景?色的內容區域。</title>
+            <description xml:lang="ko">본문에 배경색 적용 여부를 선택할 수 있습니다. '사용함'으로 선택하면 기본 흰색이 적용됨. 아래의 배경색 설정에서 색상을 변경할 수 있음. </description>
+            <description xml:lang="en">You can choose to use the background color of content area.</description>
+            <description xml:lang="jp">あなたのコンテンツ領域の背景色を使用することを選?することができます。</description>
+            <description xml:lang="zh-CN">?可以??使用的?容?域的背景?色。</description>
+            <description xml:lang="zh-TW">?可以選擇使用的背景?色的內容區域。</description>
+            <options value="N">
+              <title xml:lang="ko">사용안함</title>
+              <title xml:lang="en">Not used</title>
+              <title xml:lang="jp">未使用</title>
+              <title xml:lang="zh-CN">未使用</title>
+              <title xml:lang="zh-TW">未使用</title>
+            </options>
+            <options value="Y">
+              <title xml:lang="ko">사용함</title>
+              <title xml:lang="en">Is used</title>
+              <title xml:lang="jp">使用されるか</title>
+              <title xml:lang="zh-CN">使用</title>
+              <title xml:lang="zh-TW">使用</title>
+            </options>
+        </var>
+        <var name="contentBody_bgcolor" type="text">
+            <title xml:lang="ko">본문의 배경색 설정</title>
+            <title xml:lang="en">Setting the background color of content area.</title>
+            <title xml:lang="jp">コンテンツエリアの背景色を設定します。</title>
+            <title xml:lang="zh-CN">?置?容?域的背景?色。</title>
+            <title xml:lang="zh-TW">設置內容區域的背景?色。</title>
+            <description xml:lang="ko">위의 본문배경색 사용선택에서 '사용함'으로 했을 경우, 본문영역에 배경색을 넣으려면 색상코드를 입력하세요. (예시: #eaf9fe 또는 yellow. 입력하지 않으면 배경색은 흰색입니다.)</description>
+            <description xml:lang="en">To put a background color for the body area, please enter the code.(ex: #eaf9fe or yellow)</description>
+            <description xml:lang="jp">本?領域の背景色を配置するには、コ?ドを入力してください。(ex: #eaf9fe or yellow)</description>
+            <description xml:lang="zh-CN">把一?人的身??域的背景?色，??入代?。(ex: #eaf9fe or yellow)</description>
+            <description xml:lang="zh-TW">把背景?色?主體區域，請輸入代碼。(ex: #eaf9fe or yellow)</description>
+        </var>
+          <var name="layout_style" type="select">
+            <title xml:lang="ko">본문 분할여부 선택</title>
+            <title xml:lang="en">Choosing whether to split the contents area.</title>
+            <title xml:lang="jp">コンテンツ領域を分割するかどうかを選?。</title>
+            <title xml:lang="zh-CN">??是否要分割的?容?域。</title>
+            <title xml:lang="zh-TW">選擇是否要分割的內容區域。</title>
+            <description xml:lang="ko">레이아웃의 본문 영역을 분할하여 사용하려면 선택해 주세요.</description>
+            <description xml:lang="en">select if you want to divide the column.</description>
+            <description xml:lang="jp">あなたには、列を分割する場合は選?してください。</description>
+            <description xml:lang="zh-CN">如果???要?分列。</description>
+            <description xml:lang="zh-TW">如果?選擇要劃分列。</description>
+            <options value="towcolumn">
+              <title xml:lang="ko">좌측분할형(2컬럼)</title>
+              <title xml:lang="en">two column</title>
+              <title xml:lang="jp">二つの列</title>
+              <title xml:lang="zh-CN">?列</title>
+              <title xml:lang="zh-TW">兩列</title>
+            </options>
+            <options value="onecolumn">
+              <title xml:lang="ko">분할안함(1컬럼)</title>
+              <title xml:lang="en">not divide</title>
+              <title xml:lang="jp">は分割</title>
+              <title xml:lang="zh-CN">不分</title>
+              <title xml:lang="zh-TW">不分</title>
+            </options>
+        </var>
+        <var name="column_divisionLine" type="select">
+            <title xml:lang="ko">좌,우 컬럼 구분선 사용</title>
+            <title xml:lang="en">select, column division line</title>
+            <title xml:lang="jp">を選?し、列分割線</title>
+            <title xml:lang="zh-CN">??，列分界?</title>
+            <title xml:lang="zh-TW">選擇，列分界線</title>
+            <description xml:lang="ko">좌,우 컬럼 사이에 구분선을 사용하려면 선택해 주세요.</description>
+            <description xml:lang="en">select if you want to use a column division line.</description>
+            <description xml:lang="jp">あなたは、列の分割線を使用する場合は選?してください。</description>
+            <description xml:lang="zh-CN">??是否要使用一列分界?。</description>
+            <description xml:lang="zh-TW">選擇是否要使用一列分界線。</description>
+            <options value="Y">
+              <title xml:lang="ko">사용함</title>
+              <title xml:lang="en">use</title>
+              <title xml:lang="jp">使用する</title>
+              <title xml:lang="zh-CN">使用</title>
+              <title xml:lang="zh-TW">使用</title>
+            </options>
+            <options value="N">
+              <title xml:lang="ko">사용안함</title>
+              <title xml:lang="en">Not use</title>
+              <title xml:lang="jp">使用していない</title>
+              <title xml:lang="zh-CN">不使用</title>
+              <title xml:lang="zh-TW">不使用</title>
+            </options>
+        </var>
+        <var name="login_select" type="select">
+            <title xml:lang="ko">로그인박스 사용 선택</title>
+            <title xml:lang="en">select, login_form</title>
+            <title xml:lang="jp">選?, login_form</title>
+            <title xml:lang="zh-CN">??, login_form</title>
+            <title xml:lang="zh-TW">選擇, login_form</title>
+            <description xml:lang="ko">로그인박스를 사용 여부를 선택해 주세요.</description>
+            <description xml:lang="en">select if you want to use favorite a login form.</description>
+            <description xml:lang="jp">あなたの好きなログインフォ?ムを使用する場合は選?してください。</description>
+            <description xml:lang="zh-CN">如果?想??最喜?用一?登?表?。</description>
+            <description xml:lang="zh-TW">如果?想選擇最喜歡用一個登錄表單。</description>
+            <options value="B">
+              <title xml:lang="ko">사용함</title>
+              <title xml:lang="en">default style</title>
+              <title xml:lang="jp">?定のスタイル</title>
+              <title xml:lang="zh-CN">默??格</title>
+              <title xml:lang="zh-TW">默認風格</title>
+            </options>
+            <options value="Not">
+              <title xml:lang="ko">사용안함</title>
+              <title xml:lang="en">Not used</title>
+              <title xml:lang="jp">未使用</title>
+              <title xml:lang="zh-CN">未使用</title>
+              <title xml:lang="zh-TW">未使用</title>
+            </options>
+        </var>
+        <var name="left_menu" type="select">
+            <title xml:lang="ko">좌측메뉴 사용여부 선택</title>
+            <title xml:lang="en">Left menus used whether Select</title>
+            <title xml:lang="jp">左のメニュ?を使用するかどうかを選?</title>
+            <title xml:lang="zh-CN">左菜???是否使用</title>
+            <title xml:lang="zh-TW">左菜單選擇是否使用</title>
+            <description xml:lang="ko">좌측 컬럼에 서브메뉴를 사용하시려면 선택해 주세요.</description>
+            <description xml:lang="en">select if you want to use a left menu in side column.</description>
+            <description xml:lang="jp">場合は、左のメニュ?を使用して選?します。</description>
+            <description xml:lang="zh-CN">???想使用左菜?。</description>
+            <description xml:lang="zh-TW">選擇?想使用左菜單。</description>
+            <options value="Y">
+              <title xml:lang="ko">사용함</title>
+              <title xml:lang="en">Is used</title>
+              <title xml:lang="jp">使用されるか</title>
+              <title xml:lang="zh-CN">使用</title>
+              <title xml:lang="zh-TW">使用</title>
+            </options>
+            <options value="N">
+              <title xml:lang="ko">사용안함</title>
+              <title xml:lang="en">Not used</title>
+              <title xml:lang="jp">未使用</title>
+              <title xml:lang="zh-CN">未使用</title>
+              <title xml:lang="zh-TW">未使用</title>
+            </options>
+        </var>
+        <var name="calendar_use" type="select">
+            <title xml:lang="ko">달력 사용 여부 선택</title>
+            <title xml:lang="en">Choose whether to use a calendar</title>
+            <title xml:lang="jp">かどうかをカレンダ?を使用するかを選?</title>
+            <title xml:lang="zh-CN">??是否使用日?</title>
+            <title xml:lang="zh-TW">選擇是否使用日曆</title>
+            <description xml:lang="ko">좌측 컬럼에 달력을 사용하시려면 선택해 주세요.</description>
+            <description xml:lang="en">select if you want to use a calendar in side column.</description>
+            <description xml:lang="jp">場合は、カレンダ?を使用するように選?します。</description>
+            <description xml:lang="zh-CN">???想使用的日?。</description>
+            <description xml:lang="zh-TW">選擇?想使用的日曆。</description>
+            <options value="Y">
+              <title xml:lang="ko">사용함</title>
+              <title xml:lang="en">Is used</title>
+              <title xml:lang="jp">使用されるか</title>
+              <title xml:lang="zh-CN">使用</title>
+              <title xml:lang="zh-TW">使用</title>
+            </options>
+            <options value="N">
+              <title xml:lang="ko">사용안함</title>
+              <title xml:lang="en">Not used</title>
+              <title xml:lang="jp">未使用</title>
+              <title xml:lang="zh-CN">未使用</title>
+              <title xml:lang="zh-TW">未使用</title>
+            </options>
+        </var>
+        <var name="widgetA_title" type="text">
+            <title xml:lang="ko">위젯(1) 제목입력</title>
+            <title xml:lang="en">Enter the title of the widget(1)</title>
+            <title xml:lang="jp">ウィジェット（1）のタイトルを入力してください</title>
+            <title xml:lang="zh-CN">?入部件（1）??</title>
+            <title xml:lang="zh-TW">輸入標題的widget（1）</title>
+            <description xml:lang="ko">좌측컬럼의 위젯(1)에 표시할 제목을 입력해 주세요. 제목을 넣지 않으면 아래에 입력한 위젯내용으로 제목없는 위젯박스만 나타납니다.</description>
+            <description xml:lang="en">Please input the title, if you want to the title of the widget(1).</description>
+            <description xml:lang="jp">あなたがウィジェット（1）のタイトルにしたい場合は、入力にタイトルをしてください。</description>
+            <description xml:lang="zh-CN">??入??，如果?想要的小部件（1）??。</description>
+            <description xml:lang="zh-TW">請輸入標題，如果?想要的標題小部件（1）。</description>
+        </var>
+        <var name="widgetA_text" type="textarea">
+            <title xml:lang="ko">위젯(1) 내용입력</title>
+            <title xml:lang="en">Widget (1) of the source code input</title>
+            <title xml:lang="jp">ウィジェット（1）コ?ドの入力</title>
+            <title xml:lang="zh-CN">小工具（1）??入</title>
+            <title xml:lang="zh-TW">小工具（1）碼輸入</title>
+            <description xml:lang="ko">위젯(1)박스 안에 위젯을 표시하려면 위젯코드를 넣어 주세요.( 위젯 코드는 관리자페이지-->사이트설정-->"위젯"에서 생성할 수 있습니다.)</description>
+            <description xml:lang="en">Please input widget code if you want to use the widget(1) box.</description>
+            <description xml:lang="jp">ウィジェットを（1）]ボックスに使用する場合は、入力ウィジェットのコ?ドをしてください。</description>
+            <description xml:lang="zh-CN">??入部件代?，如果?想使用widget（1）?。</description>
+            <description xml:lang="zh-TW">請輸入部件代碼，如果?想使用widget（1）?。</description>
+        </var>
+        <var name="widgetB_title" type="text">
+            <title xml:lang="ko">위젯(2) 제목입력</title>
+            <title xml:lang="en">Enter the title of the widget(2)</title>
+            <title xml:lang="jp">ウィジェット（2）のタイトルを入力してください</title>
+            <title xml:lang="zh-CN">?入部件（2）??</title>
+            <title xml:lang="zh-TW">輸入標題的widget（2）</title>
+            <description xml:lang="ko">좌측컬럼의 위젯(2)에 표시할 제목을 입력해 주세요. 제목을 넣지 않으면 아래에 입력한 위젯내용으로 제목없는 위젯박스만 나타납니다.</description>
+            <description xml:lang="en">Please input the title, if you want to the title of the widget(2).</description>
+            <description xml:lang="jp">あなたがウィジェット（2）のタイトルにしたい場合は、入力にタイトルをしてください。</description>
+            <description xml:lang="zh-CN">??入??，如果?想要的小部件（2）??。</description>
+            <description xml:lang="zh-TW">請輸入標題，如果?想要的標題小部件（2）。</description>
+        </var>
+        <var name="widgetB_text" type="textarea">
+            <title xml:lang="ko">위젯(2) 내용입력</title>
+            <title xml:lang="en">Widget (2) of the source code input</title>
+            <title xml:lang="jp">ウィジェット（2）コ?ドの入力</title>
+            <title xml:lang="zh-CN">小工具（2）??入</title>
+            <title xml:lang="zh-TW">小工具（2）碼輸入</title>
+            <description xml:lang="ko">위젯(2)박스 안에 위젯을 표시하려면 위젯코드를 넣어 주세요.( 위젯 코드는 관리자페이지-->사이트설정-->"위젯"에서 생성할 수 있습니다.)</description>
+            <description xml:lang="en">Please input widget code if you want to use the widget(2) box.</description>
+            <description xml:lang="jp">ウィジェットを（2）]ボックスに使用する場合は、入力ウィジェットのコ?ドをしてください。</description>
+            <description xml:lang="zh-CN">??入部件代?，如果?想使用widget（2）?。</description>
+            <description xml:lang="zh-TW">請輸入部件代碼，如果?想使用widget（2）?。</description>
+        </var>
+        <var name="left_banner" type="image">
+            <title xml:lang="ko">배너 이미지 넣기</title>
+            <title xml:lang="en">Banner image registration</title>
+            <title xml:lang="jp">バナ??像の登?</title>
+            <title xml:lang="zh-CN">?幅?像配准</title>
+            <title xml:lang="zh-TW">橫幅圖像配準</title>
+            <description xml:lang="ko">레이아웃의 좌측칼럼에 배너 이미지를 넣으려면 등록하세요. (가로크기:185px인 이미지)</description>
+            <description xml:lang="en">To display the banner, please insert the banner image.</description>
+            <description xml:lang="jp">は、バナ??像を?入してくださいバナ?を表示します。</description>
+            <description xml:lang="zh-CN">要?示的旗?，??入旗?形象。</description>
+            <description xml:lang="zh-TW">要顯示的旗幟，請?入旗幟形象。</description>
+        </var>
+        <var name="left_banner_url" type="text">
+            <title xml:lang="ko">배너 이미지 연결 URL</title>
+            <title xml:lang="en">Banner Image link URL</title>
+            <title xml:lang="jp">バナ??像リンク先URL</title>
+            <title xml:lang="zh-CN">?幅?片?接?址</title>
+            <title xml:lang="zh-TW">橫幅圖片?接網址</title>
+            <description xml:lang="ko">위에 등록한 배너 이미지를 클릭할 때 이동할 사이트의 URL을 입력해 주세요.</description>
+            <description xml:lang="en">Please input the URL of the site, to move when user clicks the banner image.</description>
+            <description xml:lang="jp">バナ??像をクリックした時に移動するサイトのURLを入力して下さい。</description>
+            <description xml:lang="zh-CN">???站????的?幅?片??入?址。</description>
+            <description xml:lang="zh-TW">訪問網站當?單擊的橫幅圖片請輸入網址。</description>
+          </var>
+        <var name="Counter_use" type="select">
+            <title xml:lang="ko">카운터 사용여부 선택</title>
+            <title xml:lang="en">Choose whether to use the access counter</title>
+            <title xml:lang="jp">アクセスカウンタを使用するかを選?</title>
+            <title xml:lang="zh-CN">??是否使用????器</title>
+            <title xml:lang="zh-TW">選擇是否使用訪問計數器</title>
+            <description xml:lang="ko">좌측컬럼 하단에 접속 카운터를 사용하시려면 선택해 주세요.</description>
+            <description xml:lang="en">select if you want to use a Access counter.</description>
+            <description xml:lang="jp">場合は、アクセスカウンタを使用するを選?します。</description>
+            <description xml:lang="zh-CN">如果???使用????器。</description>
+            <description xml:lang="zh-TW">如果?選擇使用訪問計數器。</description>
+            <options value="Y">
+              <title xml:lang="ko">사용함</title>
+              <title xml:lang="en">Is used</title>
+              <title xml:lang="jp">使用されるか</title>
+              <title xml:lang="zh-CN">使用</title>
+              <title xml:lang="zh-TW">使用</title>
+            </options>
+            <options value="N">
+              <title xml:lang="ko">사용안함</title>
+              <title xml:lang="en">Not used</title>
+              <title xml:lang="jp">未使用</title>
+              <title xml:lang="zh-CN">未使用</title>
+              <title xml:lang="zh-TW">未使用</title>
+            </options>
+        </var>
+        <var name="footer_logo" type="image">
+            <title xml:lang="ko">하단에 로고이미지 넣기</title>
+            <title xml:lang="en">Logo image on the bottom</title>
+            <title xml:lang="jp">下部にあるロゴ?像</title>
+            <title xml:lang="zh-CN">?志?片底部</title>
+            <title xml:lang="zh-TW">標誌圖片底部</title>
+            <description xml:lang="ko">레이아웃의 하단에 표시될 로고이미지를 넣으려면 등록하세요. (기본으로 적용된 이미지는 가로 50px, 세로40px 임.)</description>
+            <description xml:lang="en">Please input a logo image which will be displayed on the bottom of layout.</description>
+            <description xml:lang="jp">レイアウトの下部に表示されます入力してくださいロゴ?像。 </description>
+            <description xml:lang="zh-CN">??入一???形象?在底部?示布局。 </description>
+            <description xml:lang="zh-TW">請輸入標誌圖片將顯示在底部的佈局。 </description>
+        </var>
+        <var name="logo_url" type="text">
+            <title xml:lang="ko">하단 로고이미지 링크 URL</title>
+            <title xml:lang="en">Homepage URL</title>
+            <title xml:lang="jp">ホ?ムペ?ジURL</title>
+            <title xml:lang="zh-CN">主?地址</title>
+            <title xml:lang="zh-TW">主頁網址</title>
+            <description xml:lang="ko">하단 로고를 클릭시에 이동할 홈 페이지 URL을 입력해 주세요.</description>
+            <description xml:lang="en">Please input the URL to redirect when user clicks the logo</description>
+            <description xml:lang="jp">ロゴをクリックした時に移動するホ?ムペ?ジのURLを入力してください。</description>
+            <description xml:lang="zh-CN">点??站LOGO?要移?的?面URL。</description>
+            <description xml:lang="zh-TW">請輸入當用戶按了網站LOGO後，要前往的頁面網址。</description>
+        </var>
+        <var name="bottom_text" type="textarea">
+            <title xml:lang="ko">하단문구(카피라이트) 작성</title>
+            <title xml:lang="en">Written text at the bottom</title>
+            <title xml:lang="jp">下部に書かれたテキスト</title>
+            <title xml:lang="zh-CN">?面文字底部</title>
+            <title xml:lang="zh-TW">書面文字底部</title>
+            <description xml:lang="ko">하단에 카피라이트와 문구를 넣으려면 입력해 주세요.( HTML테그 사용가능.)</description>
+            <description xml:lang="en">Please input if you want to write in the bottom</description>
+            <description xml:lang="jp">入力してくださいする場合は、下に書くこと</description>
+            <description xml:lang="zh-CN">??入?想要?在底部</description>
+            <description xml:lang="zh-TW">請輸入?想要寫在底部</description>
+        </var>
+        <var name="footerlogo_width" type="text">
+            <title xml:lang="ko">하단문구 좌측여백 조정</title>
+            <title xml:lang="en">Adjust the left margin of text on the bottom</title>
+            <title xml:lang="jp">下部のテキストの左余白を調整する</title>
+            <title xml:lang="zh-CN">?整底部的文本的左?距</title>
+            <title xml:lang="zh-TW">左邊距調整上文字的底部</title>
+            <description xml:lang="ko">카피라이트(하단 로고이미지)의 좌측 여백의 간격을 조정할 수 있습니다.숫자로만 입력하세요. 입력하지 않으면 200px로 적용됨. 카피라이트 및 하단문구 전체를 좌,우로 이동할 필요가 있을 때 활용하세요.</description>
+            <description xml:lang="en">Please enter numbers only.</description>
+            <description xml:lang="jp">してください?字のみを入力します。</description>
+            <description xml:lang="zh-CN">??入?字只。</description>
+            <description xml:lang="zh-TW">請輸入數字只。</description>
+        </var>
+        <var name="bottomtext_topspace" type="text">
+            <title xml:lang="ko">하단문구 상단여백 조정</title>
+            <title xml:lang="en">Adjust the top margin of text on the bottom.</title>
+            <title xml:lang="jp">下部にあるテキストの上余白を調整してください。</title>
+            <title xml:lang="zh-CN">?整底部的文本上?距。</title>
+            <title xml:lang="zh-TW">調整上邊距文本在底部。</title>
+            <description xml:lang="ko">카피라이트(하단 로고이미지 포함)의 위쪽 여백의 간격을 조정할 수 있습니다.숫자로만 입력하세요. 입력하지 않으면 기본 8px로 적용됨./하단 로고이미지 및 하단문구 전체를 상,하로 이동할 필요가 있을 때 활용하세요.</description>
+            <description xml:lang="en">Please enter numbers only.</description>
+            <description xml:lang="jp">してください?字のみを入力します。</description>
+            <description xml:lang="zh-CN">??入?字只。</description>
+            <description xml:lang="zh-TW">請輸入數字只。</description>
+        </var>
+        <var name="footer_bgcolor" type="text">
+            <title xml:lang="ko">하단문구영역 배경색설정</title>
+            <title xml:lang="en">Setting the background color at the bottom text area.</title>
+            <title xml:lang="jp">下部のテキストエリアに背景色を設定します。</title>
+            <title xml:lang="zh-CN">?置在底部的文本?域的背景?色。</title>
+            <title xml:lang="zh-TW">設置背景?色，文本區域的底部。</title>
+            <description xml:lang="ko">하단문구(카피라이트)영역에 색상테그를 이용하여 배경색을 바꾸려면 원하는 테그를 넣어주세요.(예시: #f2f4ef 또는 red)</description>
+            <description xml:lang="en">Please input the color code if you want to use the background color at the bottom text area. (ex: #f2f4ef or red)</description>
+            <description xml:lang="jp">あなたは下のテキストエリアに背景色を使用する場合は、入力にカラ?コ?ドをしてください。(ex: #f2f4ef or red)</description>
+            <description xml:lang="zh-CN">??入?色代?如果?想使用底部的文本?域的背景?色。(ex: #f2f4ef or red)</description>
+            <description xml:lang="zh-TW">請輸入?色代碼如果?想使用的背景?色在底部的文本區。(ex: #f2f4ef or red)</description>
+        </var>
+      </extra_vars>
+    <menus>
+        <menu name="top_menu">
+            <title xml:lang="ko">최상단(탑) 메뉴</title>
+            <title xml:lang="en">Top menu</title>
+            <title xml:lang="jp">トップメニュ?</title>
+            <title xml:lang="zh-CN">?部菜?</title>
+            <title xml:lang="zh-TW">頂部菜單</title>
+            <maxdepth>1</maxdepth>
+        </menu>
+        <menu name="main_menu" default="true">
+            <title xml:lang="ko">메인(상단) 메뉴</title>
+            <title xml:lang="en">Main menu</title>
+            <title xml:lang="jp">メインメニュ?</title>
+            <title xml:lang="zh-CN">主菜?</title>
+            <title xml:lang="zh-TW">主選單</title>
+            <maxdepth>4</maxdepth>
+        </menu>
+        <menu name="bottom_menu">
+            <title xml:lang="ko">하단 메뉴 </title>
+            <title xml:lang="en">Bottom menu</title>
+            <title xml:lang="jp">下段用メニュ?</title>
+            <title xml:lang="zh-CN">底部菜?</title>
+            <title xml:lang="zh-TW">底部選單</title>
+            <maxdepth>1</maxdepth>
+        </menu>
+    </menus>
+</layout>

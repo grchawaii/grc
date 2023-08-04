@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<skin version="2.3.1">
+  <title xml:lang="ko">엑스돔 로그인 위젯 v2</title>
+  <description xml:lang="ko">엑스돔 레이아웃 v2 에 적합한 로그인 정보 출력 위젯입니다.</description>
+  <version>2.3.1</version>
+  <date>2010-08-03</date>
+  <link>http://www.xdom.com</link>
+
+  <author email_address="js@live.co.kr" link="http://www.xdom.com">
+      <name xml:lang="ko">엑스돔</name>
+  </author>
+
+  <colorset>
+    <color name="default_xd_2">
+      <title xml:lang="ko">파랑(200px)</title>
+      <title xml:lang="en">blue(200px)</title>
+    </color>
+    <color name="default_xd_3a">
+      <title xml:lang="ko">파랑(150px)</title>
+      <title xml:lang="en">blue(150px)</title>
+    </color>
+    <color name="default_xd_search">
+      <title xml:lang="ko">파랑(175px)</title>
+      <title xml:lang="en">blue(175px)</title>
+    </color>
+    <color name="default_da_main">
+      <title xml:lang="ko">파랑(220px)</title>
+      <title xml:lang="en">blue(220px)</title>
+    </color>
+    <color name="default_co_main">
+      <title xml:lang="ko">파랑(250px)</title>
+      <title xml:lang="en">blue(250px)</title>
+    </color>
+    <color name="default_na_main">
+      <title xml:lang="ko">파랑(280px)</title>
+      <title xml:lang="en">blue(280px)</title>
+    </color>
+  </colorset>
+</skin>

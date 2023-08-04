@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout version="0.2">
+    <title xml:lang="ko">global</title>
+    
+    <description xml:lang="ko">
+        global 레이아웃
+
+    </description>
+    
+	   
+    <version>0.1</version>
+    <date>2013-05-20</date>
+    <link>http://forhanbi.com/</link>
+
+    <author email_address="" link="http://forhanbi.com/">
+        <name xml:lang="ko">HYUN</name>
+		<name xml:lang="en">HYUN</name>
+		<name xml:lang="vi">HYUN</name>
+        
+    </author>
+
+    <extra_vars>
+		<group>
+			<title xml:lang="ko">기본 설정</title>
+			<var name="layout_style" type="select">
+				<title xml:lang="ko">레이아웃 형태</title>
+				<description xml:lang="ko">레이아웃 형태</description>
+				<options value="ece">
+					<title xml:lang="ko">메인페이지용</title>
+				</options>
+				<options value="ec">
+					<title xml:lang="ko">서브페이지용</title>
+				</options>
+				<options value="c">
+					<title xml:lang="ko">로그인 페이지용</title>
+				</options>
+			</var>
+		</group>
+		<group>
+			<title xml:lang="ko">메인페이지</title>
+			<var name="preach" type="text">
+				<title xml:lang="ko">설교안내 바로가기 링크</title>
+				<description xml:alng="ko">설교안내 바로가기 링크를 입력해 주십시오 </description>
+			</var>
+			<var name="worship" type="text">
+				<title xml:lang="ko">예배안내 바로가기 링크</title>
+				<description xml:alng="ko">예배안내 바로가기 링크를 입력해 주십시오 </description>
+			</var>
+			<var name="banner_img1" type="image">
+				<title xml:lang="ko">좌측 배너 이미지1</title>
+				<description xml:alng="ko">좌측 배너 이미지1을 등록해 주십시오 </description>
+			</var>
+			<var name="banner_url1" type="text">
+				<title xml:lang="ko">좌측 배너 이미지1의 링크</title>
+				<description xml:alng="ko">좌측 배너 이미지1을 눌렀을때 이동할 주소 </description>
+			</var>
+			<var name="banner_alt1" type="text">
+				<title xml:lang="ko">좌측 배너 이미지1의 alt</title>
+				<description xml:alng="ko">좌측 배너 이미지1의 alt값을 입력해 주십시오 </description>
+			</var>
+
+			<var name="banner_img2" type="image">
+				<title xml:lang="ko">좌측 배너 이미지2</title>
+				<description xml:alng="ko">좌측 배너 이미지2을 등록해 주십시오 </description>
+			</var>
+			<var name="banner_url2" type="text">
+				<title xml:lang="ko">좌측 배너 이미지2의 링크</title>
+				<description xml:alng="ko">좌측 배너 이미지2을 눌렀을때 이동할 주소 </description>
+			</var>
+			<var name="banner_alt2" type="text">
+				<title xml:lang="ko">좌측 배너 이미지2의 alt</title>
+				<description xml:alng="ko">좌측 배너 이미지2의 alt값을 입력해 주십시오 </description>
+			</var>
+
+
+			<!-- <var name="celebration" type="text">
+				<title xml:lang="ko">찬양과 경배 mid 값</title>
+				<description xml:alng="ko">찬양과 경배 mid 값을 입력해 주십시오 </description>
+			</var> -->
+			<var name="gallery" type="text">
+				<title xml:lang="ko">행사겔러리 mid 값</title>
+				<description xml:alng="ko">행사겔러리 mid 값을 입력해 주십시오 </description>
+			</var>
+		</group>
+    </extra_vars>
+
+    <menus>
+        <menu name="main_menu" maxdepth="3" default="true">
+            <title xml:lang="ko">상단 메뉴</title>
+            <title xml:lang="jp">上段用メニュー</title>
+            <title xml:lang="zh-CN">主菜单</title>
+            <title xml:lang="zh-TW">主選單</title>
+            <title xml:lang="en">Top menu</title>
+            <title xml:lang="ge">Top Menü</title>
+            <title xml:lang="ru">Верхнее меню</title>
+            <title xml:lang="es">Menú Principal</title>
+	    	<title xml:lang="vi">Menu trên</title>
+            <title xml:lang="tr">Ana Menü</title>
+        </menu>
+    </menus>
+</layout>

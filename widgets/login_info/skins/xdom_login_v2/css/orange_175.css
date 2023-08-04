@@ -1,0 +1,53 @@
+.login {margin:0 0 2px 0; padding:0; border:0; background:#fcfcfc; opacity:.9; filter:alpha(opacity:90);}
+.login legend {display:none; width:0; height:0; overflow:hidden; font-size:0;}
+.login form {position:relative; border:1px solid #ff9e3e; padding:14px 0 11px 9px; width:164px; height:100%; overflow:hidden;}
+.login form .idpwWrap {overflow:hidden; clear:both; width:155px; height:39px;}
+.login form .idpw {float:left; width:104px; height:39px;}
+.login form .idpw input {float:left; color:#282828; width:96px; height:14px; background:#fff; padding:2px 3px; font:0.9em Tahoma; overflow:hidden;}
+.login form .idpw input.idOff {border:solid #ff9e3e; border-width:1px 1px 0 1px; background:#fff url(../images/login_id.gif) no-repeat 7px 4px;}
+.login form .idpw input.idOn {border:solid #ff9e3e; border-width:1px 1px 0 1px;}
+.login form .idpw input.passOff {border:1px solid #ff9e3e; background:#fff url(../images/login_pass.gif) no-repeat 7px 4px;}
+.login form .idpw input.passOn {border:1px solid #ff9e3e;}
+.login form .login {float:right;}
+
+.login form p.save {clear:both; margin:1px 0 0 0; padding:.3em 0; letter-spacing:-1px;}
+.login form p.save input {vertical-align:middle; margin:-1px -2px 0 0; _margin:-3px;}
+*:first-child+html body .login form p input {margin:-3px;}
+.login form p.save label {font:0.9em "Dotum", Dotum, "Gulim", Gulim, AppleGothic, Sans-serif; color:#5f6477;}
+.login form ul.help {margin:0; border-top:0 solid #e4e4e4; overflow:hidden; padding:5px 0 2px 0; white-space:nowrap; letter-spacing:-1px;}
+.login form ul.help li {float:left; display:block; padding:0 2px 0 2px; background:url(../images/vrType1.gif) no-repeat left center;}
+.login form ul.help li.first-child {background:none; padding-left:0;}
+.login form ul.help li a {color:#5f6477; font:0.9em "Dotum", Dotum, "Gulim", Gulim, AppleGothic, Sans-serif; white-space:nowrap; text-decoration:none;}
+.login form ul.help li.first-child a {color:#5f6477; font-weight:bold; text-decoration:none; letter-spacing:-1px;}
+.login form ul.help li a:hover {color:#f63; text-decoration:underline;}
+.login form .userName {position:relative; width:155px; overflow:hidden; font:0.9em "Dotum", Dotum, Tahoma; border-bottom:1px solid #e4e4e4; padding:0 0 4px 0; margin-top:-5px;}
+.login form .userName strong {color:#282828; padding:4px 0 0 0; font-weight:bold;}
+.login form .userName a {position:relative; right:0;}
+.login form .userName .fl {float:left; width:108px; height:13px; margin-top:4px; overflow:hidden;}
+.login form ul.userMenu {position:relative; padding:0 0 0 4px; margin:5px 0 0 0; line-height:14px; overflow:hidden;}
+.login form ul.userMenu li {float:left; list-style:none;  width:72px; padding-left:6px; background:url(../images/bulletFF1A00.gif) no-repeat left 4px;  margin-top:2px; font:11px "Dotum", Dotum, "Gulim", Gulim, AppleGothic, Sans-serif; letter-spacing:-1px;}
+.login form ul.userMenu li a {color:#777; font:11px "Dotum", Dotum, "Gulim", Gulim, AppleGothic, Sans-serif; line-height:14px; text-decoration:none;}
+.login form ul.userMenu li a:hover {color:#f63; text-decoration:underline;}
+.login form p.latestLogin {margin:0; padding:0 0 0 7px; color:#999999; font:0.9em "Dotum", Dotum, "Gulim", Gulim, AppleGothic, Sans-serif; letter-spacing:-1px;}
+.login form p.latestLogin span {font:1em Tahoma;}
+
+img.login_mask {width:175px; height:5px; background:#fcfcfc; opacity:.9; filter:alpha(opacity:90); display:block;}
+.openid_login {position:relative; margin:0 0 2px 0; padding:0; border:0; background:#fcfcfc; opacity:.9; filter:alpha(opacity:90);}
+.openid_login legend {display:none; width:0; height:0; overflow:hidden; font-size:0;}
+.openid_login form {position:relative; padding:14px 0 12px 9px; width:164px; height:100%; border:1px solid #ff9e3e;}
+.openid_login form .idpwWrap {overflow:hidden; clear:both; width:155px;}
+.openid_login form .idpw {float:left;}
+.openid_login form .idpw p {margin:0 0 5px 0; padding:0; background: url(../images/openid_login_bg.gif) left no-repeat; padding-left:18px; font:0.9em Tahoma; color:#999;}
+.openid_login form .idpw input {float:left; margin-top:0; border:1px solid #b8bce2; color:#282828; width:96px; background:#fff; padding:2px 3px; margin-bottom:2px; font:0.9em Tahoma; overflow:hidden;}
+.openid_login form .idpw input.openidOff {border:1px solid #ff9e3e; background:#fff url(../images/open_id.gif) no-repeat 10px 4px;}
+.openid_login form .idpw input.openidOn {border:1px solid #ff9e3e;}
+.openid_login form .login {float:right;}
+.openid_login form p.save {margin:0; padding:0; clear:both; padding:.3em 0;}
+.openid_login form p.save input {vertical-align:middle; margin:-1px -2px 0 0;}
+*:first-child+html body .openid_login form p input {margin:-3px;}
+.openid_login form p.save label {font:0.9em "Dotum", Dotum, "Gulim", Gulim, AppleGothic, Sans-serif; color:#999999;} 
+.openid_login ul.help {margin:0; border-top:1px solid #e4e4e4; overflow:hidden; padding:5px 0 0 0; white-space:nowrap;}
+.openid_login ul.help li {float:left; display:block; padding:0 5px 0 5px; background:url(../images/vrType1.gif) no-repeat left center;}
+.openid_login ul.help li.first-child {background:none; padding-left:0;}
+.openid_login ul.help li a {color:#6b7bb3; font:0.9em "Dotum", Dotum, "Gulim", Gulim, AppleGothic, Sans-serif; white-space:nowrap; text-decoration:none;}
+.openid_login ul.help li a:hover {text-decoration:underline;}

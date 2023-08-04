@@ -1,0 +1,83 @@
+<!--// 레이아웃 컬러셋에 따른 css 선택 -->
+<load target="css/black.css" cond="$layout_info->colorset == 'black'" />
+<load target="css/red.css" cond="$layout_info->colorset == 'red'" />
+<load target="filter/login.xml" />
+
+
+{@$member_config=MemberModel::getMemberConfig();$identifierForm->name=$member_config->identifier;} <!--// 로그인 이메일 설정확인을 위해 입력 -->
+
+<div class="login_wrap">
+	<div class="login_bg" onclick="jQuery('.login_wrap').fadeOut('slow')"></div>
+	<div class="login_box">
+		<!--// 종료 버튼 -->
+		<img src="img/close_black.png" cond="$layout_info->colorset == 'black'" class="close" alt="close_btn" onclick="jQuery('.login_wrap').fadeOut('slow')" />
+		<img src="img/close_red.png" cond="$layout_info->colorset == 'red'" class="close" alt="close_btn" onclick="jQuery('.login_wrap').fadeOut('slow')" />
+		<!--// 로그인 폼 -->
+		<form method="post" action="./" ruleset="@login">
+			<input type="hidden" name="act" value="procMemberLogin" />
+			<input type="hidden" name="success_return_url" value="{getRequestUriByServerEnviroment()}" />
+			<!--// 아이디 패스워드 -->
+			<div class="id_password">
+				<div class="wrap"><!--//아이디-->
+					<a><!--@if($member_config->identifier != 'email_address')-->{$lang->user_id}<!--@else-->{$lang->email_address}<!--@end--></a>
+					<input name="user_id" type="text" id="user_id" />
+					<label for="user_id" style="position:absolute; line-height:30px; left:150px; visibility:visible; color:gray;" class="id_hidden" ><!--@if($member_config->identifier != 'email_address')-->{$lang->user_id}<!--@else-->{$lang->email_address}<!--@end-->를 입력해주세요</label>
+				</div>
+				<div class="wrap"><!--//비밀번호-->
+					<a>비밀번호</a>
+					<input name="password" type="password" id="password" />
+					<label for="password" style="position:absolute; line-height:30px; left:150px; visibility:visible; color:gray;" class="pw_hidden" >비밀번호를 입력해주세요</label>
+				</div>	
+			</div>
+			<!-- // 나머지 -->
+			<div class="etc_wrap">
+				<!--// 전송 버튼 -->	
+				<input name="" type="submit" value="로그인" class="submit" />
+				<!--// 자동로그인 유지버튼-->
+				<div class="keep">
+					<input name="keep_sined" id="keep_sined" type="checkbox" value="Y" onclick="if(this.checked) return confirm('{$lang->about_keep_signed}');" />
+					<label for="keep_sined" style="cursor:pointer;">자동로그인</label>
+					
+				</div>
+				<!--// 아디찾기 -->
+				<a  class="find" href="{getUrl('act','dispMemberFindAccount')}">아이디/비밀번호 찾기</a>
+				<!--// 에러메세지 출력-->
+				<div class="error" cond="$XE_VALIDATOR_MESSAGE">{$XE_VALIDATOR_MESSAGE}</div>
+			</div>
+		</form>
+
+	</div>
+
+</div>
+<!--// 아이디 비밀번호 안내 스크립트 -->
+<script type="text/javascript">
+jQuery(function($){
+
+	$('#user_id').focus(function(){
+		$('.id_hidden').css('visibility','hidden');
+	});
+	$('#password').focus(function(){
+		$('.pw_hidden').css('visibility','hidden');
+	});
+	
+	
+	$('#user_id').blur(function(){
+		if($(this).val() == ''){
+			$('.id_hidden').css('visibility','visible');
+		}
+	});
+
+	$('#password').blur(function(){
+		if($(this).val() == ''){
+			$('.pw_hidden').css('visibility','visible');
+		}
+	});
+	
+});
+</script>
+
+
+
+
+
+

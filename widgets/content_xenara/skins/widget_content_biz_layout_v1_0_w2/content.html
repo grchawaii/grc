@@ -1,0 +1,17 @@
+<load target="./js/content_widget.js"  />
+<load target="./css/widget.css" />
+
+<div class="widget_content_biz_layout_v1_0_w2 widgetContainer">
+
+  <!--@if($widget_info->skin_title)-->
+  <div class="skin_title">
+    <span<!--@if($skin_title_color)--> style="color:#{$skin_title_color};"<!--@end-->>{$widget_info->skin_title}</span>
+  </div>
+  <!--@end-->
+
+  <!--@if($widget_info->tab_type == "tab_top")-->
+    <!--#include("./_tab_top.html")-->
+  <!--@else-->
+    <!--#include("./_tab_none.html")-->
+  <!--@end-->
+</div>

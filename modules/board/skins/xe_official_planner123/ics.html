@@ -1,0 +1,53 @@
+<!--@if($iCal == 'ics_feed')-->
+{@ $org_wb = $module_info->weekly_base}
+{@ $module_info->weekly_base = 12}
+<!--#include("./_get_schedule.html")-->
+{@ $module_info->weekly_base = $org_wb}
+<!--@end-->
+<?php
+	$iCal = $__Context->iCal;
+	$module_info = Context::get('module_info');
+	$oDocument = Context::get('oDocument');
+	if($iCal == 'ics_event' && $oDocument->document_srl)
+	{
+		$events_arr[$oDocument->document_srl] = $oDocument;
+	}
+	elseif($iCal == 'ics_feed' && $module_info->display_rss_feed != 'N')
+	{
+		$events_arr = Context::get('document_list');
+	}
+	if(count($events_arr) >= 1)
+	{
+		if(!class_exists('planner123_main'))
+		{
+			$tpl_path = $__Context->tpl_path;
+			require_once($tpl_path.'function/class.planner123_main.php');
+		}
+		foreach($events_arr as $val)
+		{
+			if($val->isExtraVarsExists() && (!$val->isSecret() || $val->isGranted()))
+			{
+				$oEvent = new stdClass;
+				foreach($val->getExtraVars() as $ex_key => $ex_val)
+				{
+					$oEvent->ext_val[$ex_key] = $ex_val->value;
+				}
+				$oEvent->reservation = $module_info->reservation;
+				$oEvent->title = $val->getTitle($module_info->subject_cut_size);
+				$oEvent->content = $val->getSummary($module_info->content_cut_size);
+				$oEvent->doc_srl = $val->document_srl;
+				$oEvent->time_interval = $module_info->time_interval;
+				$oEvent->category = $category_list[$val->get('category_srl')]->title;
+				$oEvent->location = '';
+				$events[$val->document_srl] = $oEvent;
+			}
+		}
+		$str_ics = planner123_main::fn_creatICS($events);
+		header('Content-type: text/calendar; charset=utf-8');
+		header('Content-Disposition: attachment; filename="'.$iCal.'_'.$_SERVER['HTTP_HOST'].'.ics"');
+		header("Content-Length: " . strlen($str_ics));
+		header("Connection: close");
+		print $str_ics;
+		exit();
+	}
+?>

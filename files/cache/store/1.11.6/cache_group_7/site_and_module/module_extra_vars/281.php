@@ -1,0 +1,3 @@
+<?php
+if(!defined('__XE__')) { exit(); }
+return 'O:8:"stdClass":14:{s:13:"use_anonymous";s:1:"N";s:12:"consultation";s:1:"N";s:10:"use_status";s:6:"PUBLIC";s:10:"page_count";s:2:"10";s:13:"except_notice";s:1:"Y";s:12:"order_target";s:10:"list_order";s:10:"order_type";s:3:"asc";s:10:"list_count";s:2:"20";s:15:"xe_validator_id";s:32:"modules/board/tpl/board_insert/1";s:16:"error_return_url";s:59:"/xe/index.php?mid=photo_gallery&act=dispBoardAdminBoardInfo";s:7:"ruleset";s:11:"insertBoard";s:18:"success_return_url";s:59:"/xe/index.php?mid=photo_gallery&act=dispBoardAdminBoardInfo";s:4:"list";s:39:"no,title,nick_name,regdate,readed_count";s:17:"search_list_count";s:2:"20";}';

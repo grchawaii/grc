@@ -1,0 +1,359 @@
+<!--// xe_sunooNSLg layout for Xpress Engine. Layout Design by Sunoo (http://www.goodpr.me/) -->
+
+<!--%import("js/sunoonslg.js")-->
+<!--%import("css/nslgbscstyle.css")-->
+<!--%import("css/nslgcolorset.css")-->
+<!--%import("lang")-->
+  {@ $lang_code = substr($lang_type,0,2) }
+<!--@if(!in_array($lang_code,array('en','jp','zh','ko')))-->{@$lang_code='en'}<!--@end-->
+
+<!--// layout set colorset -->
+  {@ Context::addBodyClass($layout_info->colorset)}
+  {@ $colorsetList = array('default','spring','summer','autumn','winter')}
+<!--@if(!in_array($layout_info->colorset,$colorsetList))-->{@$layout_info->colorset='default'}<!--@end-->
+
+<!--// layout set index_url -->
+  {@ $index_url=getSiteUrl($site_module_info->domain)}
+
+<!--// set current menu category -->
+  <!--@foreach($top_menu->list as $key => $val)--><!--@if($val['selected'])-->{@ $top_menuon = $val }<!--@end--><!--@endforeach-->
+  <!--@foreach($main_menu->list as $key => $val)--><!--@if($val['selected'])-->{@ $menu_1st = $val }<!--@end--><!--@endforeach-->
+  <!--@foreach($menu_1st['list'] as $key => $val)--><!--@if($val['selected'])-->{@ $menu_2nd = $val }<!--@end--><!--@endforeach-->
+  <!--@foreach($menu_2nd['list'] as $key => $val)--><!--@if($val['selected'])-->{@ $menu_3th = $val }<!--@end--><!--@endforeach-->
+  <!--@foreach($menu_3th['list'] as $key => $val)--><!--@if($val['selected'])-->{@ $menu_4th = $val }<!--@end--><!--@endforeach-->
+  <!--@foreach($bottom_menu->list as $key => $val)--><!--@if($val['selected'])-->{@ $bottom_menuon = $val }<!--@end--><!--@endforeach-->
+  
+<!--// layout set width -->
+    <!--@if(!$layout_info->bodyWrap_width)-->
+    {@ $layout_info->bodyWrap_width = 980 }<!--@end-->
+    {@ $columnLeft_width = 197 }
+    <!--@if(!$layout_info->footerlogo_width)-->
+    {@ $layout_info->footerlogo_width = 200}<!--@end-->
+    {@ $footerlogo_width = $layout_info->footerlogo_width }
+    {@ $homeBody_width = $layout_info->bodyWrap_width } 
+    {@ $footertext_width = $homeBody_width - $footerlogo_width }
+  <!--@if($layout_info->contentBody_background == 'Y')-->
+    {@ $right_width = $homeBody_width - ($columnLeft_width + 14) } 
+    {@ $contentBody_width = $homeBody_width - 5}<!--@else-->
+    {@ $right_width = $homeBody_width - ($columnLeft_width + 10) } 
+    {@ $contentBody_width = $homeBody_width }<!--@end-->
+  <!--@if($layout_info->column_divisionLine == 'Y')-->
+    {@ $columnRight_width = $right_width - 4 }<!--@else-->
+    {@ $columnRight_width = $right_width + 4 }<!--@end-->
+    
+    
+<!--// layout set background image --> 
+  <!--@if($layout_info->background_image)-->
+    <style type="text/css">.{$layout_info->colorset}{background-image: url({$layout_info->background_image});}</style><!--@end--> 
+    <!--@if($layout_info->background_style == 'X')--><style type="text/css">.{$layout_info->colorset}{ background-repeat:repeat-x; background-position:0px 0px; }</style><!--@end-->
+    <!--@if($layout_info->background_style == 'Y')--><style type="text/css">.{$layout_info->colorset}{ background-repeat:repeat-y; background-position:0px 0px; }</style><!--@end-->
+    <!--@if($layout_info->background_style == 'XY')--><style type="text/css">.{$layout_info->colorset}{ background-repeat:repeat; background-position:0px 0px; }</style><!--@end-->
+    <!--@if($layout_info->background_style == 'N')--><style type="text/css">.{$layout_info->colorset}{ background-repeat:no-repeat; background-position:0px 0px; }</style><!--@end-->
+
+<!--// topline set style -->
+  <!--@if($layout_info->topline_bgcolor)-->
+    <style type="text/css">#topline{ background-color:{$layout_info->topline_bgcolor}; }</style><!--@end-->
+    
+<!--// header set style -->
+  <!--@if($layout_info->mainMenu_leftMargin)-->
+    <style type="text/css">#mainMenu{ left:{$layout_info->mainMenu_leftMargin}px; }</style><!--@else-->
+  <!--@if($layout_info->menuVr_split == 'Y')--><!--@else-->
+    <style type="text/css">#mainMenu{ left:8px; }</style><!--@end--><!--@end-->
+  <!--@if(!$layout_info->logoimg_leftspace)--><!--@else-->
+    <style type="text/css">#header .logoimg h1{ left:{$layout_info->logoimg_leftspace}px; }</style><!--@end-->
+  <!--@if(!$layout_info->logoimg_topspace)--><!--@else-->
+    <style type="text/css">#header .logoimg h1{ top:{$layout_info->logoimg_topspace}px; }</style><!--@end-->
+  <!--@if(!$layout_info->searchForm_horizontalPosition)--><!--@else-->
+    <style type="text/css">#searchWrap{ right:{$layout_info->searchForm_horizontalPosition}px; }</style><!--@end-->
+  <!--@if(!$layout_info->searchForm_verticalPosition)--><!--@else-->
+    <style type="text/css">#searchWrap{ top:{$layout_info->searchForm_verticalPosition}px; }</style><!--@end-->
+    
+<!--// contentBody set style -->
+  <!--@if($layout_info->contentBody_background == 'Y')-->
+    <!--@if(!$layout_info->contentBody_bgcolor)-->
+    <style type="text/css">.{$layout_info->colorset} #contentBodys{ background-color:#ffffff; padding:8px 1px 0px 2px; background-position:204px 0px; }</style><!--@else-->
+    <style type="text/css">.{$layout_info->colorset} #contentBodys{ background-color:{$layout_info->contentBody_bgcolor}; padding:8px 1px 0px 2px; background-position:204px 0px; }</style><!--@end--><!--@end-->
+  <!--@if($layout_info->column_divisionLine == 'Y')-->
+    <style type="text/css">#contentBodys{ background-position:203px 0px; }</style><!--@else-->
+    <style type="text/css">#contentBodys{ background-image:none; }</style><!--@end-->
+  <!--@if(!$menu_1st)--><style type="text/css">#sideSubm .submTitle{ height:20px; margin:0px 0px -5px 0px; }</style>
+    <style type="text/css">.{$layout_info->colorset} #sideSubm .widgetBottom{ background-image:none; }</style><!--@end-->
+    
+<!--// footer set style -->
+  <!--@if(!$layout_info->footer_bgcolor)--><!--@else-->
+    <style type="text/css">#footer{ background-color:{$layout_info->footer_bgcolor}; }</style> 
+    <style type="text/css">#footer .copyrights a { color:{$layout_info->footer_bgcolor}; }</style><!--@end-->
+  <!--@if(!$layout_info->bottomtext_topspace)--><!--@else-->
+    <style type="text/css">#footer .fts td.footerlogo{padding:{$layout_info->bottomtext_topspace}px 0px 8px 0px;}</style> 
+    <style type="text/css">#footer .fts td.footertext{padding:{$layout_info->bottomtext_topspace}px 0px 8px 0px;}</style><!--@end-->
+  <!--@if(!$layout_info->bottom_menu)-->
+    <style type="text/css">#footer{border-top:2px solid #d6d4d4;}</style><!--@end-->
+
+<div id="bodyWraps" style="width:{$layout_info->bodyWrap_width}px;">
+<!--@if($layout_info->top_line == 'Y')-->
+<div id="topline" style="width:{$homeBody_width}px;">
+  <div class="topmemo"><marquee direction="up" scrollamount="1" height="14" behavior="slide">{$layout_info->top_memo}</marquee></div>
+  <div class="topmenu"><!--@foreach($top_menu->list as $key => $val)-->
+		 <li class="tmenu"><a href="{$val['href']}" <!--@if($val['open_window']=='Y')-->onclick="window.open(this.href);return false;"<!--@end-->>{$val['link']}</a></li><!--@endforeach-->
+  <!--@if($layout_info->menuVr_split == 'N')-->
+		 <li class="favor"><a href="javascript:favorites('{$layout_info->fasite_name}', 'http://'+location.host)">{$lang->sl_favorites}</a></li>
+     <!--@if($layout_info->languageToggle_use == 'Y')-->
+     <li class="langtype">{$lang_supported[$lang_type]}</li>
+     <li class="slangtext"><a href="#languages" title="{$lang->sl_show_lang}" onclick="jQuery('#languages').toggleClass('open'); return false;">Language</a></li>
+     <div id="languages">
+	    <span class="slangtoggle">&nbsp;</span>
+	     <!-- class="languageList" | class="languageList open" -->
+		    <ul class="langlists"><!--@foreach($lang_supported as $key => $val)--><!--@if($key!= $lang_type)-->
+         <li><a href="#" onclick="doChangeLangType('{$key}');return false;">{$val}</a></li><!--@end--><!--@end-->
+		    </ul></div>
+     <!--@else--><style type="text/css">#topline .topmenu li.favor{ background-image:none; }</style><!--@end-->
+  <!--@else--><style type="text/css">#topline .topmenu{ overflow:hidden; }</style>
+     <style type="text/css">#topline .topmenu li.tmenu{ margin-right:-2px; padding:0px 6px 0px 5px; *padding:0px 3px 0px 8px; }</style><!--@end-->
+	</div>
+</div><!--@end--><!--// end_topline -->
+
+<!--// header start -->
+<div id="header" style="width:{$homeBody_width}px;">
+  <div class="topimage" style="width:{$homeBody_width}px;">
+     <!--@if($layout_info->topImage_select == 'PI')-->
+     <!--@if(!$layout_info->topimage_heightsize)-->
+       <style type="text/css"> #header .topimage{ height:80px; } </style> <!--@else-->
+       <style type="text/css"> #header .topimage{ height:{$layout_info->topimage_heightsize}px; } </style> <!--@end-->
+     <!--@if(!$layout_info->top_image)--><div class="topimageEx" style="width:{$homeBody_width}px;"></div><!--@else-->
+     <style type="text/css"> #header .topimage { background: url({$layout_info->top_image}) no-repeat 0px 0px; }</style><!--@end-->
+     <!--@end-->
+     <!--@if($layout_info->topImage_select == 'FI')-->
+     <!--@if(!$layout_info->topimage_heightsize)-->
+     {@ $flashimage_height = 120 } <!--@else--> {@ $flashimage_height = $layout_info->topimage_heightsize }<!--@end-->
+     <!--@if(!$layout_info->top_image)--><script type="text/javascript">
+     displayMultimedia("http://localhost/layouts/xe_sunooNSLg/images/topimage.swf","{$homeBody_width}","{$flashimage_height}",false);</script>
+     <!--@else--><script type="text/javascript">
+     displayMultimedia("{$layout_info->top_image}","{$homeBody_width}","{$flashimage_height}",false);</script><!--@end-->
+     <!--@end-->
+  </div>
+  <div class="logoimg"><h1><a href="{$layout_info->index_url}"><!--@if(!$layout_info->logo_image)-->
+	  <img src="./images/sunoolayout_Logo.png" alt="sunoo's layout" class="iePngFix" /><!--@else-->
+    <img src="{$layout_info->logo_image}" alt="logo" border="0" class="iePngFix" /><!--@end--></a></h1></div>
+
+<!--// top search -->
+ <!--@if($layout_info->menuVr_split == 'N')-->
+ <div id="searchWrap"><div class="searchbg iePngFix"></div>
+  <form action="{getUrl()}" method="post" class="searchs"> 
+    <input type="hidden" name="vid" value="{$vid}" />
+    <input type="hidden" name="mid" value="{$mid}" />
+    <input type="hidden" name="act" value="IS" />
+    <input type="hidden" name="search_target" value="title_content" />
+		<fieldset><legend>{$lang->cmd_search}</legend>
+		<div class="searchArea {$lang_type}">
+		  <input name="is_keyword" type="text" title="{$lang->sl_show_search}" onfocus="this.className='textIn';" onblur="if(!this.value) this.className='textOut'" class="textOut" accesskey="S" />
+			<input name="" type="image" src="./images/bgbtnicon/buttonSearch.gif" alt="Search" class="search_btn" />
+		</div></fieldset>
+	</form></div><!--@end-->
+
+<div id="mainMenu_line" style="width:{$homeBody_width}px;">
+<table class="tMenu" border="0" cellspacing="0" cellpadding="0">
+<tbody class="tMenu"><tr>
+<td class="mntd1"></td>
+<!--@if($layout_info->menuVr_split == 'Y')-->
+<td class="mntd2">
+<div id="languagem">
+   <!-- class="language" | class="language open" -->
+	  <button type="button" class="sLanguage" title="{$lang->sl_show_lang}" onclick="jQuery('#languagem').toggleClass('open'); return false;"><span>&nbsp;</span></button>
+		<em class="{$lang_type}"><span>{$lang_supported[$lang_type]}</span></em>
+		<ul class="langListm"><!--@foreach($lang_supported as $key => $val)--><!--@if($key!= $lang_type)-->
+    <li><a href="#" onclick="doChangeLangType('{$key}');return false;">{$val}</a></li><!--@end--><!--@end--></ul></div>
+<div id="access">
+   <!--@if($is_logged)-->
+     <li class="logout"><a href="{getUrl('act','dispMemberLogout')}" title="{$lang->sl_show_logout}" ><span>LOGOUT</span></a></li>
+     <li class="profile"><button type="button" title="{$lang->sl_show_profile}" onclick="jQuery('#profiles').css('display','block');" ><span>Profile</span></button></li>
+	 <!--@else-->
+     <li class="login"><button type="button" title="{$lang->sl_show_login}" onclick="jQuery('#popupLogs').css('display','block');" accesskey="L"><span>LOGIN</span></button></li>
+	   <li class="register"><a href="{getUrl('act','dispMemberSignUpForm')}" title="{$lang->sl_show_join}" ><span>Register</span></a></li>
+	 <!--@end--></div><!--// end access -->
+   <div id="Bookmark"><a href="javascript:favorites('{$layout_info->fasite_name}', 'http://'+location.host)"><span>Bookmark</span></a></div>
+   <form action="{getUrl()}" method="post" id="searchm">
+         <input type="hidden" name="vid" value="{$vid}" />
+         <input type="hidden" name="mid" value="{$mid}" />
+         <input type="hidden" name="act" value="IS" />
+         <input type="hidden" name="search_target" value="title_content" />
+				 <fieldset><legend>{$lang->cmd_search}</legend>
+				 <input name="is_keyword" type="text" title="{$lang->sl_show_search}" class="inputText" accesskey="S" />
+				 <input name="" type="image" src="images/bgbtnicon/buttonSearch.gif" alt="Search" class="inputSearch" />
+				 </fieldset></form>
+</td><!--@end-->
+<td class="mntd3">
+   <div id="mainMenu">
+		<!--@foreach($main_menu->list as $key => $val)--><!--@if($val['link'])--> {@ $menu_1 = $val } 
+		<div class="mMenu">
+		  <li <!--@if($val['selected'])--> class="on" <!--@end-->>
+		  <a href="{$val['href']}" <!--@if($menu_1['list'])--> onmouseover="show('menu_{$mn1}');" onmouseout="hide('menu_{$mn1}');" <!--@end--> 
+		  <!--@if($val['open_window']=='Y')-->onclick="window.open(this.href);return false;"<!--@end-->>{$val['link']}
+		  <!--@if($menu_1['list'])--><img src="./images/{$layout_info->colorset}/mmarrow.gif" class="mmarrow" /></a><!--@else--></a><!--@end--></li>
+	    <table class="tms" cellpadding="0" id="menu_{$mn1}" onmouseover="show('menu_{$mn1}');" onmouseout="hide('menu_{$mn1}');"><tbody class="tms"><tr><td class="sm">
+		  <!--@foreach($menu_1['list'] as $key => $val)--><!--@if($val['link'])--> {@ $menu_2 = $val} 
+		  <a href="{$val['href']}" <!--@if($menu_2['list'])--> onmouseover="show('menu2_{$mn2}')" onmouseout="hide('menu2_{$mn2}');" <!--@end--> 
+		  <!--@if($val['open_window']=='Y')--> onclick="window.open(this.href);return false;" <!--@end-->>{$val['link']}
+		  <!--@if($menu_2['list'])--><img src="./images/{$layout_info->colorset}/smarrow.gif" class="smarrow" /></a>
+		<div class="sMenu">
+		  <table class="tms" cellpadding="0" id="menu2_{$mn2}" onmouseover="show('menu2_{$mn2}');" onmouseout="hide('menu2_{$mn2}');"><tbody class="tms"><tr><td class="sm">
+		  <!--@foreach($menu_2['list'] as $key => $val)--><!--@if($val['link'])--> {@ $menu_3 = $val} 
+		  <a href="{$val['href']}" <!--@if($menu_3['list'])--> onmouseover="show('menu3_{$mn3}');" onmouseout="hide('menu3_{$mn3}');" <!--@end-->
+		  <!--@if($val['open_window']=='Y')--> onclick="window.open(this.href);return false;" <!--@end-->>{$val['link']}
+		  <!--@if($menu_3['list'])--><img src="./images/{$layout_info->colorset}/smarrow.gif" class="smarrow" /></a>
+ 		<div class="sMenu">
+ 		  <table class="tms" cellpadding="0" id="menu3_{$mn3}" onmouseover="show('menu3_{$mn3}');" onmouseout="hide('menu3_{$mn3}');"><tbody class="tms"><tr><td class="sm">
+		  <!--@foreach($menu_3['list'] as $key => $val)--><!--@if($val['link'])--> {@ $menu_4 = $val} 
+		  <a href="{$val['href']}" <!--@if($menu_4['list'])--> onmouseover="show('menu4_{$mn4}');" onmouseout="hide('menu4_{$mn4}');" <!--@end--> 
+		  <!--@if($val['open_window']=='Y')-->onclick="window.open(this.href);return false;"<!--@end-->>{$val['link']}</a>
+		  {@$mn4++} <!--@end--><!--@end--></td></tr></tbody></table></div>
+			<!--@else--></a><!--@end-->
+			{@$mn3++} <!--@end--><!--@end--></td></tr></tbody></table></div>
+			<!--@else--></a><!--@end-->
+			{@$mn2++} <!--@end--><!--@end--></td></tr></tbody></table></div>
+		  {@$mn1++} <!--@end--><!--@end--></div>
+		  
+    <div id="currentMenu">
+			<li class="crntMenu"><a href="{$index_url}" title="HOME"><img src="./images/bgbtnicon/house.png" alt="HOME" class="iconhome iePngFix" /></a>
+			<!--@if(!$menu_1st && !$menu_2nd  && !$menu_3th)-->
+			<!--@if($top_menuon)--> > <font color="#666666">{$lang->topmenu_text}</font> > <a href="{$top_menuon['href']}" title="{$top_menuon['link']}">{$top_menuon['link']}</a><!--@end-->
+		  <!--@if($bottom_menuon)--> > <font color="#666666">{$lang->bottommenu_text}</font> > <a href="{$bottom_menuon['href']}" title="{$bottom_menuon['link']}">{$bottom_menuon['link']}</a><!--@end--><!--@else-->
+      <!--@if($menu_1st)--> > <a href="{$menu_1st['href']}" title="{$menu_1st['link']}">{$menu_1st['link']}</a><!--@end-->
+		  <!--@if($menu_2nd)--> > <a href="{$menu_2nd['href']}" title="{$menu_2nd['link']}">{$menu_2nd['link']}</a><!--@end-->
+		  <!--@if($menu_3th)--> > <a href="{$menu_3th['href']}" title="{$menu_3th['link']}">{$menu_3th['link']}</a><!--@end-->
+		  <!--@if($menu_4th)--> > <a href="{$menu_4th['href']}" title="{$menu_4th['link']}">{$menu_4th['link']}</a><!--@end-->
+		  <!--@end--></li></div>
+</td><td class="mntd4"></td></tr></tbody></table>
+
+<!--// popupLog -->
+<div id="popupLogs" class="popupLogs">
+  <!-- class="popupLogs" | class="popupLogs open" -->
+   <span class="popupBg"></span>
+   <div id="popupLog" class="popupLog">
+     <button type="button" class="logclose" onclick="document.getElementById('popupLogs').style.display='none'"><span>Close Login Forms</span></button>
+     <img class="zbxe_widget_output" widget="login_sunoo" skin="sunoo_loginbox" box_width="186" line_type="ro" bg_color="#ffffff" keep_signed="Y" level_use="Y" point_use="Y" latest_login="Y" />
+   </div></div>
+<!--// member Profile -->
+<div id="profiles" class="profiles">
+  <!-- class="profiles" | class="profiles open" -->
+	 <div id="profile" class="profile">
+		 <button type="button" class="proclose" onclick="document.getElementById('profiles').style.display='none'"><span>Close Profile</span></button>
+		 <img class="zbxe_widget_output" widget="login_sunoo" skin="sunoo_loginbox" box_width="186" line_type="ro" bg_color="#ffffff" keep_signed="Y" level_use="Y" point_use="Y" latest_login="Y" />
+	 </div></div>
+</div><!--// end_mainMenu_line -->
+</div><!--// end_header -->
+
+
+<!--@if($layout_info->layout_style == "towcolumn")-->
+<div id="contentBodys" style="width:{$contentBody_width}px;">
+<div id="columnLefts" style="width:{$columnLeft_width}px;">
+<!--@if($layout_info->login_select == 'B')-->
+<div class="loginbox">
+<img class="zbxe_widget_output" widget="login_sunoo" skin="sunoo_loginbox" box_width="185" line_type="ro" bg_color="#ffffff" keep_signed="Y" level_use="Y" point_use="Y" latest_login="Y" />
+</div><!--@end-->
+
+<!--// start sub menu in left column -->
+<!--@if($layout_info->left_menu == 'Y')-->
+<div id="sideSubm">
+    <div class="submTitle iePngFix">
+     <!--@if(!$menu_1st)-->
+     <!--@if($top_menuon)--><a href="{$top_menuon['href']}" title="{$top_menuon['link']}">{$top_menuon['link']}</a><!--@end-->
+		 <!--@if($bottom_menuon)--><a href="{$bottom_menuon['href']}" title="{$bottom_menuon['link']}">{$bottom_menuon['link']}</a><!--@end--><!--@else-->
+     <a href="{$menu_1st['href']}" title="{$menu_1st['link']}">{$menu_1st['link']}</a><!--@end-->
+     </div>
+  <!--// leftColumn sub menu start -->
+   <!--@if($menu_1st)-->
+    <ol class="lsm" > {@ $lsmidx = 1 }
+      <!--@foreach($menu_1st['list'] as $key => $val)--><!--@if($val['link'])-->
+      <li <!--@if($val['selected'])-->class="on"<!--@end-->>
+      <a href="{$val['href']}"<!--@if($val['open_window']=='Y')-->onclick="window.open(this.href);return false;"<!--@end-->>{$val['link']}</a>
+      <!--@if($val['list'] && ($val['expand']=='Y'||$val['selected']) )-->
+        <ul><!--@foreach($val['list'] as $k => $v)--><!--@if($v['link'])-->
+        <li <!--@if($v['selected'])-->class="on"<!--@end-->>
+        <a href="{$v['href']}"<!--@if($v['open_window']=='Y')-->onclick="window.open(this.href);return false;"<!--@end-->>{$v['link']}</a></li><!--@endif--><!--@endforeach--></ul><!--@endif-->
+      </li> {@$lsmidx++} <!--@endif--><!--@endforeach-->
+    </ol><!--@endif-->
+    <div class="widgetBottom iePngFix"></div>
+</div><!--@end--><!--// end leftSub menu -->
+  
+<!--// Show Calendar --><!--@if($layout_info->calendar_use == 'Y')-->
+  <div id="sideWidgetCal">
+  <div class="widgetCalTop iePngFix"></div>
+  <div class="widgetCal"><img class="zbxe_widget_output" widget="calendar" skin="sunoo_calendar" srl="00" /></div>
+  <div class="widgetBottom iePngFix"></div>
+  </div><!--@end-->
+  
+<!--// Widget Box 1 --><!--@if($layout_info->widgetA_text)-->
+  <div id="sideWidgetA">
+  <!--@if($layout_info->widgetA_title)-->
+  <div class="sideWidgetTitle iePngFix"><img src="./images/bgbtnicon/icon_doc.png" class="icon_doc iePngFix" />{$layout_info->widgetA_title}</div>
+  <!--@else--><div class="sideWidgetTop iePngFix"></div><style type="text/css">#sideWidgetA .widgetA{margin-top:5px;}</style><!--@end-->
+  <div class="widgetA">{$layout_info->widgetA_text}</div>
+  <div class="widgetBottom iePngFix"></div>
+  </div><!--@end-->
+  
+<!--// Widget Box 2 --><!--@if($layout_info->widgetB_text)-->
+  <div id="sideWidgetB">
+  <!--@if($layout_info->widgetB_title)-->
+  <div class="sideWidgetTitle iePngFix"><img src="./images/bgbtnicon/icon_com.png" class="icon_com iePngFix" />{$layout_info->widgetB_title}</div>
+  <!--@else--><div class="sideWidgetTop iePngFix"></div><style type="text/css">#sideWidgetB .widgetB{margin-top:5px;}</style><!--@end-->
+  <div class="widgetB">{$layout_info->widgetB_text}</div>
+  <div class="widgetBottom iePngFix"></div>
+  </div><!--@end-->
+  
+<!--// Show left banner --><!--@if($layout_info->left_banner)-->
+  <div id="sideBanner">
+  <div class="sideWidgetTop iePngFix"></div>
+  <div class="widgetBanner">
+  <a href="{$layout_info->left_banner_url}" target="_blank"><img src="{$layout_info->left_banner}" alt="banner" class="iePngFix" /></a></div>
+  <div class="widgetBottom iePngFix"></div>
+  </div><!--@end-->
+  
+<!--// Show Counter --><!--@if($layout_info->Counter_use == 'Y')-->
+  <div id="sideCounter">
+  <div class="sideWidgetTop iePngFix"></div>
+  <div class="widgetCounter">
+  <img class="zbxe_widget_output" widget="counter_status" skin="styx_flash" colorset="normal" /></div>
+  <div class="widgetBottom iePngFix"></div>
+  </div><!--@end-->
+
+</div><!--// end_columnLeft -->
+
+<div id="columnRights"  style="width:{$columnRight_width}px;">
+
+<div id="contentRight"  style="width:{$columnRight_width-2}px;">{$content}</div>
+</div><!--// end_columnRight -->
+</div><!--@end--><!--// end_contentBody two_column --> 
+
+<!--@if($layout_info->layout_style == "onecolumn")-->
+<style type="text/css">#contentBodys{ background-image:none; }</style>
+<div id="contentBodys" style="width:{$contentBody_width}px;">
+ <div class="onecolumn" style="width:{$contentBody_width-2}px;"> {$content} </div>
+</div><!--@end-->
+
+
+<div id="footer" style="width:{$homeBody_width}px;">
+<div class="copyrights"><a href="http://www.goodpr.me" target="_blank" onfocus="this.blur();">Layout Design by SunooTC</a></div>
+<table class="fts" border="0" cellspacing="0" cellpadding="0" width="100%" >
+<tbody class="fts" >
+<!--@if($layout_info->bottom_menu)-->
+<tr><td class="btm1" cellpadding="0">&nbsp;</td>
+  <td class="btm2" valign="middle" colspan="2" cellpadding="0">&nbsp;
+  <div class="bottomMenu" style="width:{$homeBody_width-8}px;">
+     <!--@foreach($bottom_menu->list as $key => $val)-->
+      <a href="{$val['href']}" <!--@if($val['open_window']=='Y')-->onclick="window.open(this.href);return false;"<!--@end-->>{$val['link']}</a>
+      <!--@endforeach--></div>
+  </td><td class="btm3" cellpadding="0">&nbsp;</td></tr><!--@end-->
+  <tr><td class="btm4" cellpadding="0"></td>
+  <td class="footerlogo" valign="top" align="right" width="{$footerlogo_width}">
+    <a href="{$layout_info->logo_url}"><!--@if(!$layout_info->footer_logo)-->
+        <img src="./images/xeLogo_sunoo.png" alt="logo" border="0" class="iePngFix" /><!--@else-->
+        <img src="{$layout_info->footer_logo}" alt="logo" border="0" class="iePngFix" /><!--@end--></a></td>
+  <td class="footertext" valign="middle" align="left" width="{$footertext_width}">
+    <div class="bottom_text"><address>{$layout_info->bottom_text}</address></div></td>
+  <td class="btm7" cellpadding="0"></td></tr></tbody></table>
+  
+	<!--@if($rss_url)--><div class="footerRss"><a href="{$rss_url}">RSS</a></div><!--@end-->
+  <div class="footerArrowTop"><a href="#" title="top" onfocus="this.blur();"><img src="./images/bgbtnicon/buttonTop.gif" alt="top" /></a></div>
+ </div><!--// end_footer -->
+</div><!--// end_bodyWrap -->
+

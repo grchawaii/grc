@@ -1,0 +1,141 @@
+
+
+<load target="js/xe_official.js"  type="body" />
+
+<load target="css/default.css" />		
+
+	<div class="xe {$layout_info->layout_style}">
+		<div class="inner_xe">
+			<div class="HeaderTop">
+				<div class="inner_HeaderTop">		
+					<ul class="account">
+						<li class="li_account"><a class="home_account" href="{getSiteUrl()}">HOME</a></li>
+						<block cond="$is_logged">
+						<!--@if($logged_info->is_admin=="Y")-->
+						<li class="li_account"><a class="management_account" href="{getUrl('','module','admin')}" onclick="window.open(this.href);return false;">{$lang->cmd_management}</a></li><!--@end-->
+						<li class="li_account"><a class="logout_account" href="{getUrl('act','dispMemberLogout')}">{$lang->cmd_logout}</a></li>
+						<li class="li_account"><a class="member_account" href="{getUrl('act','dispMemberInfo','mid', mission_member)}">{$lang->cmd_view_member_info}</a></li>
+						</block>
+						<block cond="!$is_logged">								
+						<li class="li_account"><a class="login_account" href="{getUrl('act','dispMemberLoginForm')}">{$lang->cmd_login}</a></li>				
+						<li class="li_account"><a class="signup_account" href="{getUrl('act','dispMemberSignUpForm')}">{$lang->cmd_signup}</a>
+						</li>
+						</block>
+						<li class="li_account lang_account"><span class="{$lang_type}_account"><a href="#">{$lang_supported[$lang_type]}</a></span>
+							<div class="wrap_languageList act_acc">
+								<ul class="languageList png_bg">
+									<li cond="$key!= $lang_type" loop="$lang_supported =>$key, $val"><button type="button" class="{$key}_languageList" title="" onclick="doChangeLangType('{$key}');return false;"><span>{$val}</span></button></li>
+								</ul>
+					
+							</div>
+						</li>				
+					</ul>
+				</div>
+			</div>
+			<div class="header">
+				<h1 style="margin-top:-45px;">
+					<a href="{getSiteUrl()}"><img src="img/logo.jpg"  alt="글로벌 리바이벌" /></a>	
+				</h1>
+				
+				<div class="gnb menu_X TitleFont {$lang_type}_gnb">
+					<ul id="menu" class="main_menu">
+	
+						<li loop="$main_menu->list=>$key1,$val1" cond="$val1['link']" class="active highlight first_li"|cond="$val1['selected']"  class="first_li"|cond="!$val1['selected']">
+							<a class="first_a before_" href="{$val1['href']}" target="_blank"|cond="$val1['open_window']=='Y'"><span class="wrap_span"><span class="in_span in_span{$_idx}">{$val1['text']}</span></span></a>
+							<div cond="$val1['list']"  class="sub1 sub_div">
+								<ul>
+									<li loop="$val1['list']=>$key2,$val2" cond="$val2['link']">
+										<a href="{$val2['href']}" class="active_a"|cond="$val2['selected']"  target="_blank"|cond="$val2['open_window']=='Y'">
+											{$val2['text']}
+										</a>
+									</li>
+								</ul>
+							</div>
+						</li>		
+					</ul>
+				</div>
+			</div>
+			<div class="body">
+				<div class="e1 lnb" cond="$layout_info->layout_style=='ec'||$layout_info->layout_style=='ece'">
+					<div class="lnb_widget" cond="$layout_info->layout_style=='ece'">
+						<div class="in_lnb_widget">
+							<a href="{$layout_info->preach}"><img src="img/preach.jpg" width="240" height="227" alt="설교안내" /></a>
+						</div>
+						<div class="in_lnb_widget">
+							<a href="{$layout_info->worship}"><img src="img/worship.jpg" width="240" height="195" alt="예배안내" /></a>
+						</div>
+						<div class="in_lnb_widget">
+							<a href="/xe/Praise_Worship"><img src="{$layout_info->banner_img1}"  alt="{$layout_info->banner_alt1}" /></a>
+						</div>
+						<div class="in_lnb_widget">
+							<a href="{$layout_info->banner_url2}"><img src="{$layout_info->banner_img2}"  alt="{$layout_info->banner_alt2}" /></a>
+						</div>
+					</div>
+
+
+
+
+
+					<div class="lnb_wrap" cond="$layout_info->layout_style=='ec'">
+						<div class="lnb_menu">
+							<h2 loop="$main_menu->list=>$key1,$val1" cond="$val1['selected']" class="sub_title"><a href="{$val1['href']}" target="_blank"|cond="$val1['open_window']=='Y'">{$val1['link']}</a></h2>
+							<ul class="locNav" loop="$main_menu->list=>$key1,$val1" cond="$val1['selected'] && $val1['list']">
+								<li loop="$val1['list']=>$key2,$val2" class="first_lnb_li"|cond="!$val2['selected']" class="active_li first_lnb_li"|cond="$val2['selected']" ><a href="{$val2['href']}"  class="active active_a"|cond="$val2['selected']" target="_blank"|cond="$val2['open_window']=='Y'"><span>{$val2['text']}</span></a>
+									<ul class="lnbUl" cond="$val2['list']">
+										<li loop="$val2['list']=>$key3,$val3" class="onSeconLi png_bg"|cond="$val3['selected']">
+											<a class="Ccolor"|cond="!$val3['selected']" class="Ccolor active"|cond="$val3['selected']" href="{$val3['href']}" target="_blank"|cond="$val3['open_window']=='Y'"><span>{$val3['text']}</span></a>
+										</li>
+									</ul>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="content xe_content">
+					<!-- depth 1 -->
+					<block loop="$main_menu->list=>$key, $val" cond="$val['selected']">{@$menu_depth1 = $val}</block>
+					<!-- depth 2 -->
+					<block loop="$menu_depth1['list']=>$key, $val" cond="$val['selected'] && $menu_depth1">{@$menu_depth2 = $val}</block>
+					<!-- depth 3 -->
+					<block loop="$menu_depth2['list']=>$key, $val" cond="$val['selected'] && $menu_depth2">{@$menu_depth3 = $val}</block>
+					<block cond="$menu_depth2">
+					<div class="wrap_breadclumb" cond="$layout_info->layout_style=='ec'">
+						<h2>
+						<block cond="$menu_depth2&&!$menu_depth3">
+							{$menu_depth2['link']}
+						</block>
+						<block cond="$menu_depth3">
+							{$menu_depth3['link']}
+						</block>
+						</h2>
+						
+					</div>
+					
+					</block>
+					
+					<div class="in_content">{$content}</div>
+				</div>
+				
+				<div class="e2" cond="$layout_info->layout_style==ece">
+					<div class="lnb_widget">
+						<div class="in_lnb_widget gallery">
+							<h2>행사겔러리</h2>
+							<img class="zbxe_widget_output" widget="content" skin="global" colorset="white" content_type="document" module_srls="{$layout_info->gallery}" list_type="gallery" tab_type="none" markup_type="list" list_count="3" cols_list_count="1" page_count="1" subject_cut_size="25" option_view="thumbnail,title" show_browser_title="N" show_comment_count="N" show_trackback_count="N" show_category="N" show_icon="N" order_target="regdate" order_type="desc" thumbnail_type="crop" thumbnail_width="200" thumbnail_height="120" />
+							<a target="_blank" href="http://www.facebook.com/grchawaii"><img src="img/facebook.gif" width="200" height="49" alt="글로벌리바이벌 페이스북 바로가기" /></a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="footer">	
+				<h2><a href="{getSiteUrl()}"><img src="img/footer_logo.gif" width="203" height="60" alt="글로벌 리바이벌" /></a></h2>
+				<p>
+					99-860 Iwaena St, Suite 201, Aiea, HI 96701. &nbsp;&nbsp;&nbsp;Tel : 808-487-8252 &nbsp;&nbsp;&nbsp;E-mail :  <a href="mailto:info@grchawaii.org" style="text-decoration:none; color:#000">info@grchawaii.org</a><br>
+					Counsel : 808-230-8065 & 808-551-8461 &nbsp;&nbsp;&nbsp;Assistant Pastor : 808-391-5529 &nbsp;&nbsp;&nbsp;Facebook : <a href="http://www.facebook.com/grchawaii" target="_blank" style="text-decoration:none; color:#000">www.facebook.com/grchawaii</a>
+					Copyright(C). 2013 GlobalRevival Church. all rights reserved.  &nbsp;&nbsp; powered by<a href="http://www.hosannaweb.net"><img src="/xe/common/img/hosanna-logo_s.jpg" border="0"align="absmiddle"></a>
+				</p>
+
+			</div>
+		</div>
+	</div>
+	
+

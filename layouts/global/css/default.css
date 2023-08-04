@@ -1,0 +1,177 @@
+@charset "utf-8";
+/* NHN (developers@xpressengine.com) */
+
+/* Site Layout - Body Wrap */
+.xe{position:relative;z-index:2;}
+.inner_xe{position:relative;width:980px;margin:0 auto;z-index:2;}
+.e1{float:left;position:relative;width:240px;}
+.e2{float:right;position:relative;}
+.ece .e1{margin-right:20px;}
+.ece .e2{width:235px;}
+.ece .content{float:left;position:relative;width:465px;}
+.ec .content{width:700px;float:right;position:relative;}
+.ece .in_content{margin-top:-30px;}
+/* Site Layout - Content Body */
+body{margin:0;padding:0;font-size:12px;color:#555; line-height:1.5em;}
+body, table, input, textarea, select, button {font-family:나눔고딕,NanumGothic,NG,돋움,Dotum,Arial,Helvetica,sans-serif;}
+
+.body{position:relative;z-index:1;zoom:1;border-bottom:2px solid #999;padding-bottom:30px;}
+.body:after{content:"";display:block;clear:both}
+
+/* -- wrap_login(최상단 로그인 부분) -- */
+.HeaderTop{position:relative;padding-top:15px;text-align:right;height:30px;z-index:4;}
+.HeaderTop ul{margin:0;padding:0;list-style:none;position:relative;}
+.HeaderTop ul li{float:left;padding:0;position:relative;}
+.HeaderTop .account{position:relative;height:27px;*zoom:1;display:inline-block;*display:inline;}
+.HeaderTop .account:after{content:"";display:block;clear:both;}
+.li_account{height:27px;}
+.li_account a,
+.li_account span{background-color:transparent;background-image:url(../img/login.gif); background-repeat:no-repeat;height:0;padding:27px 8px 0 8px;position:relative;display:inline-block;overflow:hidden;*zoom:1;}
+
+.li_account .offering {
+    display: inline-block;
+    position: relative;
+    top: 1px;
+    background: none;
+    background-color: #005FA7;
+    color: #FFF;
+    overflow: inherit;
+    padding: 3px 8px;
+    margin-right: 8px;
+    text-decoration: none;
+    height: auto;
+    font-size: 10.5pt;
+    border-radius: 3px;
+}
+    .li_account .offering:hover {
+        background-color: #19517A;
+    }
+
+.home_account{width:29px;background-position:8px top;}
+.login_account{width:31px;background-position:8px -30px}
+.signup_account{width:66px;background-position:8px -60px}
+.management_account{width:78px;background-position:8px -90px}
+.logout_account{width:47px;background-position:8px -120px}
+.member_account{width:95px;background-position:8px -150px}
+.ko_account{padding:0 0 0 55px !important;height:27px !important;background-position:-43px -180px}
+.en_account{padding:0 0 0 55px !important;height:27px !important;background-position:-43px -210px}
+.ko_account a,
+.en_account a{width:55px;background:none !important;}
+.ko_languageList span{width:46px;padding:21px 8px 0 8px;background-position:7px -242px}
+.en_languageList span{width:46px;padding:21px 8px 0 8px;background-position:7px -272px}
+.wrap_languageList{width:67px;position:absolute;border:1px solid #b8b8b8;background:#fff; padding:5px 0;top:25px;left:56px;text-align:left;}
+.act_acc{display:none;}
+.languageList{width:67px;}
+.languageList li{width:100%;}
+.li_account .languageList li button{border:0;margin:0;padding:0;background-color:transparent;vertical-align:top;cursor:pointer;*zoom:1; overflow:visible;}
+
+/* Site Layout - Header */
+.header{position:relative;z-index:3;margin-bottom:23px;height:73px;padding-top:233px;background:url(../img/header.jpg) no-repeat 50% 15px;}
+.header h1{height:100px;margin:0;padding:0;position:absolute;top:0;left:0;;z-index:1;}
+
+/* 메뉴 */
+.gnb{position:relative;padding:0;height:73px;background:url(../img/menu.png);text-align:center;}
+.main_menu,
+.main_menu ul{list-style:none;margin:0;padding:0;*zoom:1;display:inline-block;}
+.main_menu:after{content:"";display:block;clear:both}
+.main_menu li{float:left;}
+.gnb li a{text-decoration:none;}
+.main_menu li span{cursor:pointer;}
+.main_menu div.sub1{display:none;}
+.main_menu{z-index:2;*display:inline;}
+.main_menu div{position:absolute;left:0;top:40px;height:27px;padding-top:7px;background:url(../img/empty.gif);text-align:left !important;}
+.first_li{padding:0 15px;}
+.en_gnb .first_li{padding:0 5px; width:120px;}
+.main_menu li a.first_a,
+.main_menu li a.first_a span.wrap_span{background:url(../img/active.gif) no-repeat left -1000px;position:relative;height:42px;line-height:42px;display: width:120px; inline-block;*zoom:1;}
+.main_menu li a.first_a{float:left; color:#fff;padding-left:5px;font-size:12px;font-weight:bold; width:120px;}
+.main_menu li a.first_a:hover{float:left; color:#FECF2D;padding-left:5px;font-size:14px;font-weight:bold; letter-spacing:-1px; width:120px;}
+.main_menu li a.first_a span.wrap_span{padding-right:5px;margin:0 !important;}
+.main_menu li a.first_a span.in_span{height:18px;line-height:18px;padding:11px 5px 13px 5px;position:relative;overflow:hidden;display:inline-block;*zoom:1;margin:0 !important; }
+.main_menu li.highlight a.first_a{background-position:left top;}
+.main_menu li.highlight a.first_a span.wrap_span{background-position:right -50px;}
+.main_menu ul{*display:inline;white-space:nowrap;position:relative;}
+.main_menu li li{padding-left:3px;background:url(../img/li_g.gif) no-repeat left 50%;}
+.main_menu li li.second_li1{background:none;}
+.main_menu li li a{display:block;padding:0 10px;font-size:12px; color:#555;position:relative;}
+.main_menu li li a.active_a{color:#336da7;font-weight:bold;}
+.gnb .main_menu li li a:hover{text-decoration:underline;color:#336da7;}
+
+/* BODY */
+/*빵조각*/
+.breadclumb{margin:0;padding:10px 5px 0 0 ;float:right;list-style:none;}
+.breadclumb li{float:left;padding-left:16px;height:18px;line-height:18px;background:url(../img/breadclumb.gif) no-repeat 7px 5px}
+.breadclumb li.first_breadclumb{background-position:7px -45px;}
+.breadclumb a{text-decoration:none;color:#888;}
+.wrap_breadclumb{background:url(../img/line.gif) repeat-x left bottom;position:relative;height:42px;margin-bottom:35px;}
+.wrap_breadclumb h2{clear:both;position:absolute;top:0;left:0;;padding:0;margin:0;color:#999;font-size:16px;height:39px;line-height:39px;}
+/* 로컬메뉴 */
+.lnb_wrap{border:8px solid #f4f4f4;position:relative;*zoom:1;margin-bottom:10px;}
+.lnb_menu{border:1px solid #dddddd;position:relative;*zoom:1;padding:17px;}
+.lnb_menu h2{padding:0;margin:0;height:49px;border-bottom:2px solid #174676;}
+.lnb ul{padding:0;margin:0;list-style:none;}
+.locNav li{padding:0 0 0 10px;vertical-align:top;*display:inline-block;text-transform:capitalize;height:29px;border-bottom:1px solid #f4f4f4;background:url(../img/locNav_li.gif) no-repeat 4px 14px;}
+.locNav li.active_li{background-position:4px -36px;}
+.locNav li.active_li .active_a{color:#0072bc;}
+.locNav li a{padding:6px 0 5px 0;display:block;position:relative;text-decoration:none;font-size:13px;height:18px;line-height:18px;font-weight:bold;color:#a7a7a7;}
+
+
+.in_lnb_widget{margin-bottom:10px;}
+/* E1 */
+.celebration{border:8px solid #f4f4f4;padding:10px;}
+.lnb_widget h2{height:25px;border-bottom:2px solid #999;margin:0;margin-bottom:6px;padding:0;}
+.celebration h2{overflow:hidden;text-indent:-999px;background:url(../img/celebration.gif) no-repeat left top}
+
+/* E2 */
+.gallery{border:8px solid #f4f4f4;padding:10px;position:relative;*zoom:1;}
+.gallery h2{overflow:hidden;text-indent:-999px;background:url(../img/gallery.gif) no-repeat left top}
+
+/* Site Layout - Footer */
+.footer{padding:0;position:relative;*zoom:1;}
+.footer:after{content:"";display:block;clear:both;}
+.footer h2{width:203px;height:60px;position:absolute;top:11px;left:22px;z-index:2;margin:0;padding:0;}
+.footer p{margin:0;padding:25px 0 30px 270px;position:relative;z-index:1;}
+
+body{margin:0 !important;}
+#adminBar{display:none;}
+
+/* Main */
+.btn_youtube {
+    position: relative;
+    display: block;
+    background-color: #CE1C1C;
+    color: #FFF;
+    font-family: 'Noto Sans KR', sans-serif;
+    text-decoration: none;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    padding: 3px 10px 7px 69px;
+    line-height: 100%;
+    font-size: 13pt;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+}
+    .btn_youtube:hover {
+        background-color: #B51B1B;
+    }
+        .btn_youtube i {
+            position: absolute;
+            top: 50%;
+            left: 12px;
+            transform: translateY(-50%);
+            font-size: 31pt;
+        }
+        .btn_youtube small {
+            display: block;
+            font-weight: 300;
+            font-size: 8pt;
+            letter-spacing: 0px;
+        }
+        
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+    .btn_youtube i {
+        transform: translateY(-45%);
+    }
+}
